@@ -1,0 +1,1212 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>express · johnqin的一本书</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="johnqin">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="callback.html" />
+    
+    
+    <link rel="prev" href="feedback.html" />
+    
+
+    
+    
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"johnqin6","repo":"glory","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="" target="_blank" class="custom-link">我的博客</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    首页
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../gitbook_info/introduce.html">
+            
+                <a href="../gitbook_info/introduce.html">
+            
+                    
+                    gitbook
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../gitbook_info/introduce.html">
+            
+                <a href="../gitbook_info/introduce.html">
+            
+                    
+                    gitbook的介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../gitbook_info/use.html">
+            
+                <a href="../gitbook_info/use.html">
+            
+                    
+                    gitbook的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../wechat/read.html">
+            
+                <a href="../wechat/read.html">
+            
+                    
+                    微信小程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../wechat/read.html">
+            
+                <a href="../wechat/read.html">
+            
+                    
+                    微信小程序的介绍与准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../wechat/summary.html">
+            
+                <a href="../wechat/summary.html">
+            
+                    
+                    微信小程序的目录结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../wechat/start.html">
+            
+                <a href="../wechat/start.html">
+            
+                    
+                    起始开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../wechat/app.html">
+            
+                <a href="../wechat/app.html">
+            
+                    
+                    全局页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../wechat/pages.html">
+            
+                <a href="../wechat/pages.html">
+            
+                    
+                    普通页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../wechat/lifecycleAndgrammar.html">
+            
+                <a href="../wechat/lifecycleAndgrammar.html">
+            
+                    
+                    生命周期和wxss样式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../wechat/not.html">
+            
+                <a href="../wechat/not.html">
+            
+                    
+                    微信小程序的注意事项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../wechat/event.html">
+            
+                <a href="../wechat/event.html">
+            
+                    
+                    事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="introduce.html">
+            
+                <a href="introduce.html">
+            
+                    
+                    Node.js
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="introduce.html">
+            
+                <a href="introduce.html">
+            
+                    
+                    Node.js介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="install.html">
+            
+                <a href="install.html">
+            
+                    
+                    安装起步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="service.html">
+            
+                <a href="service.html">
+            
+                    
+                    搭建Node服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="netConcept.html">
+            
+                <a href="netConcept.html">
+            
+                    
+                    网络概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="modular.html">
+            
+                <a href="modular.html">
+            
+                    
+                    模块系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="apache.html">
+            
+                <a href="apache.html">
+            
+                    
+                    实现apache功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="feedback.html">
+            
+                <a href="feedback.html">
+            
+                    
+                    留言本注意事项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.8" data-path="express.html">
+            
+                <a href="express.html">
+            
+                    
+                    express
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="callback.html">
+            
+                <a href="callback.html">
+            
+                    
+                    回调函数封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="mongodb.html">
+            
+                <a href="mongodb.html">
+            
+                    
+                    node中mongodb使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../mongodb/">
+            
+                <a href="../mongodb/">
+            
+                    
+                    mongoDB
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../mongodb/">
+            
+                <a href="../mongodb/">
+            
+                    
+                    mongoDB简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../mongodb/idea.html">
+            
+                <a href="../mongodb/idea.html">
+            
+                    
+                    mongoDB概念解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../mongodb/dataBase.html">
+            
+                <a href="../mongodb/dataBase.html">
+            
+                    
+                    mongoDB数据库的连接和操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../mongodb/collection.html">
+            
+                <a href="../mongodb/collection.html">
+            
+                    
+                    集合的创建和删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../mongodb/document.html">
+            
+                <a href="../mongodb/document.html">
+            
+                    
+                    文档的操作(插入，更新，删除)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../mongodb/query.html">
+            
+                <a href="../mongodb/query.html">
+            
+                    
+                    文档操作(查询)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../mongodb/type.html">
+            
+                <a href="../mongodb/type.html">
+            
+                    
+                    type操作符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../mongodb/limitAndSkip.html">
+            
+                <a href="../mongodb/limitAndSkip.html">
+            
+                    
+                    limit,skip,sort方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../mongodb/indexes.html">
+            
+                <a href="../mongodb/indexes.html">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../mongodb/aggregate.html">
+            
+                <a href="../mongodb/aggregate.html">
+            
+                    
+                    聚合管道(aggregate-阶段操作符)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../mongodb/aggregate1.html">
+            
+                <a href="../mongodb/aggregate1.html">
+            
+                    
+                    聚合管道(aggregate-表达式)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../mongodb/aggregate2.html">
+            
+                <a href="../mongodb/aggregate2.html">
+            
+                    
+                    聚合管道(aggregate-累加器)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../mongodb/mongoose.html">
+            
+                <a href="../mongodb/mongoose.html">
+            
+                    
+                    mongoose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../mongodb/mongoose.html">
+            
+                <a href="../mongodb/mongoose.html">
+            
+                    
+                    mongoose的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../mongodb/mongoose1.html">
+            
+                <a href="../mongodb/mongoose1.html">
+            
+                    
+                    mongoose的使用（文档的操作）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../mongodb/mongoose2.html">
+            
+                <a href="../mongodb/mongoose2.html">
+            
+                    
+                    mongoose进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../mongodb/mongoose3.html">
+            
+                <a href="../mongodb/mongoose3.html">
+            
+                    
+                    mongoose高级(聚合管道)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../codeStyle/">
+            
+                <a href="../codeStyle/">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../codeStyle/standarjs.html">
+            
+                <a href="../codeStyle/standarjs.html">
+            
+                    
+                    standarjs代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../vue/">
+            
+                <a href="../vue/">
+            
+                    
+                    vue的学习总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../vue/">
+            
+                <a href="../vue/">
+            
+                    
+                    vue的知识点总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../vue/vueCli.html">
+            
+                <a href="../vue/vueCli.html">
+            
+                    
+                    vue-cli3搭建vue开发环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../vue/component.html">
+            
+                <a href="../vue/component.html">
+            
+                    
+                    vue组件开发与注册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../vue/component2.html">
+            
+                <a href="../vue/component2.html">
+            
+                    
+                    vue组件通信详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../vue/directive.html">
+            
+                <a href="../vue/directive.html">
+            
+                    
+                    自定义指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../vue/filter.html">
+            
+                <a href="../vue/filter.html">
+            
+                    
+                    自定义过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../vue/animate.html">
+            
+                <a href="../vue/animate.html">
+            
+                    
+                    vue过渡和动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../vue/mixin.html">
+            
+                <a href="../vue/mixin.html">
+            
+                    
+                    mixin混入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="../vueRouter.md">
+            
+                <span>
+            
+                    
+                    vue-router路由知识点总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="../vue/vuex.html">
+            
+                <a href="../vue/vuex.html">
+            
+                    
+                    vuex的使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="../vue/axios.html">
+            
+                <a href="../vue/axios.html">
+            
+                    
+                    axios请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="../vue/vueAxios.html">
+            
+                <a href="../vue/vueAxios.html">
+            
+                    
+                    vue项目中对axios的封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >express</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#express"><b></b>express</a></li><ul><li><span class="title-icon "></span><a href="#&#x5B89;&#x88C5;"><b></b>&#x5B89;&#x88C5;</a></li><li><span class="title-icon "></span><a href="#&#x4F7F;&#x7528;-&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5B9E;&#x4F8B;"><b></b>&#x4F7F;&#x7528; &#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5B9E;&#x4F8B;</a></li><li><span class="title-icon "></span><a href="#&#x4FEE;&#x6539;&#x5B8C;&#x4EE3;&#x7801;-&#x81EA;&#x52A8;&#x91CD;&#x542F;"><b></b>&#x4FEE;&#x6539;&#x5B8C;&#x4EE3;&#x7801; &#x81EA;&#x52A8;&#x91CD;&#x542F;</a></li><li><span class="title-icon "></span><a href="#&#x9759;&#x6001;&#x5316;&#x6587;&#x4EF6;"><b></b>&#x9759;&#x6001;&#x5316;&#x6587;&#x4EF6;</a></li><li><span class="title-icon "></span><a href="#express-&#x7684;get&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;"><b></b>express &#x7684;get&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;</a></li><li><span class="title-icon "></span><a href="#express-&#x7684;post&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;"><b></b>express &#x7684;post&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;</a></li><li><span class="title-icon "></span><a href="#express-&#x7684;&#x91CD;&#x5B9A;&#x5411;-resredirect&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x8DEF;&#x7531;"><b></b>express &#x7684;&#x91CD;&#x5B9A;&#x5411; res.redirect(&apos;&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x8DEF;&#x7531;&apos;)</a></li><li><span class="title-icon "></span><a href="#express-&#x4E2D;&#x4F7F;&#x7528;session&#x548C;cookie"><b></b>express &#x4E2D;&#x4F7F;&#x7528;session&#x548C;cookie</a></li></ul></ul></div><a href="#express" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="express"><a name="express" class="anchor-navigation-ex-anchor" href="#express"><i class="fa fa-link" aria-hidden="true"></i></a><a name="express" class="plugin-anchor" href="#express"><i class="fa fa-link" aria-hidden="true"></i></a>express</h1>
+<p> &#x5B98;&#x7F51;&#xFF1A;expressjs.com <a href="https://expressjs.com" target="_blank">&#x4F20;&#x9001;&#x95E8;</a>  </p>
+<h2 id="&#x5B89;&#x88C5;"><a name="&#x5B89;&#x88C5;" class="anchor-navigation-ex-anchor" href="#&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5B89;&#x88C5;" class="plugin-anchor" href="#&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;</h2>
+<blockquote>
+<p>npm install express --save-dev   </p>
+</blockquote>
+<h2 id="&#x4F7F;&#x7528;-&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5B9E;&#x4F8B;"><a name="&#x4F7F;&#x7528;-&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5B9E;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;-&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5B9E;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4F7F;&#x7528;-&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5B9E;&#x4F8B;" class="plugin-anchor" href="#&#x4F7F;&#x7528;-&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5B9E;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528; &#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5B9E;&#x4F8B;</h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;express&apos;</span>);
+<span class="hljs-comment">//&#x521B;&#x5EFA; app&#x5B9E;&#x4F8B;</span>
+<span class="hljs-keyword">const</span> app = express();
+
+<span class="hljs-comment">//&#x4E2D;&#x95F4;&#x4EF6;</span>
+app.get(<span class="hljs-string">&apos;/&apos;</span>, (req, res) =&gt; {
+    res.send(<span class="hljs-string">&apos;hello express&apos;</span>);
+});
+
+<span class="hljs-comment">// &#x76D1;&#x542C;&#x7AEF;&#x53E3;</span>
+app.listen(<span class="hljs-number">3000</span>, () =&gt; {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x670D;&#x52A1;&#x5668;&#x5F00;&#x542F;&#xFF0C;&#x8BBF;&#x95EE;&#x5730;&#x5740;&#xFF1A;http://localhost:3000&apos;</span>);
+});
+</code></pre>
+<h2 id="&#x4FEE;&#x6539;&#x5B8C;&#x4EE3;&#x7801;-&#x81EA;&#x52A8;&#x91CD;&#x542F;"><a name="&#x4FEE;&#x6539;&#x5B8C;&#x4EE3;&#x7801;-&#x81EA;&#x52A8;&#x91CD;&#x542F;" class="anchor-navigation-ex-anchor" href="#&#x4FEE;&#x6539;&#x5B8C;&#x4EE3;&#x7801;-&#x81EA;&#x52A8;&#x91CD;&#x542F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4FEE;&#x6539;&#x5B8C;&#x4EE3;&#x7801;-&#x81EA;&#x52A8;&#x91CD;&#x542F;" class="plugin-anchor" href="#&#x4FEE;&#x6539;&#x5B8C;&#x4EE3;&#x7801;-&#x81EA;&#x52A8;&#x91CD;&#x542F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4FEE;&#x6539;&#x5B8C;&#x4EE3;&#x7801; &#x81EA;&#x52A8;&#x91CD;&#x542F;</h2>
+<p>&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#xFF0C; <code>nodemon</code>&#x6765;&#x5E2E;&#x6211;&#x4EEC;&#x81EA;&#x52A8;&#x91CD;&#x542F;&#x670D;&#x52A1;&#x5668;<br>&#x5B89;&#x88C5;&#xFF1A;    </p>
+<blockquote>
+<p>npm install --global nodemon<br>&#x4F7F;&#x7528;&#xFF1A;<br>nodemon app.js;    </p>
+</blockquote>
+<h2 id="&#x9759;&#x6001;&#x5316;&#x6587;&#x4EF6;"><a name="&#x9759;&#x6001;&#x5316;&#x6587;&#x4EF6;" class="anchor-navigation-ex-anchor" href="#&#x9759;&#x6001;&#x5316;&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x9759;&#x6001;&#x5316;&#x6587;&#x4EF6;" class="plugin-anchor" href="#&#x9759;&#x6001;&#x5316;&#x6587;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9759;&#x6001;&#x5316;&#x6587;&#x4EF6;</h2>
+<ul>
+<li>&#x8BBE;&#x7F6E;&#x8DEF;&#x7531;&#x6807;&#x8BC6;&#x7B26;&#x7684;&#x65B9;&#x5F0F;&#x9759;&#x6001;&#x5316;&#x6587;&#x4EF6; 
+&#x5B9E;&#x4F8B;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">//&#x5F53;&#x4EE5; /public/ &#x5F00;&#x5934;&#x65F6;&#xFF0C; &#x53BB; ./public/ &#x76EE;&#x5F55;&#x4E2D;&#x5BFB;&#x627E;&#x5BF9;&#x5E94;&#x8D44;&#x6E90;</span>
+app.use(<span class="hljs-string">&apos;/public/&apos;</span>, express.static(<span class="hljs-string">&apos;./public&apos;</span>));
+<span class="hljs-comment">// &#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x8DEF;&#x7531;&#x6807;&#x8BC6;, &#x6B64;&#x65F6; &#x8DEF;&#x7531;&#x4EE5; /a/ &#x4E5F;&#x80FD;&#x5728;./public/ &#x76EE;&#x5F55;&#x4E2D;&#x5BFB;&#x627E;&#x5BF9;&#x5E94;&#x8D44;&#x6E90;</span>
+app.use(<span class="hljs-string">&apos;/a/&apos;</span>, express.static(<span class="hljs-string">&apos;./public&apos;</span>));
+</code></pre>
+<ul>
+<li>&#x7701;&#x7565;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF08;&#x8DEF;&#x7531;&#x6807;&#x8BC6;&#x7B26;&#xFF09; </li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x5F53;&#x7701;&#x7565;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C; &#x5219;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; &#x7701;&#x7565; /public &#x7684;&#x65B9;&#x5F0F;&#x8BBF;&#x95EE;</span>
+app.use(express.static(<span class="hljs-string">&apos;public&apos;</span>));
+</code></pre>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x9759;&#x6001;&#x5316;&#x591A;&#x4E2A;&#x76EE;&#x5F55;</li>
+</ul>
+<pre><code class="lang-javascript"><span class="hljs-comment">//&#x5F53;&#x4EE5; /public/ &#x5F00;&#x5934;&#x65F6;&#xFF0C; &#x53BB; ./public/ &#x76EE;&#x5F55;&#x4E2D;&#x5BFB;&#x627E;&#x5BF9;&#x5E94;&#x8D44;&#x6E90;</span>
+app.use(<span class="hljs-string">&apos;/public/&apos;</span>, express.static(<span class="hljs-string">&apos;./public&apos;</span>));
+<span class="hljs-comment">// &#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x8DEF;&#x7531;&#x6807;&#x8BC6;, &#x6B64;&#x65F6; &#x8DEF;&#x7531;&#x4EE5; /a/ &#x4E5F;&#x80FD;&#x5728;./public/ &#x76EE;&#x5F55;&#x4E2D;&#x5BFB;&#x627E;&#x5BF9;&#x5E94;&#x8D44;&#x6E90;</span>
+app.use(<span class="hljs-string">&apos;/static/&apos;</span>, express.static(<span class="hljs-string">&apos;./static&apos;</span>));
+</code></pre>
+<h2 id="express-&#x7684;get&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;"><a name="express-&#x7684;get&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#express-&#x7684;get&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="express-&#x7684;get&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;" class="plugin-anchor" href="#express-&#x7684;get&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>express &#x7684;get&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;</h2>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; req.query &#x62FF;&#x5230;&#x524D;&#x7AEF;&#x4F20;&#x7684;&#x53C2;&#x6570;  </p>
+<pre><code class="lang-javascript">app.get(<span class="hljs-string">&apos;/getData&apos;</span>, (req, res) =&gt; {
+    <span class="hljs-keyword">let</span> query = req.query;
+    res.send(query);
+});
+</code></pre>
+<h2 id="express-&#x7684;post&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;"><a name="express-&#x7684;post&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#express-&#x7684;post&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="express-&#x7684;post&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;" class="plugin-anchor" href="#express-&#x7684;post&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>express &#x7684;post&#x8BF7;&#x6C42;&#x5982;&#x4F55;&#x62FF;&#x5230;&#x53C2;&#x6570;</h2>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; req.body &#x62FF;&#x5230;&#x524D;&#x7AEF;&#x4F20;&#x7684;&#x53C2;&#x6570;, &#x4F46;&#x662F;&#x9700;&#x8981;&#x5BF9;express&#x914D;&#x7F6E;&#x4E00;&#x4E0B;<code>express.urlencoded({extended:false}</code>  </p>
+<pre><code class="lang-javascript"><span class="hljs-comment">//&#x914D;&#x7F6E; express &#x4F7F;post&#x8BF7;&#x6C42;&#x53EF;&#x4EE5;&#x62FF;&#x5230;&#x8BF7;&#x6C42;&#x4F53;&#x7684;&#x6570;&#x636E;</span>
+app.use(express.urlencoded({extended: <span class="hljs-literal">false</span>}));
+app.post(<span class="hljs-string">&apos;/postData&apos;</span>, (req, res) =&gt; {
+    <span class="hljs-keyword">let</span> params = req.body;
+    res.json(params);
+});
+</code></pre>
+<h2 id="express-&#x7684;&#x91CD;&#x5B9A;&#x5411;-resredirect&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x8DEF;&#x7531;"><a name="express-&#x7684;&#x91CD;&#x5B9A;&#x5411;-resredirect&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x8DEF;&#x7531;" class="anchor-navigation-ex-anchor" href="#express-&#x7684;&#x91CD;&#x5B9A;&#x5411;-resredirect&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x8DEF;&#x7531;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="express-&#x7684;&#x91CD;&#x5B9A;&#x5411;-resredirect&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x8DEF;&#x7531;" class="plugin-anchor" href="#express-&#x7684;&#x91CD;&#x5B9A;&#x5411;-resredirect&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x8DEF;&#x7531;"><i class="fa fa-link" aria-hidden="true"></i></a>express &#x7684;&#x91CD;&#x5B9A;&#x5411; res.redirect(&apos;&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x8DEF;&#x7531;&apos;)</h2>
+<pre><code class="lang-javascript"><span class="hljs-comment">//&#x914D;&#x7F6E; express &#x4F7F;post&#x8BF7;&#x6C42;&#x53EF;&#x4EE5;&#x62FF;&#x5230;&#x8BF7;&#x6C42;&#x4F53;&#x7684;&#x6570;&#x636E;</span>
+app.use(express.urlencoded({extended: <span class="hljs-literal">false</span>}));
+app.post(<span class="hljs-string">&apos;/postData&apos;</span>, (req, res) =&gt; {
+    <span class="hljs-keyword">let</span> params = req.body;
+    <span class="hljs-comment">//&#x91CD;&#x5B9A;&#x5411;</span>
+    res.redirect(<span class="hljs-string">&apos;/&apos;</span>);
+});
+</code></pre>
+<h2 id="express-&#x4E2D;&#x4F7F;&#x7528;session&#x548C;cookie"><a name="express-&#x4E2D;&#x4F7F;&#x7528;session&#x548C;cookie" class="anchor-navigation-ex-anchor" href="#express-&#x4E2D;&#x4F7F;&#x7528;session&#x548C;cookie"><i class="fa fa-link" aria-hidden="true"></i></a><a name="express-&#x4E2D;&#x4F7F;&#x7528;session&#x548C;cookie" class="plugin-anchor" href="#express-&#x4E2D;&#x4F7F;&#x7528;session&#x548C;cookie"><i class="fa fa-link" aria-hidden="true"></i></a>express &#x4E2D;&#x4F7F;&#x7528;session&#x548C;cookie</h2>
+<p>express &#x6846;&#x67B6;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E0D;&#x652F;&#x6301; session&#x548C; cookie, &#x4F46;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x4E2D;&#x95F4;&#x4EF6;: express-session &#x6765;&#x89E3;&#x51B3;</p>
+<ul>
+<li>&#x5B89;&#x88C5;<blockquote>
+<p>npm install express-session  </p>
+</blockquote>
+</li>
+<li>&#x5F15;&#x5165;<blockquote>
+<p>var session = require(&apos;express-session&apos;)  </p>
+</blockquote>
+</li>
+<li>&#x914D;&#x7F6E;&#x4F7F;&#x7528;
+```javascript
+var session = require(&apos;express-session&apos;)
+// &#x914D;&#x7F6E;&#x597D;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; req.session&#x6765;&#x8BBF;&#x95EE;&#x548C;&#x8BBE;&#x7F6E;session
+app.use(session({
+  // &#x914D;&#x7F6E;&#x52A0;&#x5BC6;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5979;&#x4F1A;&#x5728;&#x539F;&#x6709;&#x7684;&#x52A0;&#x5BC6;&#x57FA;&#x7840;&#x4E0A;&#x548C;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x8D77;&#x6765;&#x52A0;&#x5BC6;
+  // &#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x589E;&#x52A0;&#x5B89;&#x5168;&#x6027;&#xFF0C;&#x9632;&#x6B62;&#x5BA2;&#x6237;&#x7AEF;&#x6076;&#x610F;&#x4F2A;&#x9020;
+  secret: &apos;keyboard cat&apos;,
+  resave: false,
+  saveUninitialized: false   // &#x65E0;&#x8BBA;&#x4F60;&#x662F;&#x5426;&#x4F7F;&#x7528;session, &#x90FD;&#x4F1A;&#x9ED8;&#x8BA4;&#x7ED9;&#x4F60;&#x4E00;&#x4E2A;&#x5206;&#x914D;&#x4E00;&#x628A;&#x94A5;&#x5319;
+}))   </li>
+</ul>
+<p>// &#x4F7F;&#x7528; &#x6DFB;&#x52A0; session&#x6570;&#x636E;
+req.session.user = user</p>
+<p>// &#x83B7;&#x5F97;session&#x6570;&#x636E;
+req.session.user</p>
+<pre><code>**&#x63D0;&#x793A;&#xFF1A;&#x9ED8;&#x8BA4;session&#x6570;&#x636E;&#x662F;&#x5185;&#x5B58;&#x5B58;&#x50A8;&#x7684;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x4E00;&#x65E6;&#x91CD;&#x542F;&#x5C31;&#x4F1A;&#x4E22;&#x5931;&#xFF0C;&#x771F;&#x6B63;&#x7684;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4F1A;&#x628A;session&#x8FDB;&#x884C;&#x6301;&#x4E45;&#x5316;&#x5B58;&#x50A8;**
+
+## express &#x4E2D;&#x95F4;&#x4EF6;
+- &#x4E2D;&#x95F4;&#x4EF6;&#x4E0D;&#x5173;&#x5FC3;&#x8BF7;&#x6C42;&#x8DEF;&#x5F84;&#x548C;&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;
+- &#x4EFB;&#x4F55;&#x8BF7;&#x6C42;&#x90FD;&#x53EF;&#x4EE5;&#x8FDB;&#x5165;&#x8FD9;&#x4E2A;&#x4E2D;&#x95F4;&#x4EF6;
+- &#x4E2D;&#x95F4;&#x4EF6;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;
+- &#x4E2D;&#x95F4;&#x4EF6;&#x672C;&#x8EAB;&#x662F;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x63A5;&#x53D7;&#x4E09;&#x4E2A;&#x4E09;&#x4E2A;&#x53C2;&#x6570;
+  + request &#x8BF7;&#x6C42;&#x5BF9;&#x8C61;
+  + response &#x54CD;&#x5E94;&#x5BF9;&#x8C61;
+  + next &#x4E0B;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x4EF6;  
+  + &#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x8FDB;&#x5165;&#x4E2D;&#x95F4;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x8C03;&#x7528;next(),&#x8BF7;&#x6C42;&#x5C06;&#x505C;&#x7559;&#x5728;&#x5F53;&#x524D;&#x4E2D;&#x95F4;&#x4EF6;
+
+&#x4F8B;&#x5B50;&#xFF1A;
+```javascript
+app.use(function (req, res, next) {
+    console.log(111)
+    next()  
+})
+
+app.use(function (req, res, next) {
+    console.log(222)
+    next()  
+})
+
+// &#x4EE5; /xxx &#x5F00;&#x5934;&#x7684;&#x8DEF;&#x5F84;&#x4E2D;&#x95F4;&#x4EF6;
+app.use(&apos;/a&apos;, function(req, res, next) {
+    console.log(req.url)
+})
+
+
+app.use(&apos;/a&apos;, function(req, res, next) {
+    fs.readyFile(&apos;./data/a.txt&apos;, function(err) {
+        if (err) {
+            next(err) //&#x5F53;&#x8C03;&#x7528;next&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x4F20;&#x9012;&#x4E86;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x5C06;&#x76F4;&#x63A5;&#x5F80;&#x540E;&#x627E;&#x5230;&#x5E26;&#x6709;&#x56DB;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x5E94;&#x7528;&#x7EA7;&#x522B;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;
+        }
+    })
+})
+// &#x9519;&#x8BEF;&#x5904;&#x7406;&#x4E2D;&#x95F4;&#x4EF6;
+app.use(function (err, req, res, next) {
+  res.status(500).send(err.message)
+})
+</code></pre>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="feedback.html" class="navigation navigation-prev " aria-label="Previous page: 留言本注意事项">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="callback.html" class="navigation navigation-next " aria-label="Next page: 回调函数封装">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"express","level":"1.4.8","depth":2,"next":{"title":"回调函数封装","level":"1.4.9","depth":2,"path":"node/callback.md","ref":"node/callback.md","articles":[]},"previous":{"title":"留言本注意事项","level":"1.4.7","depth":2,"path":"node/feedback.md","ref":"node/feedback.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","sharing-plus","anchor-navigation-ex","code","popup","pageview-count","favicon","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/johnqin6"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"johnqin6","repo":"glory","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"johnqin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"johnqin的一本书","language":"zh-hans","links":{"sidebar":{"我的博客":""}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"node/express.md","mtime":"2019-06-24T00:40:53.519Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-17T09:47:24.485Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
