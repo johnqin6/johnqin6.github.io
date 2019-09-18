@@ -1,0 +1,1364 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>vue-router路由知识点总结 · johnqin的一本书</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="johnqin">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="vuex.html" />
+    
+    
+    <link rel="prev" href="mixin.html" />
+    
+
+    
+    
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"johnqin6","repo":"glory","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="" target="_blank" class="custom-link">我的博客</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    首页
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../gitbook_info/introduce.html">
+            
+                <a href="../gitbook_info/introduce.html">
+            
+                    
+                    gitbook
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../gitbook_info/introduce.html">
+            
+                <a href="../gitbook_info/introduce.html">
+            
+                    
+                    gitbook的介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../gitbook_info/use.html">
+            
+                <a href="../gitbook_info/use.html">
+            
+                    
+                    gitbook的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../wechat/read.html">
+            
+                <a href="../wechat/read.html">
+            
+                    
+                    微信小程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../wechat/read.html">
+            
+                <a href="../wechat/read.html">
+            
+                    
+                    微信小程序的介绍与准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../wechat/summary.html">
+            
+                <a href="../wechat/summary.html">
+            
+                    
+                    微信小程序的目录结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../wechat/start.html">
+            
+                <a href="../wechat/start.html">
+            
+                    
+                    起始开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../wechat/app.html">
+            
+                <a href="../wechat/app.html">
+            
+                    
+                    全局页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../wechat/pages.html">
+            
+                <a href="../wechat/pages.html">
+            
+                    
+                    普通页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../wechat/lifecycleAndgrammar.html">
+            
+                <a href="../wechat/lifecycleAndgrammar.html">
+            
+                    
+                    生命周期和wxss样式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../wechat/not.html">
+            
+                <a href="../wechat/not.html">
+            
+                    
+                    微信小程序的注意事项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../wechat/event.html">
+            
+                <a href="../wechat/event.html">
+            
+                    
+                    事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../node/introduce.html">
+            
+                <a href="../node/introduce.html">
+            
+                    
+                    Node.js
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../node/introduce.html">
+            
+                <a href="../node/introduce.html">
+            
+                    
+                    Node.js介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../node/install.html">
+            
+                <a href="../node/install.html">
+            
+                    
+                    安装起步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../node/service.html">
+            
+                <a href="../node/service.html">
+            
+                    
+                    搭建Node服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../node/netConcept.html">
+            
+                <a href="../node/netConcept.html">
+            
+                    
+                    网络概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../node/modular.html">
+            
+                <a href="../node/modular.html">
+            
+                    
+                    模块系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../node/apache.html">
+            
+                <a href="../node/apache.html">
+            
+                    
+                    实现apache功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../node/feedback.html">
+            
+                <a href="../node/feedback.html">
+            
+                    
+                    留言本注意事项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../node/express.html">
+            
+                <a href="../node/express.html">
+            
+                    
+                    express
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../node/callback.html">
+            
+                <a href="../node/callback.html">
+            
+                    
+                    回调函数封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../node/mongodb.html">
+            
+                <a href="../node/mongodb.html">
+            
+                    
+                    node中mongodb使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../mongodb/">
+            
+                <a href="../mongodb/">
+            
+                    
+                    mongoDB
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../mongodb/">
+            
+                <a href="../mongodb/">
+            
+                    
+                    mongoDB简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../mongodb/idea.html">
+            
+                <a href="../mongodb/idea.html">
+            
+                    
+                    mongoDB概念解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../mongodb/dataBase.html">
+            
+                <a href="../mongodb/dataBase.html">
+            
+                    
+                    mongoDB数据库的连接和操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../mongodb/collection.html">
+            
+                <a href="../mongodb/collection.html">
+            
+                    
+                    集合的创建和删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../mongodb/document.html">
+            
+                <a href="../mongodb/document.html">
+            
+                    
+                    文档的操作(插入，更新，删除)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../mongodb/query.html">
+            
+                <a href="../mongodb/query.html">
+            
+                    
+                    文档操作(查询)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../mongodb/type.html">
+            
+                <a href="../mongodb/type.html">
+            
+                    
+                    type操作符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../mongodb/limitAndSkip.html">
+            
+                <a href="../mongodb/limitAndSkip.html">
+            
+                    
+                    limit,skip,sort方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../mongodb/indexes.html">
+            
+                <a href="../mongodb/indexes.html">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../mongodb/aggregate.html">
+            
+                <a href="../mongodb/aggregate.html">
+            
+                    
+                    聚合管道(aggregate-阶段操作符)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../mongodb/aggregate1.html">
+            
+                <a href="../mongodb/aggregate1.html">
+            
+                    
+                    聚合管道(aggregate-表达式)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../mongodb/aggregate2.html">
+            
+                <a href="../mongodb/aggregate2.html">
+            
+                    
+                    聚合管道(aggregate-累加器)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../mongodb/mongoose.html">
+            
+                <a href="../mongodb/mongoose.html">
+            
+                    
+                    mongoose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../mongodb/mongoose.html">
+            
+                <a href="../mongodb/mongoose.html">
+            
+                    
+                    mongoose的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../mongodb/mongoose1.html">
+            
+                <a href="../mongodb/mongoose1.html">
+            
+                    
+                    mongoose的使用（文档的操作）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../mongodb/mongoose2.html">
+            
+                <a href="../mongodb/mongoose2.html">
+            
+                    
+                    mongoose进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../mongodb/mongoose3.html">
+            
+                <a href="../mongodb/mongoose3.html">
+            
+                    
+                    mongoose高级(聚合管道)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../codeStyle/">
+            
+                <a href="../codeStyle/">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../codeStyle/standarjs.html">
+            
+                <a href="../codeStyle/standarjs.html">
+            
+                    
+                    standarjs代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    vue的学习总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    vue的知识点总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="vueCli.html">
+            
+                <a href="vueCli.html">
+            
+                    
+                    vue-cli3搭建vue开发环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="component.html">
+            
+                <a href="component.html">
+            
+                    
+                    vue组件开发与注册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="component2.html">
+            
+                <a href="component2.html">
+            
+                    
+                    vue组件通信详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="directive.html">
+            
+                <a href="directive.html">
+            
+                    
+                    自定义指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="filter.html">
+            
+                <a href="filter.html">
+            
+                    
+                    自定义过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="animate.html">
+            
+                <a href="animate.html">
+            
+                    
+                    vue过渡和动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="mixin.html">
+            
+                <a href="mixin.html">
+            
+                    
+                    mixin混入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.9" data-path="vueRouter.html">
+            
+                <a href="vueRouter.html">
+            
+                    
+                    vue-router路由知识点总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="vuex.html">
+            
+                <a href="vuex.html">
+            
+                    
+                    vuex的使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="axios.html">
+            
+                <a href="axios.html">
+            
+                    
+                    axios请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="vueAxios.html">
+            
+                <a href="vueAxios.html">
+            
+                    
+                    vue项目中对axios的封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >vue-router路由知识点总结</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#vue-router-&#x8DEF;&#x7531;&#x77E5;&#x8BC6;&#x70B9;&#x603B;&#x7ED3;"><b></b>vue-router &#x8DEF;&#x7531;&#x77E5;&#x8BC6;&#x70B9;&#x603B;&#x7ED3;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4E00;&#x3001;&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;&#x96C6;&#x6210;vue-router"><b></b>&#x4E00;&#x3001;&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;&#x96C6;&#x6210;vue-router</a></li><li><span class="title-icon "></span><a href="#&#x4E8C;&#x3001;&#x4F7F;&#x7528;vue-router"><b></b>&#x4E8C;&#x3001;&#x4F7F;&#x7528;vue-router</a></li><ul><li><span class="title-icon "></span><a href="#&#x914D;&#x7F6E;&#x7B80;&#x5355;&#x7684;&#x8DEF;&#x7531;"><b></b>&#x914D;&#x7F6E;&#x7B80;&#x5355;&#x7684;&#x8DEF;&#x7531;</a></li><li><span class="title-icon "></span><a href="#&#x914D;&#x7F6E;&#x5D4C;&#x5957;&#x8DEF;&#x7531;"><b></b>&#x914D;&#x7F6E;&#x5D4C;&#x5957;&#x8DEF;&#x7531;</a></li><li><span class="title-icon "></span><a href="#&#x8DEF;&#x7531;&#x7684;&#x8DF3;&#x8F6C;"><b></b>&#x8DEF;&#x7531;&#x7684;&#x8DF3;&#x8F6C;</a></li><li><span class="title-icon "></span><a href="#&#x8DEF;&#x7531;&#x91CD;&#x5B9A;&#x5411;"><b></b>&#x8DEF;&#x7531;&#x91CD;&#x5B9A;&#x5411;</a></li><li><span class="title-icon "></span><a href="#&#x8DEF;&#x7531;&#x5B88;&#x536B;"><b></b>&#x8DEF;&#x7531;&#x5B88;&#x536B;</a></li><li><span class="title-icon "></span><a href="#&#x8DEF;&#x7531;&#x61D2;&#x52A0;&#x8F7D;"><b></b>&#x8DEF;&#x7531;&#x61D2;&#x52A0;&#x8F7D;</a></li><li><span class="title-icon "></span><a href="#router&#x548C;route&#x7684;&#x533A;&#x522B;"><b></b>$router&#x548C;$route&#x7684;&#x533A;&#x522B;</a></li></ul></ul></ul></div><a href="#vue-router-&#x8DEF;&#x7531;&#x77E5;&#x8BC6;&#x70B9;&#x603B;&#x7ED3;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="vue-router-&#x8DEF;&#x7531;&#x77E5;&#x8BC6;&#x70B9;&#x603B;&#x7ED3;"><a name="vue-router-&#x8DEF;&#x7531;&#x77E5;&#x8BC6;&#x70B9;&#x603B;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#vue-router-&#x8DEF;&#x7531;&#x77E5;&#x8BC6;&#x70B9;&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="vue-router-&#x8DEF;&#x7531;&#x77E5;&#x8BC6;&#x70B9;&#x603B;&#x7ED3;" class="plugin-anchor" href="#vue-router-&#x8DEF;&#x7531;&#x77E5;&#x8BC6;&#x70B9;&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>vue-router &#x8DEF;&#x7531;&#x77E5;&#x8BC6;&#x70B9;&#x603B;&#x7ED3;</h1>
+<p><a href="https://router.vuejs.org/zh/" target="_blank">&#x5B98;&#x65B9;&#x4F20;&#x9001;&#x95E8;</a><br>vue Router &#x662F;vue.js&#x5B98;&#x65B9;&#x7684;&#x8DEF;&#x7531;&#x7BA1;&#x7406;&#x5668;&#x3002;&#x5B83;&#x548C;vue.js&#x7684;&#x6838;&#x5FC3;&#x6DF1;&#x5EA6;&#x96C6;&#x6210;&#xFF0C;&#x8BA9;&#x6784;&#x5EFA;&#x5355;&#x9875;&#x9762;&#x5E94;&#x7528;&#x53D8;&#x5F97;&#x6613;&#x5982;&#x53CD;&#x638C;&#xFF0C;
+&#x4E5F;&#x662F;&#x6211;&#x4EEC;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x4E2D;&#x5FC5;&#x5907;&#x6280;&#x80FD;&#x4E4B;&#x4E00;&#x3002; </p>
+<h2 id="&#x4E00;&#x3001;&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;&#x96C6;&#x6210;vue-router"><a name="&#x4E00;&#x3001;&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;&#x96C6;&#x6210;vue-router" class="anchor-navigation-ex-anchor" href="#&#x4E00;&#x3001;&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;&#x96C6;&#x6210;vue-router"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E00;&#x3001;&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;&#x96C6;&#x6210;vue-router" class="plugin-anchor" href="#&#x4E00;&#x3001;&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;&#x96C6;&#x6210;vue-router"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00;&#x3001;&#x521D;&#x59CB;&#x5316;&#x9879;&#x76EE;&#x96C6;&#x6210;vue-router</h2>
+<ul>
+<li>&#x5982;&#x5DF2;&#x5B89;&#x88C5;vue-cli3&#xFF0C;&#x5728;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x65F6;&#x4F1A;&#x6709;&#x63D0;&#x793A;&#x662F;&#x5426;&#x5B89;&#x88C5;vue-router&#x7684;&#x9009;&#x9879;&#xFF0C;&#x9009;&#x4E2D;&#x6572;&#x7A7A;&#x683C;&#x5373;&#x53EF;&#x96C6;&#x6210;&#x5B89;&#x88C5;</li>
+<li>&#x82E5;&#x521B;&#x5EFA;&#x9879;&#x76EE;&#x65F6;&#xFF0C;&#x672A;&#x96C6;&#x6210;&#x5B89;&#x88C5;&#xFF0C;&#x4E5F;&#x53EF;&#x624B;&#x52A8;&#x5B89;&#x88C5; <code>yarn add vue-router</code>  </li>
+<li>&#x5B89;&#x88C5;&#x597D;vue-router&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;src&#x6587;&#x4EF6;&#x5939;&#x5EFA;&#x4E00;&#x4E2A;router.js&#x6587;&#x4EF6;&#x6216;router&#x6587;&#x4EF6;&#x5939;&#x6765;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x9879;&#x76EE;&#x4E2D;&#x7684;&#x8DEF;&#x7531;</li>
+</ul>
+<h2 id="&#x4E8C;&#x3001;&#x4F7F;&#x7528;vue-router"><a name="&#x4E8C;&#x3001;&#x4F7F;&#x7528;vue-router" class="anchor-navigation-ex-anchor" href="#&#x4E8C;&#x3001;&#x4F7F;&#x7528;vue-router"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E8C;&#x3001;&#x4F7F;&#x7528;vue-router" class="plugin-anchor" href="#&#x4E8C;&#x3001;&#x4F7F;&#x7528;vue-router"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8C;&#x3001;&#x4F7F;&#x7528;vue-router</h2>
+<h3 id="&#x914D;&#x7F6E;&#x7B80;&#x5355;&#x7684;&#x8DEF;&#x7531;"><a name="&#x914D;&#x7F6E;&#x7B80;&#x5355;&#x7684;&#x8DEF;&#x7531;" class="anchor-navigation-ex-anchor" href="#&#x914D;&#x7F6E;&#x7B80;&#x5355;&#x7684;&#x8DEF;&#x7531;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x914D;&#x7F6E;&#x7B80;&#x5355;&#x7684;&#x8DEF;&#x7531;" class="plugin-anchor" href="#&#x914D;&#x7F6E;&#x7B80;&#x5355;&#x7684;&#x8DEF;&#x7531;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x914D;&#x7F6E;&#x7B80;&#x5355;&#x7684;&#x8DEF;&#x7531;</h3>
+<ol>
+<li>&#x9996;&#x5148;&#x5728;src&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>router.js</code>&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5176;&#x4E2D;&#x6784;&#x5EFA;&#x8DEF;&#x7531;</li>
+</ol>
+<pre><code class="lang-javascript"><span class="hljs-comment">// router.js</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-router&apos;</span>
+<span class="hljs-keyword">import</span> Home <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./views/home&apos;</span>
+
+Vue.use(Router)
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Router({
+    <span class="hljs-comment">// &#x6784;&#x5EFA;&#x8DEF;&#x7531;&#x6570;&#x7EC4;</span>
+    routes: [ <span class="hljs-comment">// &#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x662F;routes, &#x800C;&#x4E0D;&#x662F;routers</span>
+      {
+        path: <span class="hljs-string">&apos;/home&apos;</span>,  <span class="hljs-comment">// &#x8DEF;&#x7531;&#x5730;&#x5740;&#x5373;&#x6D4F;&#x89C8;&#x5668;&#x8F93;&#x5165;&#x6846;&#x57DF;&#x540D;&#x540E;&#x8DDF;&#x7684;&#x8DEF;&#x5F84;</span>
+        name: <span class="hljs-string">&apos;home&apos;</span>, <span class="hljs-comment">// &#x8DEF;&#x7531;&#x540D;&#x79F0;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;</span>
+        component: Home <span class="hljs-comment">// &#x8DEF;&#x7531;&#x5BF9;&#x5E94;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x5373;&#x8F93;&#x5165;&#x8DEF;&#x7531;&#x8981;&#x5C55;&#x793A;&#x7684;&#x7EC4;&#x4EF6;</span>
+      }
+    ]
+})
+</code></pre>
+<ol>
+<li>&#x5728;main.js&#x4E2D;&#x5F15;&#x5165;&#x548C;&#x6CE8;&#x518C;&#x8DEF;&#x7531;</li>
+</ol>
+<pre><code class="lang-javascript"><span class="hljs-comment">// main.js</span>
+...
+import router <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./router&apos;</span>
+
+<span class="hljs-keyword">new</span> Vue({
+  router,
+  render: h =&gt; h(App)
+}).$mount(<span class="hljs-string">&apos;#app&apos;</span>)
+</code></pre>
+<ol>
+<li>&#x5728;app.vue&#x4E2D;&#x914D;&#x7F6E;&#x8DEF;&#x7531;&#x51FA;&#x53E3;<code>&lt;router-view&gt;&lt;/router-view&gt;</code>,&#x8FD9;&#x4E00;&#x6B65;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x6CA1;&#x6709;&#x51FA;&#x53E3;&#xFF0C;&#x7EC4;&#x4EF6;&#x5C06;&#x4E0D;&#x4F1A;&#x663E;&#x793A;</li>
+</ol>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- app.vue --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</code></pre>
+<p>&#x5230;&#x8FD9;&#x4E00;&#x6B65;&#xFF0C;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#x5DF2;&#x7ECF;&#x914D;&#x5B8C;&#x4E86;&#xFF0C;&#x6B64;&#x65F6;&#x5C31;&#x53EF;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x8F93;&#x5165;<code>localhost:8080/#/home</code>,&#x6109;&#x5FEB;&#x7684;&#x8BBF;&#x95EE;&#x4E86;&#xFF0C;
+&#x5982;&#x679C;&#x6709;&#x5176;&#x4ED6;&#x7EC4;&#x4EF6;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x5728;<code>router.js</code>&#x4E2D;&#x914D;&#x7F6E;&#x3002;</p>
+<h3 id="&#x914D;&#x7F6E;&#x5D4C;&#x5957;&#x8DEF;&#x7531;"><a name="&#x914D;&#x7F6E;&#x5D4C;&#x5957;&#x8DEF;&#x7531;" class="anchor-navigation-ex-anchor" href="#&#x914D;&#x7F6E;&#x5D4C;&#x5957;&#x8DEF;&#x7531;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x914D;&#x7F6E;&#x5D4C;&#x5957;&#x8DEF;&#x7531;" class="plugin-anchor" href="#&#x914D;&#x7F6E;&#x5D4C;&#x5957;&#x8DEF;&#x7531;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x914D;&#x7F6E;&#x5D4C;&#x5957;&#x8DEF;&#x7531;</h3>
+<p>vue-router&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x7B80;&#x5355;&#x7684;&#x4E00;&#x5C42;(&#x4E00;&#x7EA7;)&#x8DEF;&#x7531;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x591A;&#x5C42;(&#x591A;&#x7EA7;)&#x8DEF;&#x7531;&#xFF0C;&#x5373;&#x5D4C;&#x5957;&#x8DEF;&#x7531;&#x3002;</p>
+<ol>
+<li>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x5C06;&#x6211;&#x4EEC;&#x521A;&#x624D;&#x5728;router.js&#x914D;&#x7F6E;&#x7684;&#x7B80;&#x5355;&#x8DEF;&#x7531;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x4FEE;&#x6539;&#x3002;</li>
+</ol>
+<pre><code class="lang-javascript"><span class="hljs-comment">// router.js</span>
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-router&apos;</span>
+<span class="hljs-keyword">import</span> Home <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./views/home&apos;</span>
+<span class="hljs-keyword">import</span> Recommend <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./views/recommend&apos;</span>
+
+Vue.use(Router)
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Router({
+    <span class="hljs-comment">// &#x6784;&#x5EFA;&#x8DEF;&#x7531;&#x6570;&#x7EC4;</span>
+    routes: [ <span class="hljs-comment">// &#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x662F;routes, &#x800C;&#x4E0D;&#x662F;routers</span>
+      {
+        path: <span class="hljs-string">&apos;/home&apos;</span>, 
+        name: <span class="hljs-string">&apos;home&apos;</span>,
+        component: Home,
+        children: [ <span class="hljs-comment">// children: &#x7528;&#x6765;&#x914D;&#x7F6E;&#x5B50;&#x8DEF;&#x7531;&#xFF0C;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x591A;&#x4E2A;&#x5B50;&#x8DEF;&#x7531;</span>
+          {
+            path: <span class="hljs-string">&apos;recommend&apos;</span>,
+            name: <span class="hljs-string">&apos;recommend&apos;</span>,
+            component: Recommend
+          }
+        ]
+      }
+    ]
+})
+</code></pre>
+<ol>
+<li>&#x5728;home&#x7EC4;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x5B50;&#x8DEF;&#x7531;&#x51FA;&#x53E3;<code>&lt;router-view&gt;&lt;/router-view&gt;</code> </li>
+</ol>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;home&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>&#x8FD9;&#x662F;home&#x7EC4;&#x4EF6;<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- &#x8FD9;&#x662F;&#x5B50;&#x8DEF;&#x7531;&#x51FA;&#x53E3; --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</code></pre>
+<p>&#x5728;home&#x914D;&#x7F6E;&#x597D;&#x5B50;&#x8DEF;&#x7531;&#x51FA;&#x53E3;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8F93;&#x5165;<code>localhost:8080/#/home/recommend</code>,&#x6765;&#x5C55;&#x793A;
+&#x5D4C;&#x5957;&#x5728;home&#x7EC4;&#x4EF6;&#x4E0B;&#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#x4E86;
+&#x5D4C;&#x5957;&#x8DEF;&#x7531;&#x7279;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x4F1A;&#x5728;&#x7236;&#x8DEF;&#x7531;&#x540E;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x5B50;&#x8DEF;&#x7531;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x5982;<code>localhost:8080/#/home/recommend</code></li>
+<li>&#x5D4C;&#x5957;&#x8DEF;&#x7531;&#x5C55;&#x793A;&#x7684;&#x9875;&#x9762;&#x4F1A;&#x5B50;&#x7EC4;&#x4EF6;&#x5D4C;&#x5957;&#x5728;&#x7236;&#x7EC4;&#x4EF6;&#x4E2D;&#xFF0C;&#x5E76;&#x968F;&#x5B50;&#x8DEF;&#x7531;&#x7684;&#x5207;&#x6362;&#x800C;&#x6539;&#x53D8;&#x3002;<ul>
+<li>&#x4F8B;&#x5982;&#xFF1A;&#x9875;&#x9762;&#x7684;tab&#x5217;&#x8868;&#x5207;&#x6362;&#xFF0C;&#x4FA7;&#x8FB9;&#x83DC;&#x5355;&#x90FD;&#x662F;&#x4F7F;&#x7528;&#x5D4C;&#x5957;&#x8DEF;&#x7531;&#x5B9E;&#x73B0;&#x7684;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h3 id="&#x8DEF;&#x7531;&#x7684;&#x8DF3;&#x8F6C;"><a name="&#x8DEF;&#x7531;&#x7684;&#x8DF3;&#x8F6C;" class="anchor-navigation-ex-anchor" href="#&#x8DEF;&#x7531;&#x7684;&#x8DF3;&#x8F6C;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x8DEF;&#x7531;&#x7684;&#x8DF3;&#x8F6C;" class="plugin-anchor" href="#&#x8DEF;&#x7531;&#x7684;&#x8DF3;&#x8F6C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8DEF;&#x7531;&#x7684;&#x8DF3;&#x8F6C;</h3>
+<p>vue-router&#x4E2D;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;&#x65E2;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;vue-router&#x63D0;&#x4F9B;&#x7684;<code>&lt;router-link&gt;&lt;/router-link&gt;</code>&#x6807;&#x7B7E;&#x6765;&#x8DF3;&#x8F6C;,
+&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;js&#x8FDB;&#x884C;&#x8DF3;&#x8F6C;(vue-router&#x63D0;&#x4F9B;&#x7684;&#x65B9;&#x6CD5;$router.push&#x548C;$router.replace)</p>
+<h4 id="&#x4F7F;&#x7528;router-linkrouter-link&#x6807;&#x7B7E;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;"><a name="&#x4F7F;&#x7528;router-linkrouter-link&#x6807;&#x7B7E;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;router-linkrouter-link&#x6807;&#x7B7E;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4F7F;&#x7528;router-linkrouter-link&#x6807;&#x7B7E;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;" class="plugin-anchor" href="#&#x4F7F;&#x7528;router-linkrouter-link&#x6807;&#x7B7E;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528;<code>&lt;router-link&gt;&lt;/router-link&gt;</code>&#x6807;&#x7B7E;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;</h4>
+<p>&#x8BF4;&#x660E;:router-link&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5C01;&#x88C5;&#x7684;a&#x6807;&#x7B7E;</p>
+<ul>
+<li>&#x9759;&#x6001;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;</li>
+</ul>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#x5BFC;&#x822A; &#xFF1A;
+      <span class="hljs-comment">&lt;!-- router-link &#x8FC7;&#x4F20;&#x5165; `to` &#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x94FE;&#x63A5; --&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;/&quot;</span>&gt;</span>&#x9996;&#x9875;<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span> |
+      <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;/home&quot;</span>&gt;</span>Home&#x9875;&#x9762;<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span> |
+      <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;/home/recommend&quot;</span>&gt;</span>-recommend&#x754C;&#x9762;<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span> |
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</code></pre>
+<ul>
+<li>&#x52A8;&#x6001;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;&#x548C;&#x53C2;&#x6570;&#x4F20;&#x9012;</li>
+<li>&#x9996;&#x5148;&#x9700;&#x8981;&#x5728;<code>router.js</code>&#x4E2D;&#x914D;&#x7F6E;&#x52A8;&#x6001;&#x53C2;&#x6570;<pre><code class="lang-javascript"><span class="hljs-comment">// router.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Router({
+ <span class="hljs-comment">// &#x6784;&#x5EFA;&#x8DEF;&#x7531;&#x6570;&#x7EC4;</span>
+ routes: [ <span class="hljs-comment">// &#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x662F;routes, &#x800C;&#x4E0D;&#x662F;routers</span>
+   {
+     <span class="hljs-comment">// path: &apos;/recommendDetail/:id&apos;, // &#x52A8;&#x6001;&#x8DEF;&#x5F84;&#x53C2;&#x6570; &#x4EE5;&#x5192;&#x53F7;&#x5F00;&#x5934;</span>
+     path: <span class="hljs-string">&apos;/recommendDetail/:id?&apos;</span>, <span class="hljs-comment">// &#x5728;&#x53C2;&#x6570;&#x540E;&#x52A0;?&#xFF0C;&#x8868;&#x793A;&#x53C2;&#x6570;&#x53EF;&#x6709;&#x53EF;&#x65E0;&#x80FD;&#x5339;&#x914D;&#x7684;</span>
+     name: <span class="hljs-string">&apos;recommendDetail&apos;</span>,
+     component: RecommendDetail,
+   }
+ ]
+})
+</code></pre>
+</li>
+<li>&#x5728;<code>router-link</code>&#x914D;&#x7F6E;&#x8DF3;&#x8F6C;&#x53C2;&#x6570;</li>
+</ul>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#x5BFC;&#x822A; &#xFF1A;
+      <span class="hljs-comment">&lt;!-- router-link &#x8FC7;&#x4F20;&#x5165; `to` &#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x94FE;&#x63A5; --&gt;</span>
+      <span class="hljs-comment">&lt;!-- &#x547D;&#x540D;&#x8DEF;&#x7531; &#x5373;&#x4F7F;&#x7528;&#x8DEF;&#x7531;&#x540D;&#x79F0;&#x4F20;&#x53C2; --&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;{ name: &apos;recommendDetail&apos;, params: { id: &apos;11&apos;}}&quot;</span>&gt;</span>
+        -recommendDetail&#x754C;&#x9762;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span> |
+      <span class="hljs-comment">&lt;!-- &#x5F53;&#x53C2;&#x6570;&#x4E3A;`/:id?`&#x7684;&#x5F62;&#x5F0F;&#x65F6;&#xFF0C;id&#x4E3A;&#x7A7A;&#x4E5F;&#x53EF;&#x4EE5;&#x5339;&#x914D;&#x5230;&#x8BE5;&#x8DEF;&#x7531; --&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&quot;{ name: &apos;recommendDetail&apos;, params: { id: &apos;&apos;}}&quot;</span>&gt;</span>
+        -recommendDetail&#x754C;&#x9762;
+      <span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span> |
+      <span class="hljs-comment">&lt;!-- &#x4F7F;&#x7528;this.$route&#x53EF;&#x4EE5;&#x62FF;&#x5230;&#x8DEF;&#x7531;&#x6570;&#x636E;(&#x8DEF;&#x7531;&#x540D;&#x79F0;&#xFF0C;&#x53C2;&#x6570;&#xFF0C;meta&#x7B49;&#x6570;&#x636E;) &#x6CE8;&#x610F;&#x662F;`$route`&#x4E0D;&#x662F;`$router`--&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+</code></pre>
+<h4 id="&#x4F7F;&#x7528;&#x7F16;&#x7A0B;&#x5F0F;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;&#xFF0C;&#x5373;&#x4F7F;&#x7528;routerpush&#x6216;routerreplace"><a name="&#x4F7F;&#x7528;&#x7F16;&#x7A0B;&#x5F0F;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;&#xFF0C;&#x5373;&#x4F7F;&#x7528;routerpush&#x6216;routerreplace" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;&#x7F16;&#x7A0B;&#x5F0F;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;&#xFF0C;&#x5373;&#x4F7F;&#x7528;routerpush&#x6216;routerreplace"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4F7F;&#x7528;&#x7F16;&#x7A0B;&#x5F0F;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;&#xFF0C;&#x5373;&#x4F7F;&#x7528;routerpush&#x6216;routerreplace" class="plugin-anchor" href="#&#x4F7F;&#x7528;&#x7F16;&#x7A0B;&#x5F0F;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;&#xFF0C;&#x5373;&#x4F7F;&#x7528;routerpush&#x6216;routerreplace"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528;&#x7F16;&#x7A0B;&#x5F0F;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;&#xFF0C;&#x5373;&#x4F7F;&#x7528;<code>$router.push()&#x6216;$router.replace</code></h4>
+<ul>
+<li><p>&#x76F8;&#x5173;api</p>
+<ul>
+<li>$router.push(path): &#x76F8;&#x5F53;&#x4E8E;&#x70B9;&#x51FB;&#x8DEF;&#x7531;&#x94FE;&#x63A5;&#xFF08;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x5230;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x754C;&#x9762;&#xFF09;</li>
+<li>$router.replace(path): &#x7528;&#x65B0;&#x8DEF;&#x7531;&#x66FF;&#x6362;&#x5F53;&#x524D;&#x8DEF;&#x7531;(&#x4E0D;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x5230;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x754C;&#x9762;)</li>
+<li>$router.back(): &#x8BF7;&#x6C42;(&#x8FD4;&#x56DE;)&#x4E0A;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#x8DEF;&#x7531;, &#x4E5F;&#x5C31;&#x662F;&#x8DEF;&#x7531;&#x540E;&#x9000;&#x4E00;&#x6B65;</li>
+<li>$router.go(-1): &#x8BF7;&#x6C42;(&#x8FD4;&#x56DE;)&#x4E0A;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#x8DEF;&#x7531;, &#x4E5F;&#x5C31;&#x662F;&#x8DEF;&#x7531;&#x540E;&#x9000;&#x4E00;&#x6B65;</li>
+<li>$router.go(1): &#x8BF7;&#x6C42;&#x4E0B;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#x8DEF;&#x7531;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8DEF;&#x7531;&#x524D;&#x8FDB;&#x4E00;&#x6B65;  </li>
+</ul>
+</li>
+<li><p>&#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x4F7F;&#x7528;&#x5728;<code>router.js</code>&#x4E2D;&#x914D;&#x7F6E;&#x7684;&#x52A8;&#x6001;&#x53C2;&#x6570;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// router.js</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Router({
+ <span class="hljs-comment">// &#x6784;&#x5EFA;&#x8DEF;&#x7531;&#x6570;&#x7EC4;</span>
+ routes: [ <span class="hljs-comment">// &#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x662F;routes, &#x800C;&#x4E0D;&#x662F;routers</span>
+   {
+     <span class="hljs-comment">// path: &apos;/recommendDetail/:id&apos;, // &#x52A8;&#x6001;&#x8DEF;&#x5F84;&#x53C2;&#x6570; &#x4EE5;&#x5192;&#x53F7;&#x5F00;&#x5934;</span>
+     path: <span class="hljs-string">&apos;/recommendDetail/:id?&apos;</span>, <span class="hljs-comment">// &#x5728;&#x53C2;&#x6570;&#x540E;&#x52A0;?&#xFF0C;&#x8868;&#x793A;&#x53C2;&#x6570;&#x53EF;&#x6709;&#x53EF;&#x65E0;&#x80FD;&#x5339;&#x914D;&#x7684;</span>
+     <span class="hljs-comment">// path: &apos;/recommendDetail?id&apos;, // &#x5728;&#x53C2;&#x6570;&#x524D;&#x52A0;?, &#x76F8;&#x5F53;&#x4E8E;&apos;recommendDetail?id=11&apos;&#x7684;&#x5F62;&#x5F0F;&#x4F20;&#x53C2;</span>
+     name: <span class="hljs-string">&apos;recommendDetail&apos;</span>,
+     component: RecommendDetail,
+   }
+ ]
+})
+</code></pre>
+</li>
+<li>&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x65E0;&#x9700;&#x5728;&#x7EC4;&#x4EF6;&#x7ED3;&#x6784;&#x4E2D;&#x8C03;&#x7528;&#xFF0C;&#x800C;&#x662F;&#x5728;js&#x4E2D;&#x8C03;&#x7528;<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+methods: {
+ toRecommendDetail(id) {
+   <span class="hljs-keyword">this</span>.$router.push({
+     <span class="hljs-comment">// path: &apos;/recommendDetail&apos;, // &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8DEF;&#x5F84;&#x7684;&#x65B9;&#x5F0F;</span>
+     name: <span class="hljs-string">&apos;/recommendDetail&apos;</span>, <span class="hljs-comment">// &#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8DEF;&#x7531;&#x540D;&#x79F0;&#x7684;&#x65B9;&#x5F0F;</span>
+     <span class="hljs-comment">// query: { // query: &#x7528;&#x6765;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x5339;&#x914D;&apos;/recommendDetail?id&apos;&#x5F62;&#x5F0F;&#x7684;&#x8DEF;&#x7531;</span>
+     <span class="hljs-comment">//   id: &apos;11&apos;</span>
+     <span class="hljs-comment">// }</span>
+     params: { <span class="hljs-comment">// params: &#x7528;&#x6765;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x5339;&#x914D;&apos;/recommendDetail/:id?&apos;&#x5F62;&#x5F0F;&#x7684;&#x8DEF;&#x7531;</span>
+       id: <span class="hljs-string">&apos;11&apos;</span>
+     }
+   })
+ }
+}
+}
+</code></pre>
+</li>
+</ul>
+<h3 id="&#x8DEF;&#x7531;&#x91CD;&#x5B9A;&#x5411;"><a name="&#x8DEF;&#x7531;&#x91CD;&#x5B9A;&#x5411;" class="anchor-navigation-ex-anchor" href="#&#x8DEF;&#x7531;&#x91CD;&#x5B9A;&#x5411;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x8DEF;&#x7531;&#x91CD;&#x5B9A;&#x5411;" class="plugin-anchor" href="#&#x8DEF;&#x7531;&#x91CD;&#x5B9A;&#x5411;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8DEF;&#x7531;&#x91CD;&#x5B9A;&#x5411;</h3>
+<p>vue-router&#x4E5F;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x8DEF;&#x7531;&#x91CD;&#x5B9A;&#x5411;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// router.js</span>
+<span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> VueRouter({
+  routes: [
+    { path: <span class="hljs-string">&apos;/&apos;</span>, redirect: <span class="hljs-string">&apos;/home&apos;</span> }, <span class="hljs-comment">// redirect&#x5C5E;&#x6027;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x7684;&#x8DEF;&#x7531;</span>
+    { path: <span class="hljs-string">&apos;/&apos;</span>, redirect: { name: <span class="hljs-string">&apos;home&apos;</span> } }, <span class="hljs-comment">// &#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x547D;&#x540D;&#x8DEF;&#x7531;&#x91CD;&#x5B9A;&#x5411;</span>
+    { path: <span class="hljs-string">&apos;/home&apos;</span>, name: <span class="hljs-string">&apos;home&apos;</span>, component: Home}
+  ]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> router
+</code></pre>
+<p>&#x8DEF;&#x7531;&#x91CD;&#x5B9A;&#x5411;&#x540E;&#xFF0C;&#x8F93;&#x5165;&#x8DEF;&#x7531;&#x540E;&#x4F1A;&#x6307;&#x5411;&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x8DEF;&#x7531;, &#x5982;&#x4E0A;&#x4F8B;&#xFF1A;&#x8F93;&#x5165;&apos;/&apos;, &#x4F1A;&#x6253;&#x5F00;&apos;/home&apos;&#x7684;&#x8DEF;&#x7531;&#x9875;&#x9762; </p>
+<h3 id="&#x8DEF;&#x7531;&#x5B88;&#x536B;"><a name="&#x8DEF;&#x7531;&#x5B88;&#x536B;" class="anchor-navigation-ex-anchor" href="#&#x8DEF;&#x7531;&#x5B88;&#x536B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x8DEF;&#x7531;&#x5B88;&#x536B;" class="plugin-anchor" href="#&#x8DEF;&#x7531;&#x5B88;&#x536B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8DEF;&#x7531;&#x5B88;&#x536B;</h3>
+<h4 id="&#x4EC0;&#x4E48;&#x662F;&#x8DEF;&#x7531;&#x5B88;&#x536B;"><a name="&#x4EC0;&#x4E48;&#x662F;&#x8DEF;&#x7531;&#x5B88;&#x536B;" class="anchor-navigation-ex-anchor" href="#&#x4EC0;&#x4E48;&#x662F;&#x8DEF;&#x7531;&#x5B88;&#x536B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4EC0;&#x4E48;&#x662F;&#x8DEF;&#x7531;&#x5B88;&#x536B;" class="plugin-anchor" href="#&#x4EC0;&#x4E48;&#x662F;&#x8DEF;&#x7531;&#x5B88;&#x536B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EC0;&#x4E48;&#x662F;&#x8DEF;&#x7531;&#x5B88;&#x536B;</h4>
+<p>&#x901A;&#x8FC7;&#x8DEF;&#x7531;&#x5B88;&#x536B;&#x53EF;&#x4EE5;&#x5237;&#x65B0;&#x6216;&#x8FDB;&#x5165;&#x7684;&#x8DEF;&#x7531;&#x754C;&#x9762;&#x8FDB;&#x884C;&#x6743;&#x9650;&#x63A7;&#x5236;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;vue&#x5168;&#x5C40;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;</p>
+<h4 id="&#x5168;&#x5C40;&#x5B88;&#x536B;"><a name="&#x5168;&#x5C40;&#x5B88;&#x536B;" class="anchor-navigation-ex-anchor" href="#&#x5168;&#x5C40;&#x5B88;&#x536B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5168;&#x5C40;&#x5B88;&#x536B;" class="plugin-anchor" href="#&#x5168;&#x5C40;&#x5B88;&#x536B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5168;&#x5C40;&#x5B88;&#x536B;</h4>
+<p>&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x8FDB;&#x5165;&#x90FD;&#x53EF;&#x4EE5;&#x5148;&#x62E6;&#x622A;,&#x7136;&#x540E;&#x6839;&#x636E;&#x6DFB;&#x52A0;&#x8DF3;&#x8F6C;&#x4E0D;&#x540C;&#x7684;&#x8DEF;&#x7531;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// router.js</span>
+<span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> VueRouter({......})
+router.beforeEach((to, <span class="hljs-keyword">from</span>, next) =&gt; {
+  <span class="hljs-comment">/**
+   * &#x53C2;&#x6570;&#x89E3;&#x6790;
+   * to: &#x5373;&#x5C06;&#x8FDB;&#x5165;&#x7684;&#x8DEF;&#x7531;&#x5BF9;&#x8C61;
+   * from: &#x5373;&#x5C06;&#x79BB;&#x5F00;&#x7684;&#x8DEF;&#x7531;&#x5BF9;&#x8C61;
+   * next: next() &#x6267;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#x64CD;&#x4F5C;, &#x53EF;&#x4F20;&#x53C2;&#xFF0C;
+   *       + &#x4E0D;&#x4F20;&#x53C2;&#xFF0C;&#x76F4;&#x63A5;&#x6267;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#x64CD;&#x4F5C; next()
+   *       + &#x53C2;&#x6570;&#x4E3A;&#xFF1A;false, &#x7EC8;&#x6B62;&#x5BFC;&#x822A;&#xFF0C;&#x91CD;&#x5B9A;&#x5411;&#x5373;&#x5C06;&#x79BB;&#x5F00;&#x7684;&#x8DEF;&#x7531; next(false)
+   *       + &#x53C2;&#x6570;&#x4E3A;&#x8DEF;&#x7531;&#xFF1A;&#x8DF3;&#x8F6C;&#x6307;&#x5B9A;&#x8DEF;&#x7531;&#xFF0C;next(&apos;/&apos;)
+   *       + &#x53C2;&#x6570;&#x4E3A;`error`, &#x7EC8;&#x6B62;&#x5BFC;&#x822A;&#xFF0C;&#x5E76;&#x5C06;&#x9519;&#x8BEF;&#x629B;&#x7ED9;router.onError(),  next(error)
+  */</span>
+  <span class="hljs-keyword">let</span> isLogin = localStorage(<span class="hljs-string">&apos;isLogin&apos;</span>)
+  <span class="hljs-keyword">if</span> (to.path !== <span class="hljs-string">&apos;login&apos;</span>) { <span class="hljs-comment">// &#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x767B;&#x5F55;</span>
+    <span class="hljs-keyword">if</span> (isLogin) {
+      next()
+    } <span class="hljs-keyword">else</span> {
+      next(<span class="hljs-string">&apos;/login?redirect=&apos;</span>+ to.path)
+    }
+  } <span class="hljs-keyword">else</span> { <span class="hljs-comment">// &#x4E0D;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x7684;&#x8DEF;&#x7531;</span>
+    next()
+  }
+})
+</code></pre>
+<h4 id="&#x5C40;&#x90E8;&#x5B88;&#x536B;"><a name="&#x5C40;&#x90E8;&#x5B88;&#x536B;" class="anchor-navigation-ex-anchor" href="#&#x5C40;&#x90E8;&#x5B88;&#x536B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5C40;&#x90E8;&#x5B88;&#x536B;" class="plugin-anchor" href="#&#x5C40;&#x90E8;&#x5B88;&#x536B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5C40;&#x90E8;&#x5B88;&#x536B;</h4>
+<p>&#x53EA;&#x63A7;&#x5236;&#x67D0;&#x5355;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684;&#x8DEF;&#x7531;&#x5728;<code>routes</code>&#x6570;&#x7EC4;&#x91CC;&#x505A;&#x63A7;&#x5236;,&#x548C;&#x5168;&#x5C40;&#x4E00;&#x6837;&#x9700;&#x8981;<code>beforeEach</code></p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// router.js</span>
+<span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> VueRouter({
+  routes: [
+    {
+      path: <span class="hljs-string">&apos;/foo&apos;</span>,
+      component: Foo,
+      <span class="hljs-comment">// beforeEnter, &#x8DEF;&#x7531;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x5728;&#x8FDB;&#x5165;&#x8DEF;&#x7531;&#x4E4B;&#x524D;&#x8FDB;&#x884C;&#x62E6;&#x622A;&#xFF0C;&#x5E76;&#x8FDB;&#x884C;&#x7279;&#x5B9A;&#x64CD;&#x4F5C;</span>
+      beforeEnter: (to, <span class="hljs-keyword">from</span>, next) =&gt; { 
+        <span class="hljs-comment">//...</span>
+      }
+    }
+  ]
+})
+</code></pre>
+<h4 id="&#x8DEF;&#x7531;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"><a name="&#x8DEF;&#x7531;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;" class="anchor-navigation-ex-anchor" href="#&#x8DEF;&#x7531;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x8DEF;&#x7531;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;" class="plugin-anchor" href="#&#x8DEF;&#x7531;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8DEF;&#x7531;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</h4>
+<ul>
+<li>beforeRouteEnter: &#x8FDB;&#x5165;&#x4E4B;&#x524D;&#x8C03;&#x7528;</li>
+<li>beforeRouteUpdate: &#x8DEF;&#x7531;&#x53C2;&#x6570;&#x53D8;&#x5316;&#x65F6;</li>
+<li>beforeRouteLeave: &#x8DEF;&#x7531;&#x79BB;&#x5F00;&#x65F6; 
+&#x8FD9;&#x4E9B;&#x8DEF;&#x7531;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x53EF;&#x4EE5;&#x5728;&#x7EC4;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528;</li>
+</ul>
+<h3 id="&#x8DEF;&#x7531;&#x61D2;&#x52A0;&#x8F7D;"><a name="&#x8DEF;&#x7531;&#x61D2;&#x52A0;&#x8F7D;" class="anchor-navigation-ex-anchor" href="#&#x8DEF;&#x7531;&#x61D2;&#x52A0;&#x8F7D;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x8DEF;&#x7531;&#x61D2;&#x52A0;&#x8F7D;" class="plugin-anchor" href="#&#x8DEF;&#x7531;&#x61D2;&#x52A0;&#x8F7D;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8DEF;&#x7531;&#x61D2;&#x52A0;&#x8F7D;</h3>
+<p>&#x5373;&#x7528;&#x5373;&#x52A0;&#x8F7D;&#xFF0C;&#x7528;&#x4E8E;&#x63D0;&#x9AD8;&#x6027;&#x80FD;
+&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;&#x6539;&#x53D8;&#x5F15;&#x5165;&#x7EC4;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;, &#x8FDB;&#x5165;&#x8DEF;&#x7531;&#x65F6;&#x518D;&#x5F15;&#x5165;&#x7EC4;&#x4EF6;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// router.js</span>
+<span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> VueRouter({
+  routes: [
+    {
+      path: <span class="hljs-string">&apos;/foo&apos;</span>,
+      component: () =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./views/foo&apos;</span>)
+    }
+  ]
+})
+</code></pre>
+<h3 id="router&#x548C;route&#x7684;&#x533A;&#x522B;"><a name="router&#x548C;route&#x7684;&#x533A;&#x522B;" class="anchor-navigation-ex-anchor" href="#router&#x548C;route&#x7684;&#x533A;&#x522B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="router&#x548C;route&#x7684;&#x533A;&#x522B;" class="plugin-anchor" href="#router&#x548C;route&#x7684;&#x533A;&#x522B;"><i class="fa fa-link" aria-hidden="true"></i></a>$router&#x548C;$route&#x7684;&#x533A;&#x522B;</h3>
+<ul>
+<li>$router
+router&#x662F;VueRouter&#x7684;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x8FC7;Vue.use(VueRouter)&#x548C;VueRouter&#x6784;&#x9020;&#x51FD;&#x6570;&#x5F97;&#x5230;&#x4E00;&#x4E2A;router&#x7684;&#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;,&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4E2D;&#x662F;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4ED6;&#x5305;&#x542B;&#x4E86;&#x6240;&#x6709;&#x7684;&#x8DEF;&#x7531;&#x5305;&#x542B;&#x4E86;&#x8BB8;&#x591A;&#x5173;&#x952E;&#x7684;&#x5BF9;&#x8C61;&#x548C;&#x5C5E;&#x6027;</li>
+<li>$route
+route&#x662F;&#x4E00;&#x4E2A;&#x8DF3;&#x8F6C;&#x7684;&#x8DEF;&#x7531;&#x5BF9;&#x8C61;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x90FD;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;route&#x5BF9;&#x8C61;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x7684;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5BF9;&#x5E94;&#x7684;name,path,params,query&#x7B49;</li>
+</ul>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="mixin.html" class="navigation navigation-prev " aria-label="Previous page: mixin混入">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="vuex.html" class="navigation navigation-next " aria-label="Next page: vuex的使用总结">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"vue-router路由知识点总结","level":"1.8.9","depth":2,"next":{"title":"vuex的使用总结","level":"1.8.10","depth":2,"path":"vue/vuex.md","ref":"vue/vuex.md","articles":[]},"previous":{"title":"mixin混入","level":"1.8.8","depth":2,"path":"vue/mixin.md","ref":"vue/mixin.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","sharing-plus","anchor-navigation-ex","code","popup","pageview-count","favicon","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/johnqin6"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"johnqin6","repo":"glory","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"johnqin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"johnqin的一本书","language":"zh-hans","links":{"sidebar":{"我的博客":""}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"vue/vueRouter.md","mtime":"2019-09-18T00:55:14.317Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-18T02:31:25.600Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

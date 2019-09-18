@@ -1,0 +1,1146 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>vue过渡和动画 · johnqin的一本书</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="johnqin">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="mixin.html" />
+    
+    
+    <link rel="prev" href="filter.html" />
+    
+
+    
+    
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"johnqin6","repo":"glory","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="" target="_blank" class="custom-link">我的博客</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    首页
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../gitbook_info/introduce.html">
+            
+                <a href="../gitbook_info/introduce.html">
+            
+                    
+                    gitbook
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../gitbook_info/introduce.html">
+            
+                <a href="../gitbook_info/introduce.html">
+            
+                    
+                    gitbook的介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../gitbook_info/use.html">
+            
+                <a href="../gitbook_info/use.html">
+            
+                    
+                    gitbook的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../wechat/read.html">
+            
+                <a href="../wechat/read.html">
+            
+                    
+                    微信小程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../wechat/read.html">
+            
+                <a href="../wechat/read.html">
+            
+                    
+                    微信小程序的介绍与准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../wechat/summary.html">
+            
+                <a href="../wechat/summary.html">
+            
+                    
+                    微信小程序的目录结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../wechat/start.html">
+            
+                <a href="../wechat/start.html">
+            
+                    
+                    起始开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../wechat/app.html">
+            
+                <a href="../wechat/app.html">
+            
+                    
+                    全局页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../wechat/pages.html">
+            
+                <a href="../wechat/pages.html">
+            
+                    
+                    普通页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../wechat/lifecycleAndgrammar.html">
+            
+                <a href="../wechat/lifecycleAndgrammar.html">
+            
+                    
+                    生命周期和wxss样式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../wechat/not.html">
+            
+                <a href="../wechat/not.html">
+            
+                    
+                    微信小程序的注意事项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../wechat/event.html">
+            
+                <a href="../wechat/event.html">
+            
+                    
+                    事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../node/introduce.html">
+            
+                <a href="../node/introduce.html">
+            
+                    
+                    Node.js
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../node/introduce.html">
+            
+                <a href="../node/introduce.html">
+            
+                    
+                    Node.js介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../node/install.html">
+            
+                <a href="../node/install.html">
+            
+                    
+                    安装起步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../node/service.html">
+            
+                <a href="../node/service.html">
+            
+                    
+                    搭建Node服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../node/netConcept.html">
+            
+                <a href="../node/netConcept.html">
+            
+                    
+                    网络概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../node/modular.html">
+            
+                <a href="../node/modular.html">
+            
+                    
+                    模块系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../node/apache.html">
+            
+                <a href="../node/apache.html">
+            
+                    
+                    实现apache功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../node/feedback.html">
+            
+                <a href="../node/feedback.html">
+            
+                    
+                    留言本注意事项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../node/express.html">
+            
+                <a href="../node/express.html">
+            
+                    
+                    express
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../node/callback.html">
+            
+                <a href="../node/callback.html">
+            
+                    
+                    回调函数封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../node/mongodb.html">
+            
+                <a href="../node/mongodb.html">
+            
+                    
+                    node中mongodb使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../mongodb/">
+            
+                <a href="../mongodb/">
+            
+                    
+                    mongoDB
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../mongodb/">
+            
+                <a href="../mongodb/">
+            
+                    
+                    mongoDB简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../mongodb/idea.html">
+            
+                <a href="../mongodb/idea.html">
+            
+                    
+                    mongoDB概念解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../mongodb/dataBase.html">
+            
+                <a href="../mongodb/dataBase.html">
+            
+                    
+                    mongoDB数据库的连接和操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../mongodb/collection.html">
+            
+                <a href="../mongodb/collection.html">
+            
+                    
+                    集合的创建和删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../mongodb/document.html">
+            
+                <a href="../mongodb/document.html">
+            
+                    
+                    文档的操作(插入，更新，删除)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../mongodb/query.html">
+            
+                <a href="../mongodb/query.html">
+            
+                    
+                    文档操作(查询)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../mongodb/type.html">
+            
+                <a href="../mongodb/type.html">
+            
+                    
+                    type操作符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../mongodb/limitAndSkip.html">
+            
+                <a href="../mongodb/limitAndSkip.html">
+            
+                    
+                    limit,skip,sort方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../mongodb/indexes.html">
+            
+                <a href="../mongodb/indexes.html">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../mongodb/aggregate.html">
+            
+                <a href="../mongodb/aggregate.html">
+            
+                    
+                    聚合管道(aggregate-阶段操作符)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../mongodb/aggregate1.html">
+            
+                <a href="../mongodb/aggregate1.html">
+            
+                    
+                    聚合管道(aggregate-表达式)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../mongodb/aggregate2.html">
+            
+                <a href="../mongodb/aggregate2.html">
+            
+                    
+                    聚合管道(aggregate-累加器)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../mongodb/mongoose.html">
+            
+                <a href="../mongodb/mongoose.html">
+            
+                    
+                    mongoose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../mongodb/mongoose.html">
+            
+                <a href="../mongodb/mongoose.html">
+            
+                    
+                    mongoose的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../mongodb/mongoose1.html">
+            
+                <a href="../mongodb/mongoose1.html">
+            
+                    
+                    mongoose的使用（文档的操作）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../mongodb/mongoose2.html">
+            
+                <a href="../mongodb/mongoose2.html">
+            
+                    
+                    mongoose进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../mongodb/mongoose3.html">
+            
+                <a href="../mongodb/mongoose3.html">
+            
+                    
+                    mongoose高级(聚合管道)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../codeStyle/">
+            
+                <a href="../codeStyle/">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../codeStyle/standarjs.html">
+            
+                <a href="../codeStyle/standarjs.html">
+            
+                    
+                    standarjs代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    vue的学习总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    vue的知识点总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="vueCli.html">
+            
+                <a href="vueCli.html">
+            
+                    
+                    vue-cli3搭建vue开发环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="component.html">
+            
+                <a href="component.html">
+            
+                    
+                    vue组件开发与注册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="component2.html">
+            
+                <a href="component2.html">
+            
+                    
+                    vue组件通信详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="directive.html">
+            
+                <a href="directive.html">
+            
+                    
+                    自定义指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="filter.html">
+            
+                <a href="filter.html">
+            
+                    
+                    自定义过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.7" data-path="animate.html">
+            
+                <a href="animate.html">
+            
+                    
+                    vue过渡和动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="mixin.html">
+            
+                <a href="mixin.html">
+            
+                    
+                    mixin混入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="vueRouter.html">
+            
+                <a href="vueRouter.html">
+            
+                    
+                    vue-router路由知识点总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="vuex.html">
+            
+                <a href="vuex.html">
+            
+                    
+                    vuex的使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="axios.html">
+            
+                <a href="axios.html">
+            
+                    
+                    axios请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="vueAxios.html">
+            
+                <a href="vueAxios.html">
+            
+                    
+                    vue项目中对axios的封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >vue过渡和动画</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#vue-&#x52A8;&#x753B;-&#x8FC7;&#x6E21;"><b></b>vue &#x52A8;&#x753B; &#x8FC7;&#x6E21;</a></li><ul><li><span class="title-icon "></span><a href="#&#x8FC7;&#x6E21;"><b></b>&#x8FC7;&#x6E21;</a></li><li><span class="title-icon "></span><a href="#&#x52A8;&#x753B;"><b></b>&#x52A8;&#x753B;</a></li></ul></ul></div><a href="#vue-&#x52A8;&#x753B;-&#x8FC7;&#x6E21;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="vue-&#x52A8;&#x753B;-&#x8FC7;&#x6E21;"><a name="vue-&#x52A8;&#x753B;-&#x8FC7;&#x6E21;" class="anchor-navigation-ex-anchor" href="#vue-&#x52A8;&#x753B;-&#x8FC7;&#x6E21;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="vue-&#x52A8;&#x753B;-&#x8FC7;&#x6E21;" class="plugin-anchor" href="#vue-&#x52A8;&#x753B;-&#x8FC7;&#x6E21;"><i class="fa fa-link" aria-hidden="true"></i></a>vue &#x52A8;&#x753B; &#x8FC7;&#x6E21;</h1>
+<p>vue &#x5728;&#x63D2;&#x5165;&#xFF0C;&#x66F4;&#x65B0;&#x6216;&#x79FB;&#x9664;DOM&#x65F6;&#xFF0C;&#x63D0;&#x4F9B;&#x591A;&#x79CD;&#x4E0D;&#x540C;&#x65B9;&#x5F0F;&#x7684;&#x5E94;&#x7528;&#x8FC7;&#x6E21;&#x6548;&#x679C;.<br>&#x5728;&#x9875;&#x9762;&#x5B9E;&#x73B0;&#x8FC7;&#x6E21;&#x6548;&#x679C;&#x7684;&#x6700;&#x7B80;&#x5355;&#x65B9;&#x6CD5;&#x662F;&#x901A;&#x8FC7;VUE&#x7684;<code>&lt;transition&gt;</code>&#x7EC4;&#x4EF6;&#xFF0C;&#x8BE5;&#x7EC4;&#x4EF6;&#x662F;vue&#x5168;&#x5C40;&#x7EC4;&#x4EF6;&#xFF0C;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;<br>vue&#x8FC7;&#x6E21;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x662F;&#x63D2;&#x5165;&#xFF0C;&#x66F4;&#x65B0;&#x6216;&#x8005;&#x79FB;&#x9664;DOM&#x65F6;&#x6DFB;&#x52A0;&#x548C;&#x5220;&#x9664;&#x5143;&#x7D20;&#x4E0A;&#x7684;&#x7C7B;&#x3002;<br>&#x5904;&#x7406;&#x8FC7;&#x6E21;&#x65F6;&#x6709;&#x516D;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x7C7B;&#x524D;&#x7F00;&#xFF1A;</p>
+<ul>
+<li>-enter: &#x5B9A;&#x4E49;&#x8FDB;&#x5165;&#x8FC7;&#x6E21;&#x7684;&#x5F00;&#x59CB;&#x72B6;&#x6001;</li>
+<li>-leave: &#x5B9A;&#x4E49;&#x79BB;&#x5F00;&#x8FC7;&#x6E21;&#x7684;&#x5F00;&#x59CB;&#x72B6;&#x6001;</li>
+<li>-enter-active: &#x5B9A;&#x4E49;&#x8FDB;&#x5165;&#x8FC7;&#x6E21;&#x751F;&#x6548;&#x65F6;&#x7684;&#x72B6;&#x6001;</li>
+<li>-leavar-active: &#x5B9A;&#x4E49;&#x79BB;&#x5F00;&#x8FC7;&#x6E21;&#x751F;&#x6548;&#x65F6;&#x7684;&#x72B6;&#x6001;</li>
+<li>-enter-to: &#x5B9A;&#x4E49;&#x8FDB;&#x5165;&#x8FC7;&#x6E21;&#x751F;&#x6548;&#x65F6;&#x7684;&#x72B6;&#x6001;</li>
+<li>-leave-to&#xFF1A;&#x5B9A;&#x4E49;&#x79BB;&#x5F00;&#x8FC7;&#x6E21;&#x751F;&#x6548;&#x65F6;&#x7684;&#x72B6;&#x6001;</li>
+</ul>
+<h2 id="&#x8FC7;&#x6E21;"><a name="&#x8FC7;&#x6E21;" class="anchor-navigation-ex-anchor" href="#&#x8FC7;&#x6E21;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x8FC7;&#x6E21;" class="plugin-anchor" href="#&#x8FC7;&#x6E21;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FC7;&#x6E21;</h2>
+<p>&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;example-1&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;show = !show&quot;</span>&gt;</span>
+    Toggle render
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">transition</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;slide-fade&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;show&quot;</span>&gt;</span>hello<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript"><span class="hljs-keyword">new</span> Vue({
+  el: <span class="hljs-string">&apos;#example-1&apos;</span>,
+  data: {
+    show: <span class="hljs-literal">true</span>
+  }
+})
+</code></pre>
+<pre><code class="lang-css"><span class="hljs-comment">/* &#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x8FDB;&#x5165;&#x548C;&#x79BB;&#x5F00;&#x52A8;&#x753B; */</span>
+<span class="hljs-comment">/* &#x8BBE;&#x7F6E;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x548C;&#x52A8;&#x753B;&#x51FD;&#x6570; */</span>
+<span class="hljs-selector-class">.slide-fade-enter-active</span> {
+  <span class="hljs-attribute">transition</span>: all .<span class="hljs-number">3s</span> ease;
+}
+<span class="hljs-selector-class">.slide-fade-leave-active</span> {
+  <span class="hljs-attribute">transition</span>: all .<span class="hljs-number">8s</span> <span class="hljs-built_in">cubic-bezier</span>(1.0, 0.5, 0.8, 1.0);
+}
+<span class="hljs-selector-class">.slide-fade-enter</span>, <span class="hljs-selector-class">.slide-fade-leave-to</span>
+<span class="hljs-comment">/* .slide-fade-leave-active for below version 2.1.8 */</span> {
+  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateX</span>(10px);
+  <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="&#x52A8;&#x753B;"><a name="&#x52A8;&#x753B;" class="anchor-navigation-ex-anchor" href="#&#x52A8;&#x753B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x52A8;&#x753B;" class="plugin-anchor" href="#&#x52A8;&#x753B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x52A8;&#x753B;</h2>
+<p>css&#x52A8;&#x753B;&#x7528;&#x6CD5;&#x540C;css&#x8FC7;&#x6E21;&#x76F8;&#x540C;&#xFF0C;&#x533A;&#x522B;&#x662F;&#x5728;&#x52A8;&#x753B;&#x4E2D;<code>v-enter</code>&#x7C7B;&#x540D;&#x5728;&#x8282;&#x70B9;&#x63D2;&#x5165;DOM&#x540E;&#x4E0D;&#x4F1A;&#x7ACB;&#x5373;&#x5220;&#x9664;&#xFF0C;&#x800C;&#x662F;&#x5728;
+<code>animationend</code>&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x65F6;&#x5220;&#x9664;<br>&#x793A;&#x4F8B;&#xFF1A;  </p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;example-2&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;show = !show&quot;</span>&gt;</span>Toggle show<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">transition</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;bounce&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;show&quot;</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-javascript"><span class="hljs-keyword">new</span> Vue({
+  el: <span class="hljs-string">&apos;#example-2&apos;</span>,
+  data: {
+    show: <span class="hljs-literal">true</span>
+  }
+})
+</code></pre>
+<pre><code class="lang-css"><span class="hljs-selector-class">.bounce-enter-active</span> {
+  <span class="hljs-attribute">animation</span>: bounce-in .<span class="hljs-number">5s</span>;
+}
+<span class="hljs-selector-class">.bounce-leave-active</span> {
+  <span class="hljs-attribute">animation</span>: bounce-in .<span class="hljs-number">5s</span> reverse;
+}
+@<span class="hljs-keyword">keyframes</span> bounce-in {
+  0% {
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(0);
+  }
+  50% {
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(1.5);
+  }
+  100% {
+    <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(1);
+  }
+}
+</code></pre>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="filter.html" class="navigation navigation-prev " aria-label="Previous page: 自定义过滤器">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="mixin.html" class="navigation navigation-next " aria-label="Next page: mixin混入">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"vue过渡和动画","level":"1.8.7","depth":2,"next":{"title":"mixin混入","level":"1.8.8","depth":2,"path":"vue/mixin.md","ref":"vue/mixin.md","articles":[]},"previous":{"title":"自定义过滤器","level":"1.8.6","depth":2,"path":"vue/filter.md","ref":"vue/filter.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","sharing-plus","anchor-navigation-ex","code","popup","pageview-count","favicon","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/johnqin6"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"johnqin6","repo":"glory","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"johnqin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"johnqin的一本书","language":"zh-hans","links":{"sidebar":{"我的博客":""}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"vue/animate.md","mtime":"2019-09-18T02:37:23.070Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-18T02:31:25.600Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

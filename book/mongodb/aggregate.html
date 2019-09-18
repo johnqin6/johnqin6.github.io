@@ -1,0 +1,1509 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>聚合管道(aggregate-阶段操作符) · johnqin的一本书</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="johnqin">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="aggregate1.html" />
+    
+    
+    <link rel="prev" href="indexes.html" />
+    
+
+    
+    
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"johnqin6","repo":"glory","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="" target="_blank" class="custom-link">我的博客</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    首页
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../gitbook_info/introduce.html">
+            
+                <a href="../gitbook_info/introduce.html">
+            
+                    
+                    gitbook
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../gitbook_info/introduce.html">
+            
+                <a href="../gitbook_info/introduce.html">
+            
+                    
+                    gitbook的介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../gitbook_info/use.html">
+            
+                <a href="../gitbook_info/use.html">
+            
+                    
+                    gitbook的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../wechat/read.html">
+            
+                <a href="../wechat/read.html">
+            
+                    
+                    微信小程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../wechat/read.html">
+            
+                <a href="../wechat/read.html">
+            
+                    
+                    微信小程序的介绍与准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../wechat/summary.html">
+            
+                <a href="../wechat/summary.html">
+            
+                    
+                    微信小程序的目录结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../wechat/start.html">
+            
+                <a href="../wechat/start.html">
+            
+                    
+                    起始开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../wechat/app.html">
+            
+                <a href="../wechat/app.html">
+            
+                    
+                    全局页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../wechat/pages.html">
+            
+                <a href="../wechat/pages.html">
+            
+                    
+                    普通页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../wechat/lifecycleAndgrammar.html">
+            
+                <a href="../wechat/lifecycleAndgrammar.html">
+            
+                    
+                    生命周期和wxss样式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../wechat/not.html">
+            
+                <a href="../wechat/not.html">
+            
+                    
+                    微信小程序的注意事项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../wechat/event.html">
+            
+                <a href="../wechat/event.html">
+            
+                    
+                    事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../node/introduce.html">
+            
+                <a href="../node/introduce.html">
+            
+                    
+                    Node.js
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../node/introduce.html">
+            
+                <a href="../node/introduce.html">
+            
+                    
+                    Node.js介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../node/install.html">
+            
+                <a href="../node/install.html">
+            
+                    
+                    安装起步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../node/service.html">
+            
+                <a href="../node/service.html">
+            
+                    
+                    搭建Node服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../node/netConcept.html">
+            
+                <a href="../node/netConcept.html">
+            
+                    
+                    网络概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../node/modular.html">
+            
+                <a href="../node/modular.html">
+            
+                    
+                    模块系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../node/apache.html">
+            
+                <a href="../node/apache.html">
+            
+                    
+                    实现apache功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../node/feedback.html">
+            
+                <a href="../node/feedback.html">
+            
+                    
+                    留言本注意事项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../node/express.html">
+            
+                <a href="../node/express.html">
+            
+                    
+                    express
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../node/callback.html">
+            
+                <a href="../node/callback.html">
+            
+                    
+                    回调函数封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../node/mongodb.html">
+            
+                <a href="../node/mongodb.html">
+            
+                    
+                    node中mongodb使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    mongoDB
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    mongoDB简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="idea.html">
+            
+                <a href="idea.html">
+            
+                    
+                    mongoDB概念解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="dataBase.html">
+            
+                <a href="dataBase.html">
+            
+                    
+                    mongoDB数据库的连接和操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="collection.html">
+            
+                <a href="collection.html">
+            
+                    
+                    集合的创建和删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="document.html">
+            
+                <a href="document.html">
+            
+                    
+                    文档的操作(插入，更新，删除)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="query.html">
+            
+                <a href="query.html">
+            
+                    
+                    文档操作(查询)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="type.html">
+            
+                <a href="type.html">
+            
+                    
+                    type操作符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="limitAndSkip.html">
+            
+                <a href="limitAndSkip.html">
+            
+                    
+                    limit,skip,sort方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="indexes.html">
+            
+                <a href="indexes.html">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.10" data-path="aggregate.html">
+            
+                <a href="aggregate.html">
+            
+                    
+                    聚合管道(aggregate-阶段操作符)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="aggregate1.html">
+            
+                <a href="aggregate1.html">
+            
+                    
+                    聚合管道(aggregate-表达式)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="aggregate2.html">
+            
+                <a href="aggregate2.html">
+            
+                    
+                    聚合管道(aggregate-累加器)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="mongoose.html">
+            
+                <a href="mongoose.html">
+            
+                    
+                    mongoose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="mongoose.html">
+            
+                <a href="mongoose.html">
+            
+                    
+                    mongoose的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="mongoose1.html">
+            
+                <a href="mongoose1.html">
+            
+                    
+                    mongoose的使用（文档的操作）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="mongoose2.html">
+            
+                <a href="mongoose2.html">
+            
+                    
+                    mongoose进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="mongoose3.html">
+            
+                <a href="mongoose3.html">
+            
+                    
+                    mongoose高级(聚合管道)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../codeStyle/">
+            
+                <a href="../codeStyle/">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../codeStyle/standarjs.html">
+            
+                <a href="../codeStyle/standarjs.html">
+            
+                    
+                    standarjs代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../vue/">
+            
+                <a href="../vue/">
+            
+                    
+                    vue的学习总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../vue/">
+            
+                <a href="../vue/">
+            
+                    
+                    vue的知识点总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../vue/vueCli.html">
+            
+                <a href="../vue/vueCli.html">
+            
+                    
+                    vue-cli3搭建vue开发环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../vue/component.html">
+            
+                <a href="../vue/component.html">
+            
+                    
+                    vue组件开发与注册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../vue/component2.html">
+            
+                <a href="../vue/component2.html">
+            
+                    
+                    vue组件通信详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../vue/directive.html">
+            
+                <a href="../vue/directive.html">
+            
+                    
+                    自定义指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../vue/filter.html">
+            
+                <a href="../vue/filter.html">
+            
+                    
+                    自定义过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../vue/animate.html">
+            
+                <a href="../vue/animate.html">
+            
+                    
+                    vue过渡和动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../vue/mixin.html">
+            
+                <a href="../vue/mixin.html">
+            
+                    
+                    mixin混入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="../vue/vueRouter.html">
+            
+                <a href="../vue/vueRouter.html">
+            
+                    
+                    vue-router路由知识点总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="../vue/vuex.html">
+            
+                <a href="../vue/vuex.html">
+            
+                    
+                    vuex的使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="../vue/axios.html">
+            
+                <a href="../vue/axios.html">
+            
+                    
+                    axios请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="../vue/vueAxios.html">
+            
+                <a href="../vue/vueAxios.html">
+            
+                    
+                    vue项目中对axios的封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >聚合管道(aggregate-阶段操作符)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x805A;&#x5408;&#x7BA1;&#x9053;&#xFF08;aggregate&#xFF09;"><b></b>&#x805A;&#x5408;&#x7BA1;&#x9053;&#xFF08;aggregate&#xFF09;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4EC0;&#x4E48;&#x662F;&#x805A;&#x5408;&#x7BA1;&#x9053;aggregation-pipeline"><b></b>&#x4EC0;&#x4E48;&#x662F;&#x805A;&#x5408;&#x7BA1;&#x9053;(aggregation pipeline)</a></li><li><span class="title-icon "></span><a href="#&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x4ECB;&#x7ECD;"><b></b>&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x4ECB;&#x7ECD;</a></li><li><span class="title-icon "></span><a href="#&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x5206;&#x7C7B;"><b></b>&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x5206;&#x7C7B;</a></li><li><span class="title-icon "></span><a href="#&#x5E38;&#x7528;&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;"><b></b>&#x5E38;&#x7528;&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;</a></li><ul><li><span class="title-icon "></span><a href="#&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;&#x8BE6;&#x89E3;"><b></b>&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;&#x8BE6;&#x89E3;</a></li></ul></ul></ul></div><a href="#&#x805A;&#x5408;&#x7BA1;&#x9053;&#xFF08;aggregate&#xFF09;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x805A;&#x5408;&#x7BA1;&#x9053;&#xFF08;aggregate&#xFF09;"><a name="&#x805A;&#x5408;&#x7BA1;&#x9053;&#xFF08;aggregate&#xFF09;" class="anchor-navigation-ex-anchor" href="#&#x805A;&#x5408;&#x7BA1;&#x9053;&#xFF08;aggregate&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x805A;&#x5408;&#x7BA1;&#x9053;&#xFF08;aggregate&#xFF09;" class="plugin-anchor" href="#&#x805A;&#x5408;&#x7BA1;&#x9053;&#xFF08;aggregate&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x805A;&#x5408;&#x7BA1;&#x9053;&#xFF08;aggregate&#xFF09;</h1>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;&#x805A;&#x5408;&#x7BA1;&#x9053;aggregation-pipeline"><a name="&#x4EC0;&#x4E48;&#x662F;&#x805A;&#x5408;&#x7BA1;&#x9053;aggregation-pipeline" class="anchor-navigation-ex-anchor" href="#&#x4EC0;&#x4E48;&#x662F;&#x805A;&#x5408;&#x7BA1;&#x9053;aggregation-pipeline"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4EC0;&#x4E48;&#x662F;&#x805A;&#x5408;&#x7BA1;&#x9053;aggregation-pipeline" class="plugin-anchor" href="#&#x4EC0;&#x4E48;&#x662F;&#x805A;&#x5408;&#x7BA1;&#x9053;aggregation-pipeline"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EC0;&#x4E48;&#x662F;&#x805A;&#x5408;&#x7BA1;&#x9053;(aggregation pipeline)</h2>
+<p>&#x82F1;&#x6587;&#x6587;&#x6863;&#x4E2D;&#x662F;aggregation pipeline&#xFF0C;&#x76F4;&#x8BD1;&#x4E3A;&#x805A;&#x5408;&#x7BA1;&#x9053;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5BF9;&#x6570;&#x636E;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x53D8;&#x6362;&#x548C;&#x7EC4;&#x5408;&#x3002;&#x805A;&#x5408;&#x7BA1;&#x9053;&#x662F;&#x57FA;&#x4E8E;&#x6570;&#x636E;&#x6D41;&#x6982;&#x5FF5;&#xFF0C;&#x6570;&#x636E;&#x8FDB;&#x5165;&#x7BA1;&#x9053;&#x7ECF;&#x8FC7;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;stage&#xFF0C;&#x6BCF;&#x4E2A;stage&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF08;&#x7B5B;&#x9009;&#xFF0C;&#x6295;&#x5C04;&#xFF0C;&#x5206;&#x7EC4;&#xFF0C;&#x6392;&#x5E8F;&#xFF0C;&#x9650;&#x5236;&#x6216;&#x8DF3;&#x8FC7;&#xFF09;&#x540E;&#x8F93;&#x51FA;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#x3002;</p>
+<h2 id="&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x4ECB;&#x7ECD;"><a name="&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x4ECB;&#x7ECD;" class="plugin-anchor" href="#&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x4ECB;&#x7ECD;</h2>
+<p>mongoDB&#x6709;4&#x7C7B;&#x64CD;&#x4F5C;&#x7B26;&#x7528;&#x4E8E;&#x6587;&#x6863;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4F8B;&#x5982;find&#x67E5;&#x8BE2;&#x91CC;&#x9762;&#x4F1A;&#x7528;&#x5230;&#x7684;gte&#xFF0C;in&#x7B49;&#x3002;&#x64CD;&#x4F5C;&#x7B26;&#x4EE5;$&#x5F00;&#x5934;&#xFF0C;&#x5206;&#x4E3A;&#x67E5;&#x8BE2;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x67E5;&#x8BE2;&#x4FEE;&#x9970;&#x7B26;4&#x5927;&#x7C7B;&#x3002;&#x5176;&#x4E2D;&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x662F;&#x7528;&#x4E8E;&#x805A;&#x5408;&#x7BA1;&#x9053;&#x4E2D;&#x7684;&#x64CD;&#x4F5C;&#x7B26;&#x3002;</p>
+<h2 id="&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x5206;&#x7C7B;"><a name="&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x5206;&#x7C7B;" class="anchor-navigation-ex-anchor" href="#&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x5206;&#x7C7B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x5206;&#x7C7B;" class="plugin-anchor" href="#&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x5206;&#x7C7B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7B26;&#x7684;&#x5206;&#x7C7B;</h2>
+<ol>
+<li>&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;stage operators&#xFF09;</li>
+<li>&#x8868;&#x8FBE;&#x5F0F;&#x64CD;&#x4F5C;&#x7B26;(expression operators)  </li>
+<li>&#x7D2F;&#x52A0;&#x5668;&#xFF08;accumulators&#xFF09;  </li>
+</ol>
+<p><a href="https://docs.mongodb.com/manual/reference/operator/aggregation/#accumulators" target="_blank">mongodb&#x5B98;&#x7F51;&#x6587;&#x6863;</a></p>
+<ul>
+<li>&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;(stage Operators)<br>&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;&#x662F;&#x4F7F;&#x7528;&#x4E8E;db.collection.aggregate&#x65B9;&#x6CD5;&#x91CC;&#x9762;&#xFF0C;&#x6570;&#x7EC4;&#x53C2;&#x6570;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x5C42;   </li>
+</ul>
+<blockquote>
+<p>db.collection.aggregate([{&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;&#xFF1A;&#x8868;&#x8FF0;},{&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;&#xFF1A;&#x8868;&#x8FF0;}])    </p>
+</blockquote>
+<ul>
+<li>&#x8868;&#x8FBE;&#x5F0F;&#x64CD;&#x4F5C;&#x7B26;&#xFF08;Expression Operators&#xFF09;<br>&#x8868;&#x8FBE;&#x5F0F;&#x64CD;&#x4F5C;&#x7B26;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x5728;&#x7BA1;&#x9053;&#x4E2D;&#x6784;&#x5EFA;&#x8868;&#x8FBE;&#x5F0F;&#x65F6;&#x4F7F;&#x7528;&#xFF0C;&#x4F7F;&#x7528;&#x7C7B;&#x4F3C;&#x4E8E;&#x51FD;&#x6570;&#x90A3;&#x6837;&#x9700;&#x8981;&#x53C2;&#x6570;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x4E8E;$project&#x64CD;&#x4F5C;&#x7B26;&#x4E2D;&#xFF0C;&#x7528;&#x4E8E;&#x6784;&#x5EFA;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;
+&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x4E00;&#x822C;&#x5982;&#x4E0B;<br>&#x65B9;&#x6CD5;1&#xFF1A;     <blockquote>
+<p>{ <code>operator: [ argument1, argument2]</code> } </p>
+</blockquote>
+</li>
+</ul>
+<p>&#x65B9;&#x6CD5;2&#xFF1A;       </p>
+<blockquote>
+<p>{ <code>operator: argument</code> }      </p>
+</blockquote>
+<ul>
+<li>&#x7D2F;&#x52A0;&#x5668; &#xFF08;Accumulators&#xFF09;</li>
+</ul>
+<p>&#x7D2F;&#x52A0;&#x5668;&#x672C;&#x6765;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x4E0E;groud&#x4E0B;&#xFF0C;&#x4F46;&#x662F;&#x7248;&#x672C;3.2&#x6216;&#x4EE5;&#x4E0A;&#xFF0C;&#x90E8;&#x5206;&#x7D2F;&#x52A0;&#x5668;&#x8FD8;&#x80FD;&#x4F7F;&#x7528;&#x4E8E;project&#x3002;&#x5F53;&#x5728;group&#x4E2D;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x7D2F;&#x52A0;&#x5668;&#x662F;&#x9488;&#x5BF9;&#x6BCF;&#x4E2A;&#x5206;&#x7EC4;&#x4F7F;&#x7528;&#x7684;&#xFF1B;&#x5F53;&#x5728;project&#x4E2D;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x7D2F;&#x52A0;&#x5668;&#x5219;&#x662F;&#x9488;&#x5BF9;&#x6BCF;&#x4E2A;&#x5B57;&#x9762;&#x91CF;&#x8D77;&#x4F5C;&#x7528;   </p>
+<h2 id="&#x5E38;&#x7528;&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;"><a name="&#x5E38;&#x7528;&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;" class="anchor-navigation-ex-anchor" href="#&#x5E38;&#x7528;&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5E38;&#x7528;&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;" class="plugin-anchor" href="#&#x5E38;&#x7528;&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E38;&#x7528;&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;</h2>
+<table>
+<thead>
+<tr>
+<th>&#x64CD;&#x4F5C;&#x7B26;</th>
+<th>&#x7B80;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$project</td>
+<td>&#x6295;&#x5C04;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x7528;&#x4E8E;&#x91CD;&#x6784;&#x6BCF;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x53EF;&#x4EE5;&#x63D0;&#x53D6;&#x5B57;&#x6BB5;&#xFF0C;&#x91CD;&#x547D;&#x540D;&#x5B57;&#x6BB5;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x5BF9;&#x539F;&#x6709;&#x5B57;&#x6BB5;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x540E;&#x65B0;&#x589E;&#x5B57;&#x6BB5;</td>
+</tr>
+<tr>
+<td>$match</td>
+<td>&#x5339;&#x914D;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x7528;&#x4E8E;&#x5BF9;&#x6587;&#x6863;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x7B5B;&#x9009;</td>
+</tr>
+<tr>
+<td>$group</td>
+<td>&#x5206;&#x7EC4;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x7528;&#x4E8E;&#x5BF9;&#x6587;&#x6863;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x5206;&#x7EC4;</td>
+</tr>
+<tr>
+<td>$unwind</td>
+<td>&#x62C6;&#x5206;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x7528;&#x4E8E;&#x5C06;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x503C;&#x62C6;&#x5206;&#x4E3A;&#x5355;&#x72EC;&#x7684;&#x6587;&#x6863;</td>
+</tr>
+<tr>
+<td>$sort</td>
+<td>&#x6392;&#x5E8F;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C; &#x7528;&#x4E8E;&#x6839;&#x636E;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5B57;&#x6BB5;&#x5BF9;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x6392;&#x5E8F;</td>
+</tr>
+<tr>
+<td>$limit</td>
+<td>&#x9650;&#x5236;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C; &#x7528;&#x4E8E;&#x9650;&#x5236;&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x7684;&#x6570;&#x91CF;</td>
+</tr>
+<tr>
+<td>$skip</td>
+<td>&#x8DF3;&#x8FC7;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x7528;&#x4E8E;&#x8DF3;&#x8FC7;&#x6307;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x6587;&#x6863;</td>
+</tr>
+<tr>
+<td>$lookup</td>
+<td>&#x8FDE;&#x63A5;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x7528;&#x4E8E;&#x8FDE;&#x63A5;&#x540C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x53E6;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#xFF0C;&#x5E76;&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7684;&#x6587;&#x6863;&#xFF0C;&#x7C7B;&#x4F3C;populate</td>
+</tr>
+<tr>
+<td>$count</td>
+<td>&#x7EDF;&#x8BA1;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x7528;&#x4E8E;&#x7EDF;&#x8BA1;&#x6587;&#x6863;&#x7684;&#x6570;&#x91CF;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;&#x8BE6;&#x89E3;"><a name="&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;&#x8BE6;&#x89E3;" class="anchor-navigation-ex-anchor" href="#&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;&#x8BE6;&#x89E3;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;&#x8BE6;&#x89E3;" class="plugin-anchor" href="#&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;&#x8BE6;&#x89E3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9636;&#x6BB5;&#x64CD;&#x4F5C;&#x7B26;&#x8BE6;&#x89E3;</h3>
+<p>&#x5047;&#x8BBE;&#x6709;&#x4E00;&#x4E2A;&#x4FDD;&#x5B58;&#x7528;&#x6237;&#x7684;&#x96C6;&#x5408;Users&#xFF0C;&#x4E00;&#x4E2A;&#x6587;&#x7AE0;&#x7684;&#x96C6;&#x5408;Articles&#xFF0C;&#x6570;&#x636E;&#x5927;&#x81F4;&#x5982;&#x4E0B;&#xFF1A;<br>users:     </p>
+<pre><code class="lang-javascript">[
+    { name: <span class="hljs-string">&apos;John&apos;</span>, age: <span class="hljs-number">16</span>, sex: male, city: guangzhou, _id: <span class="hljs-number">1</span>, ...},
+    { name: <span class="hljs-string">&apos;Rose&apos;</span>, age: <span class="hljs-number">18</span>, sex: female, city: beijing, _id: <span class="hljs-number">2</span>, ...},
+    { name: <span class="hljs-string">&apos;Jack&apos;</span>, age: <span class="hljs-number">29</span>, sex: male, city: guangzhou, _id: <span class="hljs-number">3</span>, ...},
+    { name: <span class="hljs-string">&apos;Allen&apos;</span>, age: <span class="hljs-number">18</span>, sex: female, city: beijing, _id: <span class="hljs-number">4</span>, ...},
+    { name: <span class="hljs-string">&apos;Cruz&apos;</span>, age: <span class="hljs-number">22</span>, sex: male, city: guangzhou, _id: <span class="hljs-number">5</span>, ...},
+    { name: <span class="hljs-string">&apos;Peter&apos;</span>, age: <span class="hljs-number">18</span>, sex: male, city: guangzhou, _id: <span class="hljs-number">6</span>, ...},
+    { name: <span class="hljs-string">&apos;Kelly&apos;</span>, age: <span class="hljs-number">23</span>, sex: female, city: shanghai, _id: <span class="hljs-number">7</span>, ...},
+    ...
+]
+</code></pre>
+<p>articles:        </p>
+<pre><code class="lang-javascript">[
+    { title: <span class="hljs-string">&apos;this is article A&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">1</span>, ... },
+    { title: <span class="hljs-string">&apos;this is article B&apos;</span>, author: <span class="hljs-string">&apos;Jack&apos;</span>, _id: <span class="hljs-number">2</span>, ... },
+    { title: <span class="hljs-string">&apos;this is article C&apos;</span>, author: <span class="hljs-string">&apos;Rose&apos;</span>, _id: <span class="hljs-number">3</span>, ... },
+    { title: <span class="hljs-string">&apos;this is article D&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">4</span>, ... },
+    { title: <span class="hljs-string">&apos;this is article E&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">5</span>, ... },
+    ...
+]
+</code></pre>
+<h4 id="match-&#x5339;&#x914D;&#x64CD;&#x4F5C;&#x7B26;-&#x5BF9;&#x6587;&#x6863;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x7B5B;&#x9009;"><a name="match-&#x5339;&#x914D;&#x64CD;&#x4F5C;&#x7B26;-&#x5BF9;&#x6587;&#x6863;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x7B5B;&#x9009;" class="anchor-navigation-ex-anchor" href="#match-&#x5339;&#x914D;&#x64CD;&#x4F5C;&#x7B26;-&#x5BF9;&#x6587;&#x6863;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x7B5B;&#x9009;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="match-&#x5339;&#x914D;&#x64CD;&#x4F5C;&#x7B26;-&#x5BF9;&#x6587;&#x6863;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x7B5B;&#x9009;" class="plugin-anchor" href="#match-&#x5339;&#x914D;&#x64CD;&#x4F5C;&#x7B26;-&#x5BF9;&#x6587;&#x6863;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x7B5B;&#x9009;"><i class="fa fa-link" aria-hidden="true"></i></a>$match &#x5339;&#x914D;&#x64CD;&#x4F5C;&#x7B26; &#x5BF9;&#x6587;&#x6863;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x7B5B;&#x9009;</h4>
+<p>&#x7528;&#x6CD5;&#xFF1A;   </p>
+<blockquote>
+<p>{ <code>$match: { &lt;query&gt; }</code> }<br>&#x793A;&#x4F8B;&#xFF1A;<br>&#x67E5;&#x8BE2;&#x7528;&#x6237;&#x5E74;&#x9F84;&#x662F;18&#x5C81;&#x7684;&#x7528;&#x6237;     </p>
+<pre><code class="lang-javascript">db.users.aggregate([{ $match: { age: <span class="hljs-string">&quot;18&quot;</span>} }])
+</code></pre>
+</blockquote>
+<h4 id="project-&#x6295;&#x5C04;&#x64CD;&#x4F5C;&#x7B26;"><a name="project-&#x6295;&#x5C04;&#x64CD;&#x4F5C;&#x7B26;" class="anchor-navigation-ex-anchor" href="#project-&#x6295;&#x5C04;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="project-&#x6295;&#x5C04;&#x64CD;&#x4F5C;&#x7B26;" class="plugin-anchor" href="#project-&#x6295;&#x5C04;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>$project &#x6295;&#x5C04;&#x64CD;&#x4F5C;&#x7B26;</h4>
+<p>&#x8BF4;&#x660E;&#xFF1A;<br>&#x91CD;&#x6784;&#x6BCF;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x53EF;&#x63D0;&#x53D6;&#x5B57;&#x6BB5;&#xFF0C;&#x91CD;&#x547D;&#x540D;&#x5B57;&#x6BB5;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x5BF9;&#x539F;&#x5B57;&#x6BB5;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x540E;&#x65B0;&#x589E;&#x5B57;&#x6BB5;     </p>
+<p>&#x7528;&#x6CD5;&#xFF1A;   </p>
+<blockquote>
+<p>{ $project: { <specification(s)> } }<br>specofication&#x7684;&#x89C4;&#x5219;    </specification(s)></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>&#x89C4;&#x5219;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x5B57;&#x6BB5;&#x540D;&#xFF1A;1 or true</td>
+<td>&#x9009;&#x62E9;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x6BB5;</td>
+</tr>
+<tr>
+<td>_id: 0 or false</td>
+<td>&#x4E0D;&#x8FD4;&#x56DE;_id(&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;)</td>
+</tr>
+<tr>
+<td>&#x5B57;&#x6BB5;&#x540D;&#xFF1A;&#x8868;&#x8FBE;&#x5F0F;</td>
+<td>&#x4F7F;&#x7528;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x91CD;&#x547D;&#x540D;&#x5B57;&#x6BB5;&#xFF0C;&#x6216;&#x5BF9;&#x5176;&#x503C;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x6216;&#x65B0;&#x589E;&#x5B57;&#x6BB5;</td>
+</tr>
+<tr>
+<td>&#x5B57;&#x6BB5;&#x540D;&#xFF1A;0 or false</td>
+<td>&#x9009;&#x62E9;&#x9700;&#x8981;&#x4E0D;&#x8FD4;&#x56DE;&#x4EC0;&#x4E48;&#x5B57;&#x6BB5;&#xFF0C;&#x6CE8;&#x610F;&#xFF1A;&#x5F53;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x7528;&#x6CD5;&#x65F6;&#xFF0C;&#x5C31;&#x4E0D;&#x8981;&#x7528;&#x4E0A;&#x9762;&#x7684;&#x65B9;&#x6CD5;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x793A;&#x4F8B;1&#xFF1A;   </p>
+<ul>
+<li>&#x7528;&#x6237;&#x96C6;&#x5408;&#x6295;&#x5C04;&#x7528;&#x6237;&#x59D3;&#x540D;</li>
+<li>&#x4E0D;&#x8FD4;&#x56DE;_id      <pre><code class="lang-javascript">db.users.aggregate([{ $project: { name: <span class="hljs-number">1</span>} }])
+</code></pre>
+</li>
+</ul>
+<p>&#x793A;&#x4F8B;2&#xFF1A;     </p>
+<ul>
+<li>&#x5C06;_id&#x91CD;&#x547D;&#x540D;&#x4E3A;userid  </li>
+<li>&#x4E0D;&#x8FD4;&#x56DE;id     <pre><code class="lang-javascript">db.users.aggregate([{ $project: { userid: <span class="hljs-string">&apos;$_id&apos;</span>, _id: <span class="hljs-number">0</span>} }])
+</code></pre>
+</li>
+</ul>
+<p>&#x793A;&#x4F8B;3&#xFF1A;</p>
+<ul>
+<li>&#x8FD4;&#x56DE;&#x65B0;&#x5B57;&#x6BB5;username,&#x5E76;&#x4F7F;&#x7528;&#x8868;&#x8FBE;&#x5F0F;&#x8BA9;&#x5B83;&#x7684;&#x503C;&#x4E3A;name&#x7684;&#x5927;&#x5199;     <pre><code class="lang-javascript">db.users.aggregate([
+{ 
+  $project: {
+    name: <span class="hljs-number">1</span>,
+    username: { $toUpper: <span class="hljs-string">&apos;$name&apos;</span> },
+    _id: <span class="hljs-number">0</span>
+  } 
+}
+])
+</code></pre>
+</li>
+</ul>
+<p><strong>&#x6CE8;&#xFF1A;&#x5173;&#x4E8E;&#x7BA1;&#x9053;&#x8868;&#x8FBE;&#x5F0F;&#xFF1A;&#x6700;&#x7B80;&#x5355;&#x7684;&#x201C;project&#x201D;&#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x5305;&#x542B;&#x548C;&#x6392;&#x9664;&#x5B57;&#x6BB5;(&#x5982;: { name: 1 })&#xFF0C;&#x4EE5;&#x53CA;&#x5B57;&#x6BB5;&#x540D;&#x79F0;fieldname(&#x5982;: { userId: &apos;_id&apos; })&#x3002;&#x9664;&#x6B64;&#x4EE5;&#x5916;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8868;&#x8FBE;&#x5F0F;&#x64CD;&#x4F5C;&#x7B26;(&#x5982;:toUpper)&#x6784;&#x6210;&#x66F4;&#x4E30;&#x5BCC;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5C06;&#x591A;&#x4E2A;&#x5B57;&#x9762;&#x91CF;&#x548C;&#x53D8;&#x91CF;&#x7EC4;&#x5408;&#x5728;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x5F97;&#x5230;&#x66F4;&#x591A;&#x6709;&#x610F;&#x601D;&#x7684;&#x503C;</strong></p>
+<h4 id="sort-&#x6392;&#x5E8F;&#x64CD;&#x4F5C;&#x7B26;"><a name="sort-&#x6392;&#x5E8F;&#x64CD;&#x4F5C;&#x7B26;" class="anchor-navigation-ex-anchor" href="#sort-&#x6392;&#x5E8F;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="sort-&#x6392;&#x5E8F;&#x64CD;&#x4F5C;&#x7B26;" class="plugin-anchor" href="#sort-&#x6392;&#x5E8F;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>$sort &#x6392;&#x5E8F;&#x64CD;&#x4F5C;&#x7B26;</h4>
+<p>&#x8BF4;&#x660E;&#xFF1A;<br>&#x6839;&#x636E;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5B57;&#x6BB5;&#x5BF9;&#x6587;&#x6863;&#x8FDB;&#x884C;&#x6392;&#x5E8F;<br>&#x7528;&#x6CD5;&#xFF1A;     </p>
+<blockquote>
+<p>{ $sort: <code>{ &lt;field1&gt;: &lt;sort order&gt;, &lt;field2&gt;: &lt;sort order&gt; ...}</code> }    </p>
+</blockquote>
+<p>&#x793A;&#x4F8B;&#xFF1A;   </p>
+<ul>
+<li>users&#x96C6;&#x5408;&#x6309;&#x7167;&#x5E74;&#x9F84;age&#x4ECE;&#x4F4E;&#x5230;&#x9AD8;&#x6392;&#x5E8F;   <pre><code class="lang-javascript">db.users.aggregate([{ $sort: { age: <span class="hljs-number">1</span> } }])
+</code></pre>
+</li>
+</ul>
+<h4 id="limit-&#x9650;&#x5236;&#x64CD;&#x4F5C;&#x7B26;"><a name="limit-&#x9650;&#x5236;&#x64CD;&#x4F5C;&#x7B26;" class="anchor-navigation-ex-anchor" href="#limit-&#x9650;&#x5236;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="limit-&#x9650;&#x5236;&#x64CD;&#x4F5C;&#x7B26;" class="plugin-anchor" href="#limit-&#x9650;&#x5236;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>$limit &#x9650;&#x5236;&#x64CD;&#x4F5C;&#x7B26;</h4>
+<p>&#x8BF4;&#x660E;&#xFF1A;<br>&#x9650;&#x5236;&#x8FD4;&#x56DE;&#x7684;&#x6587;&#x6863;&#x7684;&#x6570;&#x91CF;<br>&#x7528;&#x6CD5;&#xFF1A;     </p>
+<blockquote>
+<p>{ $limit: <code>&lt;positive integer&gt;</code> }<br>&#x793A;&#x4F8B;&#xFF1A;     </p>
+<ul>
+<li>&#x8FD4;&#x56DE;5&#x7BC7;article     <pre><code class="lang-javascript">db.articles.aggregate([{ $limit: <span class="hljs-number">5</span> }])
+</code></pre>
+</li>
+</ul>
+</blockquote>
+<h4 id="skip-&#x8DF3;&#x8FC7;&#x64CD;&#x4F5C;&#x7B26;"><a name="skip-&#x8DF3;&#x8FC7;&#x64CD;&#x4F5C;&#x7B26;" class="anchor-navigation-ex-anchor" href="#skip-&#x8DF3;&#x8FC7;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="skip-&#x8DF3;&#x8FC7;&#x64CD;&#x4F5C;&#x7B26;" class="plugin-anchor" href="#skip-&#x8DF3;&#x8FC7;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>$skip &#x8DF3;&#x8FC7;&#x64CD;&#x4F5C;&#x7B26;</h4>
+<p>&#x8BF4;&#x660E;&#xFF1A;<br>&#x8DF3;&#x8FC7;&#x6307;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x6587;&#x6863;<br>&#x7528;&#x6CD5;&#xFF1A;   </p>
+<blockquote>
+<p>{ $skip: <code>&lt;positive integer&gt;</code> }<br>&#x793A;&#x4F8B;&#xFF1A;   </p>
+<ul>
+<li>&#x8DF3;&#x8FC7;1&#x4E2A;&#x6587;&#x6863;     <pre><code class="lang-javascript">db.articles.aggregate([{ $skip: <span class="hljs-number">1</span> }])
+</code></pre>
+</li>
+</ul>
+</blockquote>
+<h4 id="count-&#x7EDF;&#x8BA1;&#x64CD;&#x4F5C;&#x7B26;"><a name="count-&#x7EDF;&#x8BA1;&#x64CD;&#x4F5C;&#x7B26;" class="anchor-navigation-ex-anchor" href="#count-&#x7EDF;&#x8BA1;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="count-&#x7EDF;&#x8BA1;&#x64CD;&#x4F5C;&#x7B26;" class="plugin-anchor" href="#count-&#x7EDF;&#x8BA1;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>$count &#x7EDF;&#x8BA1;&#x64CD;&#x4F5C;&#x7B26;</h4>
+<p>&#x8BF4;&#x660E;&#xFF1A;<br>&#x7EDF;&#x8BA1;&#x6587;&#x6863;&#x7684;&#x6570;&#x91CF;<br>&#x7528;&#x6CD5;&#xFF1A;    </p>
+<blockquote>
+<p>{ $sount: <code>&lt;string&gt;</code> }<br>&#x793A;&#x4F8B;&#xFF1A;    </p>
+<ul>
+<li>&#x7EDF;&#x8BA1;&#x6587;&#x7AE0;&#x7684;&#x603B;&#x6570;&#xFF0C;&#x4EE5;totalArticle&#x8FD4;&#x56DE;    <pre><code class="lang-javascript">db.articles.aggregate([{ totalArticle: <span class="hljs-number">1</span> }])
+</code></pre>
+</li>
+</ul>
+</blockquote>
+<h4 id="group-&#x5206;&#x7EC4;&#x64CD;&#x4F5C;&#x7B26;"><a name="group-&#x5206;&#x7EC4;&#x64CD;&#x4F5C;&#x7B26;" class="anchor-navigation-ex-anchor" href="#group-&#x5206;&#x7EC4;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="group-&#x5206;&#x7EC4;&#x64CD;&#x4F5C;&#x7B26;" class="plugin-anchor" href="#group-&#x5206;&#x7EC4;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>$group &#x5206;&#x7EC4;&#x64CD;&#x4F5C;&#x7B26;</h4>
+<p>&#x8BF4;&#x660E;&#xFF1A;<br>&#x5BF9;&#x6587;&#x6863;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x5206;&#x7EC4;<br>&#x7528;&#x6CD5;&#xFF1A;    </p>
+<blockquote>
+<p>{ $group: <code>{ _id: &lt;expression&gt;,&lt;field1&gt;: { &lt;accumulator1&gt;: &lt;expression1&gt; }, ...}</code>}<br><strong>&#x6CE8;&#xFF1A;_id&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x7528;&#x4E8E;&#x5206;&#x7EC4;&#x7684;&#x4F9D;&#x636E;&#x6761;&#x4EF6;</strong><br>&#x793A;&#x4F8B;&#xFF1A;    </p>
+<ul>
+<li>&#x5C06;&#x7528;&#x6237;(users)&#x6309;&#x6027;&#x522B;&#xFF08;sex&#xFF09;&#x5206;&#x7EC4;<br>db.users.aggregate([{ $group: { _id: &apos;$sex&apos;} }])<br>&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF1A;     <pre><code class="lang-javascript">[
+{ _id: <span class="hljs-string">&apos;male&apos;</span> },
+{ _id: <span class="hljs-string">&apos;female&apos;</span> }
+]
+</code></pre>
+</li>
+</ul>
+</blockquote>
+<p>&#x8FDB;&#x9636;&#x793A;&#x4F8B;&#xFF1A;    </p>
+<ul>
+<li>&#x5C06;&#x7528;&#x6237;(users)&#x6309;&#x6027;&#x522B;&#xFF08;sex&#xFF09;&#x5206;&#x7EC4;   </li>
+<li>&#x5206;&#x7EC4;&#x540E;&#x4F7F;&#x7528;&#x8BA1;&#x7B97;&#x5404;&#x81EA;&#x6027;&#x522B;&#x7684;&#x5E73;&#x5747;&#x5E74;&#x9F84;  </li>
+<li>&#x7EDF;&#x8BA1;&#x4E0D;&#x540C;&#x7684;&#x6027;&#x522B;&#x7684;&#x4EBA;&#x6570;&#xFF0C;&#x5E76;&#x4EE5;count&#x8FD4;&#x56DE;   <pre><code class="lang-javascript">db.users.aggregate([
+{
+  $group: {
+    _id: <span class="hljs-string">&apos;$sex&apos;</span>,
+    avgAge: { $avg: <span class="hljs-string">&apos;$age&apos;</span> },  <span class="hljs-comment">// &#x6C42;&#x5E73;&#x5747;&#x503C;</span>
+    count: { $num: <span class="hljs-number">1</span> }  <span class="hljs-comment">// &#x6C47;&#x603B;</span>
+  }
+}
+])
+</code></pre>
+</li>
+</ul>
+<p>&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF1A;    </p>
+<pre><code class="lang-javascript">[
+  { _id: <span class="hljs-string">&apos;male&apos;</span>, avgAge: <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">&#x7537;&#x6027;&#x5E73;&#x5747;&#x5E74;&#x9F84;</span>&gt;</span>, count: <span class="hljs-tag">&lt;<span class="hljs-name">&#x7537;&#x6027;&#x4EBA;&#x6570;</span>&gt;</span> },
+  { _id: &apos;female&apos;, avgAge: <span class="hljs-tag">&lt;<span class="hljs-name">&#x5973;&#x6027;&#x5E73;&#x5747;&#x5E74;&#x9F84;</span>&gt;</span>, count: <span class="hljs-tag">&lt;<span class="hljs-name">&#x5973;&#x6027;&#x4EBA;&#x6570;</span>&gt;</span> }
+]
+</span></code></pre>
+<h4 id="unwind-&#x62C6;&#x5206;&#x64CD;&#x4F5C;&#x7B26;"><a name="unwind-&#x62C6;&#x5206;&#x64CD;&#x4F5C;&#x7B26;" class="anchor-navigation-ex-anchor" href="#unwind-&#x62C6;&#x5206;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="unwind-&#x62C6;&#x5206;&#x64CD;&#x4F5C;&#x7B26;" class="plugin-anchor" href="#unwind-&#x62C6;&#x5206;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>$unwind &#x62C6;&#x5206;&#x64CD;&#x4F5C;&#x7B26;</h4>
+<p>&#x8BF4;&#x660E;&#xFF1A;<br>&#x5C06;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x503C;&#x62C6;&#x5206;&#x4E3A;&#x5355;&#x72EC;&#x7684;&#x6587;&#x6863;<br>&#x7528;&#x6CD5;&#xFF1A;    </p>
+<blockquote>
+<p>{ $unwind: <code>&lt;field path&gt;</code>}<br>3.2+&#x7248;&#x672C;&#x7684;&#x7528;&#x6CD5;&#xFF1A;   </p>
+<pre><code class="lang-s">{
+  $unwind:
+    {
+      path: &lt;field path&gt;,
+      includeArrayIndex: &lt;string&gt;,
+      preserveNullAndEmptyArrays: &lt;boolean&gt;
+    }
+}
+</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>&#x5B57;&#x6BB5;</th>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>string</td>
+<td>&#x5FC5;&#x586B;&#xFF0C;&#x6570;&#x7EC4;&#x7684;&#x5B57;&#x6BB5;&#x540D;&#xFF0C;&#x6307;&#x5B9A;&#x9700;&#x8981;&#x62C6;&#x5206;&#x7684;&#x5B57;&#x6BB5;</td>
+</tr>
+<tr>
+<td>includeArrayIndex</td>
+<td>string</td>
+<td>&#x53EF;&#x9009;&#xFF0C;&#x5B9A;&#x4E49;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x6BB5;&#x540D;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x503C;&#x662F;&#x62C6;&#x5206;&#x524D;&#x503C;&#x5728;&#x539F;&#x6570;&#x7EC4;&#x7684;&#x4F4D;&#x7F6E;</td>
+</tr>
+<tr>
+<td>preserveNullAndEmptyArrays</td>
+<td>boolean</td>
+<td>&#x53EF;&#x9009;&#xFF0C;&#x914D;&#x7F6E;&#x5728;path&#x7684;&#x503C;&#x4E3A;&#x7A7A;&#x6216;&#x7F3A;&#x5931;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x5426;&#x62C6;&#x5206;&#xFF0C; &#x9ED8;&#x8BA4;false</td>
+</tr>
+</tbody>
+</table>
+<p>&#x793A;&#x4F8B;&#xFF1A;   </p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x539F;&#x6570;&#x636E;</span>
+{ title: <span class="hljs-string">&apos;this is article A&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">1</span>, comments: [<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-string">&apos;c&apos;</span>]}  
+
+db.articles.aggregate([{ $unwind: <span class="hljs-string">&apos;$comments&apos;</span> }])  
+
+<span class="hljs-comment">// &#x7ED3;&#x679C; </span>
+[
+    { title: <span class="hljs-string">&apos;this is article A&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">1</span>, comments: <span class="hljs-string">&apos;a&apos;</span>},
+    { title: <span class="hljs-string">&apos;this is article A&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">1</span>, comments: <span class="hljs-string">&apos;b&apos;</span>},
+    { title: <span class="hljs-string">&apos;this is article A&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">1</span>, comments: <span class="hljs-string">&apos;c&apos;</span>},
+]
+</code></pre>
+<p>&#x8FDB;&#x9636;&#x793A;&#x4F8B;&#xFF1A;     </p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// &#x539F;&#x59CB;&#x6570;&#x636E;</span>
+[
+    { title: <span class="hljs-string">&apos;this is article A&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">1</span>, comments: [<span class="hljs-string">&apos;a&apos;</span>, <span class="hljs-string">&apos;b&apos;</span>, <span class="hljs-string">&apos;c&apos;</span>] }
+    { title: <span class="hljs-string">&apos;this is article B&apos;</span>, author: <span class="hljs-string">&apos;Jack&apos;</span>, _id: <span class="hljs-number">2</span> },
+    { title: <span class="hljs-string">&apos;this is article C&apos;</span>, author: <span class="hljs-string">&apos;Amy&apos;</span>, _id: <span class="hljs-number">3</span>, comments: [] },
+    { title: <span class="hljs-string">&apos;this is article D&apos;</span>, author: <span class="hljs-string">&apos;Lam&apos;</span>, _id: <span class="hljs-number">4</span>, comments: <span class="hljs-literal">null</span> },
+]
+
+<span class="hljs-comment">// &#x64CD;&#x4F5C;  </span>
+db.articles.aggregate([
+  {
+    $unwind: {
+      path: <span class="hljs-string">&apos;$comments&apos;</span>,
+      includeArrayIndex: <span class="hljs-string">&apos;arrayIndex&apos;</span>,
+    }
+  }
+])
+
+<span class="hljs-comment">// &#x7ED3;&#x679C;  </span>
+[
+    { title: <span class="hljs-string">&apos;this is article A&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">1</span>, comments: <span class="hljs-string">&apos;a&apos;</span>, arrayIndex: NumberLong(<span class="hljs-number">0</span>) },
+    { title: <span class="hljs-string">&apos;this is article A&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">1</span>, comments: <span class="hljs-string">&apos;b&apos;</span>, arrayIndex: NumberLong(<span class="hljs-number">1</span>) },
+    { title: <span class="hljs-string">&apos;this is article A&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">1</span>, comments: <span class="hljs-string">&apos;c&apos;</span>, arrayIndex: NumberLong(<span class="hljs-number">2</span>) },
+]
+
+<span class="hljs-comment">// &#x64CD;&#x4F5C;</span>
+db.articles.aggregate([
+    { 
+        $unwind: {
+            path: <span class="hljs-string">&apos;$comments&apos;</span>,
+            preserveNullAndEmptyArrays: <span class="hljs-literal">true</span>,
+        }
+    }
+]);
+
+<span class="hljs-comment">// &#x7ED3;&#x679C;  </span>
+[
+    { title: <span class="hljs-string">&apos;this is article A&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">1</span>, comments: <span class="hljs-string">&apos;a&apos;</span> },
+    { title: <span class="hljs-string">&apos;this is article A&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">1</span>, comments: <span class="hljs-string">&apos;b&apos;</span> },
+    { title: <span class="hljs-string">&apos;this is article A&apos;</span>, author: <span class="hljs-string">&apos;John&apos;</span>, _id: <span class="hljs-number">1</span>, comments: <span class="hljs-string">&apos;c&apos;</span> },
+    { title: <span class="hljs-string">&apos;this is article B&apos;</span>, author: <span class="hljs-string">&apos;Jack&apos;</span>, _id: <span class="hljs-number">2</span> },
+    { title: <span class="hljs-string">&apos;this is article C&apos;</span>, author: <span class="hljs-string">&apos;Amy&apos;</span>, _id: <span class="hljs-number">3</span> },
+    { title: <span class="hljs-string">&apos;this is article C&apos;</span>, author: <span class="hljs-string">&apos;Amy&apos;</span>, _id: <span class="hljs-number">3</span>, comments: <span class="hljs-literal">null</span> }
+]
+</code></pre>
+<h4 id="lookup-&#x8FDE;&#x63A5;&#x64CD;&#x4F5C;&#x7B26;"><a name="lookup-&#x8FDE;&#x63A5;&#x64CD;&#x4F5C;&#x7B26;" class="anchor-navigation-ex-anchor" href="#lookup-&#x8FDE;&#x63A5;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="lookup-&#x8FDE;&#x63A5;&#x64CD;&#x4F5C;&#x7B26;" class="plugin-anchor" href="#lookup-&#x8FDE;&#x63A5;&#x64CD;&#x4F5C;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>$lookup &#x8FDE;&#x63A5;&#x64CD;&#x4F5C;&#x7B26;</h4>
+<p>&#x8BF4;&#x660E;&#xFF1A;<br>&#x8FDE;&#x63A5;&#x540C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x53E6;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#xFF0C;&#x5E76;&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7684;&#x6587;&#x6863;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;populate    </p>
+<p>&#x7528;&#x6CD5;&#xFF1A;    </p>
+<pre><code class="lang-javascript">{
+   $lookup:
+     {
+       <span class="hljs-keyword">from</span>: &lt;collection to join&gt;,
+       localField: &lt;field from the input documents&gt;,
+       foreignField: &lt;field from the documents of the &quot;from&quot; collection&gt;,
+       as: &lt;output array field&gt;
+     }
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>&#x5B57;&#x6BB5;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>form</td>
+<td>&#x9700;&#x8981;&#x5173;&#x8054;&#x7684;&#x96C6;&#x5408;&#x540D;</td>
+</tr>
+<tr>
+<td>localField</td>
+<td>&#x672C;&#x96C6;&#x5408;&#x4E2D;&#x9700;&#x8981;&#x67E5;&#x627E;&#x7684;&#x5B57;&#x6BB5;</td>
+</tr>
+<tr>
+<td>foreignField</td>
+<td>&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E2D;&#x9700;&#x8981;&#x5173;&#x8054;&#x7684;&#x5B57;&#x6BB5;</td>
+</tr>
+<tr>
+<td>as</td>
+<td>&#x8F93;&#x51FA;&#x7684;&#x5B57;&#x6BB5;&#x540D;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x793A;&#x4F8B;&#xFF1A;      </p>
+<ul>
+<li>ariticles&#x4E2D;&#x7684;author&#x5173;&#x8054;&#x5230;user&#x8868;</li>
+<li>authoer&#x5B57;&#x6BB5;&#x8FD4;&#x56DE;&#x8BE6;&#x7EC6;&#x7684;&#x7528;&#x6237;&#x7684;&#x4FE1;&#x606F;</li>
+</ul>
+<pre><code class="lang-javascript">db.articles.aggregate([
+  {
+    $lookup:
+      {
+        <span class="hljs-keyword">from</span>: <span class="hljs-string">&quot;users&quot;</span>,
+        localField: <span class="hljs-string">&quot;author&quot;</span>,
+        foreignField: <span class="hljs-string">&quot;name&quot;</span>,
+        <span class="hljs-keyword">as</span>: <span class="hljs-string">&quot;author&quot;</span>
+      }
+  }
+])
+</code></pre>
+<h4 id="&#x7EFC;&#x5408;&#x793A;&#x4F8B;"><a name="&#x7EFC;&#x5408;&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x7EFC;&#x5408;&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x7EFC;&#x5408;&#x793A;&#x4F8B;" class="plugin-anchor" href="#&#x7EFC;&#x5408;&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EFC;&#x5408;&#x793A;&#x4F8B;</h4>
+<p>&#x627E;&#x51FA;&#x53D1;&#x8868;&#x6587;&#x7AE0;&#x6700;&#x591A;&#x7684;5&#x4F4D;&#x4F5C;&#x8005;&#xFF0C;&#x6309;&#x53D1;&#x8868;&#x6587;&#x7AE0;&#x6392;&#x5E8F;&#xFF0C;&#x663E;&#x793A;&#x4ED6;&#x7684;&#x53D1;&#x8868;&#x6587;&#x7AE0;&#x7684;&#x603B;&#x6B21;&#x6570;&#xFF0C;&#x548C;&#x4ED6;&#x81EA;&#x5DF1;&#x7684;&#x4FE1;&#x606F;    </p>
+<ul>
+<li>&#x6587;&#x7AE0;&#x6309;&#x7167;&#x4F5C;&#x8005;&#x5206;&#x7EC4;,&#x7EDF;&#x8BA1;&#x6B21;&#x6570;</li>
+<li>&#x6309;&#x7167;&#x6B21;&#x6570;&#x4ECE;&#x9AD8;&#x5230;&#x4F4E;&#x6392;&#x5E8F;</li>
+<li>&#x622A;&#x53D6;&#x5934;5&#x540D;</li>
+<li>&#x5173;&#x8054;&#x7528;&#x6237;&#x4FE1;&#x606F;</li>
+<li>&#x4E0D;&#x8F93;&#x51FA;&#x6587;&#x7AE0;_id   </li>
+</ul>
+<p>&#x64CD;&#x4F5C;&#xFF1A;   </p>
+<pre><code class="lang-javascript">db.articles.aggregate([
+  {
+    $group: {
+      _id: <span class="hljs-string">&apos;$author&apos;</span>,
+      count: { $sum: <span class="hljs-number">1</span> },
+    }
+  },
+  {
+    $sort: { count: <span class="hljs-number">-1</span> }
+  },
+  {
+    $skip: <span class="hljs-number">5</span>
+  },
+  {
+    $lookup: {
+      <span class="hljs-keyword">from</span>: <span class="hljs-string">&apos;users&apos;</span>,
+      localField: <span class="hljs-string">&apos;author&apos;</span>,
+      foreignField: <span class="hljs-string">&apos;name&apos;</span>,
+      <span class="hljs-keyword">as</span>: <span class="hljs-string">&apos;author&apos;</span>
+    }
+  },
+  {
+    $project: {
+      _id: <span class="hljs-number">0</span>
+    }
+  }
+])
+</code></pre>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="indexes.html" class="navigation navigation-prev " aria-label="Previous page: 索引">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="aggregate1.html" class="navigation navigation-next " aria-label="Next page: 聚合管道(aggregate-表达式)">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"聚合管道(aggregate-阶段操作符)","level":"1.5.10","depth":2,"next":{"title":"聚合管道(aggregate-表达式)","level":"1.5.11","depth":2,"path":"mongodb/aggregate1.md","ref":"mongodb/aggregate1.md","articles":[]},"previous":{"title":"索引","level":"1.5.9","depth":2,"path":"mongodb/indexes.md","ref":"mongodb/indexes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","sharing-plus","anchor-navigation-ex","code","popup","pageview-count","favicon","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/johnqin6"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"johnqin6","repo":"glory","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"johnqin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"johnqin的一本书","language":"zh-hans","links":{"sidebar":{"我的博客":""}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"mongodb/aggregate.md","mtime":"2019-08-27T05:34:17.452Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-18T02:31:25.600Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

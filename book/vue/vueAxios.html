@@ -1,0 +1,1493 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>vue项目中对axios的封装 · johnqin的一本书</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="johnqin">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="axios.html" />
+    
+
+    
+    
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"johnqin6","repo":"glory","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="" target="_blank" class="custom-link">我的博客</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    首页
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../gitbook_info/introduce.html">
+            
+                <a href="../gitbook_info/introduce.html">
+            
+                    
+                    gitbook
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../gitbook_info/introduce.html">
+            
+                <a href="../gitbook_info/introduce.html">
+            
+                    
+                    gitbook的介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../gitbook_info/use.html">
+            
+                <a href="../gitbook_info/use.html">
+            
+                    
+                    gitbook的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../wechat/read.html">
+            
+                <a href="../wechat/read.html">
+            
+                    
+                    微信小程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../wechat/read.html">
+            
+                <a href="../wechat/read.html">
+            
+                    
+                    微信小程序的介绍与准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../wechat/summary.html">
+            
+                <a href="../wechat/summary.html">
+            
+                    
+                    微信小程序的目录结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../wechat/start.html">
+            
+                <a href="../wechat/start.html">
+            
+                    
+                    起始开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../wechat/app.html">
+            
+                <a href="../wechat/app.html">
+            
+                    
+                    全局页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../wechat/pages.html">
+            
+                <a href="../wechat/pages.html">
+            
+                    
+                    普通页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../wechat/lifecycleAndgrammar.html">
+            
+                <a href="../wechat/lifecycleAndgrammar.html">
+            
+                    
+                    生命周期和wxss样式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../wechat/not.html">
+            
+                <a href="../wechat/not.html">
+            
+                    
+                    微信小程序的注意事项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../wechat/event.html">
+            
+                <a href="../wechat/event.html">
+            
+                    
+                    事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../node/introduce.html">
+            
+                <a href="../node/introduce.html">
+            
+                    
+                    Node.js
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../node/introduce.html">
+            
+                <a href="../node/introduce.html">
+            
+                    
+                    Node.js介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../node/install.html">
+            
+                <a href="../node/install.html">
+            
+                    
+                    安装起步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../node/service.html">
+            
+                <a href="../node/service.html">
+            
+                    
+                    搭建Node服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../node/netConcept.html">
+            
+                <a href="../node/netConcept.html">
+            
+                    
+                    网络概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../node/modular.html">
+            
+                <a href="../node/modular.html">
+            
+                    
+                    模块系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../node/apache.html">
+            
+                <a href="../node/apache.html">
+            
+                    
+                    实现apache功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../node/feedback.html">
+            
+                <a href="../node/feedback.html">
+            
+                    
+                    留言本注意事项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../node/express.html">
+            
+                <a href="../node/express.html">
+            
+                    
+                    express
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../node/callback.html">
+            
+                <a href="../node/callback.html">
+            
+                    
+                    回调函数封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../node/mongodb.html">
+            
+                <a href="../node/mongodb.html">
+            
+                    
+                    node中mongodb使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../mongodb/">
+            
+                <a href="../mongodb/">
+            
+                    
+                    mongoDB
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../mongodb/">
+            
+                <a href="../mongodb/">
+            
+                    
+                    mongoDB简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../mongodb/idea.html">
+            
+                <a href="../mongodb/idea.html">
+            
+                    
+                    mongoDB概念解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../mongodb/dataBase.html">
+            
+                <a href="../mongodb/dataBase.html">
+            
+                    
+                    mongoDB数据库的连接和操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../mongodb/collection.html">
+            
+                <a href="../mongodb/collection.html">
+            
+                    
+                    集合的创建和删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../mongodb/document.html">
+            
+                <a href="../mongodb/document.html">
+            
+                    
+                    文档的操作(插入，更新，删除)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../mongodb/query.html">
+            
+                <a href="../mongodb/query.html">
+            
+                    
+                    文档操作(查询)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../mongodb/type.html">
+            
+                <a href="../mongodb/type.html">
+            
+                    
+                    type操作符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../mongodb/limitAndSkip.html">
+            
+                <a href="../mongodb/limitAndSkip.html">
+            
+                    
+                    limit,skip,sort方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../mongodb/indexes.html">
+            
+                <a href="../mongodb/indexes.html">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../mongodb/aggregate.html">
+            
+                <a href="../mongodb/aggregate.html">
+            
+                    
+                    聚合管道(aggregate-阶段操作符)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../mongodb/aggregate1.html">
+            
+                <a href="../mongodb/aggregate1.html">
+            
+                    
+                    聚合管道(aggregate-表达式)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../mongodb/aggregate2.html">
+            
+                <a href="../mongodb/aggregate2.html">
+            
+                    
+                    聚合管道(aggregate-累加器)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../mongodb/mongoose.html">
+            
+                <a href="../mongodb/mongoose.html">
+            
+                    
+                    mongoose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../mongodb/mongoose.html">
+            
+                <a href="../mongodb/mongoose.html">
+            
+                    
+                    mongoose的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../mongodb/mongoose1.html">
+            
+                <a href="../mongodb/mongoose1.html">
+            
+                    
+                    mongoose的使用（文档的操作）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../mongodb/mongoose2.html">
+            
+                <a href="../mongodb/mongoose2.html">
+            
+                    
+                    mongoose进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../mongodb/mongoose3.html">
+            
+                <a href="../mongodb/mongoose3.html">
+            
+                    
+                    mongoose高级(聚合管道)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../codeStyle/">
+            
+                <a href="../codeStyle/">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../codeStyle/standarjs.html">
+            
+                <a href="../codeStyle/standarjs.html">
+            
+                    
+                    standarjs代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    vue的学习总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    vue的知识点总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="vueCli.html">
+            
+                <a href="vueCli.html">
+            
+                    
+                    vue-cli3搭建vue开发环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="component.html">
+            
+                <a href="component.html">
+            
+                    
+                    vue组件开发与注册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="component2.html">
+            
+                <a href="component2.html">
+            
+                    
+                    vue组件通信详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="directive.html">
+            
+                <a href="directive.html">
+            
+                    
+                    自定义指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="filter.html">
+            
+                <a href="filter.html">
+            
+                    
+                    自定义过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="animate.html">
+            
+                <a href="animate.html">
+            
+                    
+                    vue过渡和动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="mixin.html">
+            
+                <a href="mixin.html">
+            
+                    
+                    mixin混入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="vueRouter.html">
+            
+                <a href="vueRouter.html">
+            
+                    
+                    vue-router路由知识点总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="vuex.html">
+            
+                <a href="vuex.html">
+            
+                    
+                    vuex的使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="axios.html">
+            
+                <a href="axios.html">
+            
+                    
+                    axios请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.12" data-path="vueAxios.html">
+            
+                <a href="vueAxios.html">
+            
+                    
+                    vue项目中对axios的封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >vue项目中对axios的封装</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#vue&#x4E2D;axios&#x7684;&#x4F7F;&#x7528;&#x548C;&#x5C01;&#x88C5;"><b></b>vue&#x4E2D;axios&#x7684;&#x4F7F;&#x7528;&#x548C;&#x5C01;&#x88C5;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4E86;&#x89E3;axios"><b></b>&#x4E86;&#x89E3;axios</a></li><li><span class="title-icon "></span><a href="#vue&#x4E2D;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;"><b></b>vue&#x4E2D;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4E3A;&#x4F55;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;"><b></b>&#x4E3A;&#x4F55;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;</a></li><li><span class="title-icon "></span><a href="#&#x5C01;&#x88C5;&#x793A;&#x4F8B;1"><b></b>&#x5C01;&#x88C5;&#x793A;&#x4F8B;1</a></li></ul><li><span class="title-icon "></span><a href="#api&#x7684;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;"><b></b>api&#x7684;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;</a></li><ul><li><span class="title-icon "></span><a href="#&#x5C01;&#x88C5;&#x793A;&#x4F8B;2"><b></b>&#x5C01;&#x88C5;&#x793A;&#x4F8B;2</a></li><li><span class="title-icon "></span><a href="#api&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x4F18;&#x5316;"><b></b>api&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x4F18;&#x5316;</a></li></ul><li><span class="title-icon "></span><a href="#&#x6269;&#x5C55;&#x77E5;&#x8BC6;&#x70B9;"><b></b>&#x6269;&#x5C55;&#x77E5;&#x8BC6;&#x70B9;</a></li><ul><li><span class="title-icon "></span><a href="#&#x8BF7;&#x6C42;&#x62E6;&#x622A;"><b></b>&#x8BF7;&#x6C42;&#x62E6;&#x622A;</a></li><li><span class="title-icon "></span><a href="#&#x5728;&#x8BF7;&#x6C42;&#x62E6;&#x622A;&#x4E2D;&#x6DFB;&#x52A0;token"><b></b>&#x5728;&#x8BF7;&#x6C42;&#x62E6;&#x622A;&#x4E2D;&#x6DFB;&#x52A0;token</a></li></ul></ul></ul></div><a href="#vue&#x4E2D;axios&#x7684;&#x4F7F;&#x7528;&#x548C;&#x5C01;&#x88C5;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="vue&#x4E2D;axios&#x7684;&#x4F7F;&#x7528;&#x548C;&#x5C01;&#x88C5;"><a name="vue&#x4E2D;axios&#x7684;&#x4F7F;&#x7528;&#x548C;&#x5C01;&#x88C5;" class="anchor-navigation-ex-anchor" href="#vue&#x4E2D;axios&#x7684;&#x4F7F;&#x7528;&#x548C;&#x5C01;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="vue&#x4E2D;axios&#x7684;&#x4F7F;&#x7528;&#x548C;&#x5C01;&#x88C5;" class="plugin-anchor" href="#vue&#x4E2D;axios&#x7684;&#x4F7F;&#x7528;&#x548C;&#x5C01;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>vue&#x4E2D;axios&#x7684;&#x4F7F;&#x7528;&#x548C;&#x5C01;&#x88C5;</h1>
+<h2 id="&#x4E86;&#x89E3;axios"><a name="&#x4E86;&#x89E3;axios" class="anchor-navigation-ex-anchor" href="#&#x4E86;&#x89E3;axios"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E86;&#x89E3;axios" class="plugin-anchor" href="#&#x4E86;&#x89E3;axios"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E86;&#x89E3;axios</h2>
+<p>axios&#x662F;vue&#x5B98;&#x65B9;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x7684;&#x7528;&#x4E8E;&#x540E;&#x53F0;&#x63A5;&#x53E3;&#x8BF7;&#x6C42;&#x7684;&#x5E93;, &#x5B83;&#x57FA;&#x4E8E;promise&#x7684;http&#x5E93;&#xFF0C;&#x53EF;&#x8FD0;&#x884C;&#x4E8E;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x548C;node.js&#x3002;
+&#x6709;&#x5F88;&#x591A;&#x4F18;&#x79C0;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x5982;&#xFF1A;&#x62E6;&#x622A;&#x8BF7;&#x6C42;&#x548C;&#x54CD;&#x5E94;&#x3001;&#x53D6;&#x6D88;&#x8BF7;&#x6C42;&#x3001;&#x8F6C;&#x6362;json&#x3001;&#x5BA2;&#x6237;&#x7AEF;&#x9632;&#x5FA1;XSRF&#x7B49;&#x3002;</p>
+<p>&#x5B89;&#x88C5;axios</p>
+<blockquote>
+<p>npm install axios &#x6216; yarn add axios  </p>
+</blockquote>
+<h2 id="vue&#x4E2D;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;"><a name="vue&#x4E2D;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;" class="anchor-navigation-ex-anchor" href="#vue&#x4E2D;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="vue&#x4E2D;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;" class="plugin-anchor" href="#vue&#x4E2D;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>vue&#x4E2D;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;</h2>
+<h3 id="&#x4E3A;&#x4F55;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;"><a name="&#x4E3A;&#x4F55;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;" class="anchor-navigation-ex-anchor" href="#&#x4E3A;&#x4F55;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E3A;&#x4F55;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;" class="plugin-anchor" href="#&#x4E3A;&#x4F55;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E3A;&#x4F55;&#x5BF9;axios&#x7684;&#x5C01;&#x88C5;</h3>
+<p>&#x76EE;&#x7684;&#xFF1A;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x7B80;&#x5316;&#x4EE3;&#x7801;&#x4EE5;&#x53CA;&#x540E;&#x671F;&#x7684;&#x66F4;&#x65B0;&#x7EF4;&#x62A4;</p>
+<h3 id="&#x5C01;&#x88C5;&#x793A;&#x4F8B;1"><a name="&#x5C01;&#x88C5;&#x793A;&#x4F8B;1" class="anchor-navigation-ex-anchor" href="#&#x5C01;&#x88C5;&#x793A;&#x4F8B;1"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5C01;&#x88C5;&#x793A;&#x4F8B;1" class="plugin-anchor" href="#&#x5C01;&#x88C5;&#x793A;&#x4F8B;1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5C01;&#x88C5;&#x793A;&#x4F8B;1</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// http.js</span>
+<span class="hljs-comment">/**
+ * axios&#x5C01;&#x88C5;
+ * &#x8BF7;&#x6C42;&#x62E6;&#x622A;&#xFF0C;&#x54CD;&#x5E94;&#x62E6;&#x622A;&#xFF0C;&#x9519;&#x8BEF;&#x7EDF;&#x4E00;&#x5904;&#x7406;
+*/</span>
+<span class="hljs-comment">// &#x5F15;&#x5165;axios</span>
+<span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;axios&apos;</span>
+<span class="hljs-comment">// qs&#x6A21;&#x5757;&#x7528;&#x6765;&#x5E8F;&#x5217;&#x5316;post&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;</span>
+<span class="hljs-keyword">import</span> qs <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;qs&apos;</span>
+<span class="hljs-comment">// vant&#x7684;toast&#x63D0;&#x793A;&#x6846;&#x7EC4;&#x4EF6;</span>
+<span class="hljs-keyword">import</span> { Toast } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vant&apos;</span>
+<span class="hljs-keyword">import</span> store <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/store/index&apos;</span>
+
+<span class="hljs-comment">/**
+ * &#x9879;&#x76EE;&#x73AF;&#x5883;&#x53EF;&#x80FD;&#x6709;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x3001;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x548C;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x3002;&#x6211;&#x4EEC;&#x901A;&#x8FC7;node&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x6765;&#x5339;&#x914D;&#x6211;&#x4EEC;&#x7684;&#x9ED8;&#x8BA4;&#x7684;&#x63A5;&#x53E3;url&#x524D;&#x7F00;&#x3002; 
+ * axios.defaults.baseURL&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;axios&#x7684;&#x9ED8;&#x8BA4;&#x8BF7;&#x6C42;&#x5730;&#x5740;&#x5C31;&#x4E0D;&#x591A;&#x8BF4;&#x4E86;
+*/</span>
+<span class="hljs-comment">// &#x73AF;&#x5883;&#x7684;&#x5207;&#x6362;</span>
+<span class="hljs-keyword">if</span> (process.env.NODE_ENV === <span class="hljs-string">&apos;development&apos;</span>) {
+  axios.default.baseURL = <span class="hljs-string">&apos;/api&apos;</span>
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (prcosee.env.NODE_ENV === <span class="hljs-string">&apos;debug&apos;</span>) {
+  axios.default.baseURL = <span class="hljs-string">&apos;&apos;</span>
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (prcosee.env.NODE_ENV === <span class="hljs-string">&apos;production&apos;</span>) {
+  axios.default.baseURL = <span class="hljs-string">&apos;http://api.123dailu.com&apos;</span>
+}
+
+<span class="hljs-comment">// &#x8BF7;&#x6C42;&#x8D85;&#x65F6;&#x65F6;&#x95F4;</span>
+axios.defaults.timeout = <span class="hljs-number">10000</span>
+
+<span class="hljs-comment">// &#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x5934;</span>
+axios.defaults.headers.post[<span class="hljs-string">&apos;Content-Type&apos;</span>] = <span class="hljs-string">&apos;application/x-www-form-urlencoded;charset=UTF-8&apos;</span>
+
+<span class="hljs-comment">// &#x8BF7;&#x6C42;&#x62E6;&#x622A;&#x5668;</span>
+axios.interceptors.request.use(
+  config =&gt; {
+    <span class="hljs-comment">/**
+     * &#x6BCF;&#x6B21;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x4E4B;&#x524D;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;token,&#x5982;&#x679C;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x7EDF;&#x4E00;&#x5728;http&#x8BF7;&#x6C42;&#x7684;header&#x6DFB;&#x52A0;token,&#x8FD9;&#x6837;&#x5C31;&#x4E0D;&#x7528;
+     * &#x6BCF;&#x6B21;&#x8BF7;&#x6C42;&#x90FD;&#x624B;&#x52A8;&#x6DFB;&#x52A0;&#x4E86;&#xFF0C;&#x5373;&#x4F7F;&#x672C;&#x5730;&#x5B58;&#x50A8;&#x5B58;&#x5728;token, &#x4E5F;&#x6709;&#x53EF;&#x80FD;token&#x8FC7;&#x671F;,&#x6240;&#x6709;&#x5728;&#x62E6;&#x622A;&#x5668;&#x4E2D;&#x8981;&#x5BF9;&#x8FD4;&#x56DE;&#x72B6;&#x6001;&#x8FDB;&#x884C;&#x5224;&#x65AD;
+    */</span>
+    <span class="hljs-keyword">const</span> token = store.state.token
+    token &amp;&amp; (config.headers.Authorization = token)
+    <span class="hljs-keyword">return</span> config
+  },
+  error =&gt; {
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.error(error)
+  }
+)
+
+<span class="hljs-comment">// &#x54CD;&#x5E94;&#x62E6;&#x622A;&#x5668;</span>
+axios.interceptors.response.use(
+  response =&gt; {
+    <span class="hljs-keyword">if</span> (response.status === <span class="hljs-number">200</span>) {
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(response)
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.reject(response)
+    }
+  },
+  <span class="hljs-comment">// &#x670D;&#x52A1;&#x5668;&#x72B6;&#x6001;&#x4E0D;&#x662F;200&#x7684;&#x60C5;&#x51B5;</span>
+  error =&gt; {
+    <span class="hljs-keyword">if</span> (error.response.status) {
+      <span class="hljs-keyword">switch</span> (error.response.status) {
+        <span class="hljs-comment">/**
+         * 401: &#x672A;&#x767B;&#x5F55;
+         * &#x672A;&#x767B;&#x5F55;&#x5219;&#x8DF3;&#x8F6C;&#x767B;&#x5F55;&#x9875;&#x9762;&#xFF0C;&#x5E76;&#x643A;&#x5E26;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;&#x8DEF;&#x5F84;
+         * &#x5728;&#x767B;&#x9646;&#x6210;&#x529F;&#x540E;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x9875;&#x9762;&#xFF0C;&#x8FD9;&#x4E00;&#x6B65;&#x9700;&#x8981;&#x5728;&#x767B;&#x9646;&#x9875;&#x64CD;&#x4F5C;
+        */</span>
+        <span class="hljs-keyword">case</span> <span class="hljs-number">401</span>:
+          router.replace({
+            path: <span class="hljs-string">&apos;/login&apos;</span>,
+            query: { redirect: router.currentRout.fullPath }
+          })
+          <span class="hljs-keyword">break</span>
+        <span class="hljs-comment">/**
+         * 403 token&#x8FC7;&#x671F;
+         * &#x767B;&#x5F55;&#x8FC7;&#x671F;&#x5BF9;&#x7528;&#x6237;&#x8FDB;&#x884C;&#x63D0;&#x793A;
+         * &#x6E05;&#x9664;&#x672C;&#x5730;token&#x548C;&#x6E05;&#x7A7A;vuex&#x4E2D;token&#x5BF9;&#x8C61;
+         * &#x8DF3;&#x8F6C;&#x767B;&#x5F55;&#x9875;&#x9762;
+        */</span>
+        <span class="hljs-keyword">case</span> <span class="hljs-number">403</span>:
+          Toast({
+            message: <span class="hljs-string">&apos;&#x767B;&#x5F55;&#x8FC7;&#x671F;&#xFF0C;&#x8BF7;&#x91CD;&#x65B0;&#x767B;&#x5F55;&apos;</span>,
+            duration: <span class="hljs-number">1000</span>,
+            forbidClick: <span class="hljs-literal">true</span>
+          })
+          <span class="hljs-comment">// &#x6E05;&#x9664;token</span>
+          localStorage.removeItem(<span class="hljs-string">&apos;token&apos;</span>)
+          store.commit(<span class="hljs-string">&apos;loginSucess&apos;</span>, <span class="hljs-literal">null</span>)
+          <span class="hljs-comment">// &#x8DF3;&#x8F6C;&#x767B;&#x9646;&#x9875;&#x9762;&#xFF0C;&#x5E76;&#x5C06;&#x8981;&#x6D4F;&#x89C8;&#x7684;&#x9875;&#x9762;fullPath&#x4F20;&#x8FC7;&#x53BB;, &#x767B;&#x5F55;&#x6210;&#x529F;&#x540E;&#x8DF3;&#x8F6C;&#x9700;&#x8981;&#x8BBF;&#x95EE;&#x7684;&#x9875;&#x9762;</span>
+          setTimeout(() =&gt; {
+            router.replace({
+              path: <span class="hljs-string">&apos;/login&apos;</span>,
+              query: {
+                redirect: router.currentRout.fullPath
+              }
+            })
+          }, <span class="hljs-number">1000</span>)
+          <span class="hljs-keyword">break</span>
+        <span class="hljs-comment">// &#x8BF7;&#x6C42;&#x4E0D;&#x5B58;&#x5728;</span>
+        <span class="hljs-keyword">case</span> <span class="hljs-number">404</span>:
+          Toast({
+            message: <span class="hljs-string">&apos;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x4E0D;&#x5B58;&#x5728;&apos;</span>,
+            duration: <span class="hljs-number">1500</span>,
+            forbidClick: <span class="hljs-literal">true</span>
+          })
+          <span class="hljs-keyword">break</span>
+        <span class="hljs-comment">// &#x5176;&#x4ED6;&#x9519;&#x8BEF;&#xFF0C;&#x76F4;&#x63A5;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x63D0;&#x793A;</span>
+        <span class="hljs-keyword">default</span>: 
+          Toast({
+            message: error.response.data.message,
+            duration: <span class="hljs-number">1500</span>,
+            forbidClick: <span class="hljs-literal">true</span>
+          })
+      }
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.reject(error.response)
+    }
+  }
+)
+
+<span class="hljs-comment">/**
+ * get&#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x5E94;get&#x8BF7;&#x6C42;
+ * @param {String} url [&#x8BF7;&#x6C42;&#x7684;url&#x5730;&#x5740;]
+ * @param {Object} url [&#x8BF7;&#x6C42;&#x65F6;&#x643A;&#x5E26;&#x7684;&#x53C2;&#x6570;]
+*/</span>
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">get</span> (<span class="hljs-params">url, params</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
+    axios.get(url, {
+      params: params
+    }).then(res =&gt; {
+      resolve(res.data)
+    }).catch(err =&gt; {
+      reject(err.data)
+    })
+  })
+}
+
+<span class="hljs-comment">/**
+ * post&#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x5E94;post&#x8BF7;&#x6C42;
+ * @param {String} url [&#x8BF7;&#x6C42;&#x7684;url&#x5730;&#x5740;]
+ * @param {Object} url [&#x8BF7;&#x6C42;&#x65F6;&#x643A;&#x5E26;&#x7684;&#x53C2;&#x6570;]
+*/</span>
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">post</span> (<span class="hljs-params">url, params</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
+    <span class="hljs-comment">// &#x4F7F;&#x7528;node&#x7684;qs&#x6A21;&#x5757;&#x5E8F;&#x5217;&#x5316;&#x53C2;&#x6570;, &#x5982;&#x4E0D;&#x5E8F;&#x5217;&#x5316;&#xFF0C;&#x540E;&#x53F0;&#x62FF;&#x4E0D;&#x5230;&#x63D0;&#x4EA4;&#x7684;&#x6570;&#x636E;</span>
+    axios.post(url, qs.stringify(params)).then(res =&gt; {
+      resolve(res.data)
+    }).catch(err =&gt; {
+      erject(err.data)
+    })
+  })
+}
+</code></pre>
+<h2 id="api&#x7684;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;"><a name="api&#x7684;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;" class="anchor-navigation-ex-anchor" href="#api&#x7684;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="api&#x7684;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;" class="plugin-anchor" href="#api&#x7684;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>api&#x7684;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;</h2>
+<pre><code class="lang-javascript"><span class="hljs-comment">/**
+ * api&#x63A5;&#x53E3;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;
+*/</span>
+<span class="hljs-comment">// &#x9996;&#x5148;&#x5728;api.js&#x4E2D;&#x5F15;&#x5165;&#x5C01;&#x88C5;&#x597D;&#x7684;get&#x548C;post&#x65B9;&#x6CD5;</span>
+<span class="hljs-keyword">import</span> {get, post} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./http&apos;</span>
+
+<span class="hljs-comment">// &#x5C01;&#x88C5;api&#x65B9;&#x6CD5;, &#x4F8B;&#x5982;&#x5730;&#x5740;&#x7F16;&#x8F91;&#x7684;&#x65B9;&#x6CD5;`apiAddress` p&#x662F;&#x4F20;&#x56DE;&#x540E;&#x53F0;&#x7684;&#x6570;&#x636E;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> apiAddress = p =&gt; post(<span class="hljs-string">&apos;api/addressEdit&apos;</span>, p)
+</code></pre>
+<p>&#x5728;&#x9875;&#x9762;&#x4E2D;&#x8C03;&#x7528;&#x5C01;&#x88C5;&#x597D;&#x7684;api&#x63A5;&#x53E3;</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { apiAddress } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/request/api&apos;</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  created () {
+    <span class="hljs-keyword">this</span>.loadData()
+  },
+  methods: {
+    loadData() {
+      <span class="hljs-comment">// &#x8C03;&#x7528;&#x63A5;&#x53E3;</span>
+      apiAddress({
+        type: <span class="hljs-number">0</span>,
+        address: <span class="hljs-string">&apos;&#x6CB3;&#x5357;&apos;</span>
+      }).then(res =&gt; {
+        <span class="hljs-built_in">console</span>.log(res)
+      })
+    }
+  }
+}
+</code></pre>
+<h3 id="&#x5C01;&#x88C5;&#x793A;&#x4F8B;2"><a name="&#x5C01;&#x88C5;&#x793A;&#x4F8B;2" class="anchor-navigation-ex-anchor" href="#&#x5C01;&#x88C5;&#x793A;&#x4F8B;2"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5C01;&#x88C5;&#x793A;&#x4F8B;2" class="plugin-anchor" href="#&#x5C01;&#x88C5;&#x793A;&#x4F8B;2"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5C01;&#x88C5;&#x793A;&#x4F8B;2</h3>
+<p>&#x4E0E;&#x793A;&#x4F8B;1&#x6709;&#x4EE5;&#x4E0B;&#x4E0D;&#x540C;&#xFF1A;</p>
+<ul>
+<li>&#x4F18;&#x5316;axios&#x5C01;&#x88C5;&#xFF0C;&#x53BB;&#x9664;&#x4E4B;&#x524D;&#x7684;get&#x548C;post</li>
+<li>&#x65AD;&#x7F51;&#x60C5;&#x51B5;&#x7684;&#x5904;&#x7406;</li>
+<li>&#x66F4;&#x52A0;&#x6A21;&#x5757;&#x5316;&#x7684;api&#x7BA1;&#x7406;</li>
+<li>&#x63A5;&#x53E3;&#x57DF;&#x540D;&#x6709;&#x591A;&#x4E2A;&#x7684;&#x60C5;&#x51B5;</li>
+<li>api&#x6302;&#x8F7D;&#x5230;vue.prototype&#x4E0A;&#x7701;&#x53BB;&#x5F15;&#x5165;&#x7684;&#x6B65;&#x9AA4;  </li>
+</ul>
+<p>&#x4EE3;&#x7801;&#x793A;&#x4F8B;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// http.js</span>
+<span class="hljs-comment">/**
+* axios&#x5C01;&#x88C5;
+* &#x8BF7;&#x6C42;&#x62E6;&#x622A;&#xFF0C;&#x54CD;&#x5E94;&#x62E6;&#x622A;&#xFF0C;&#x9519;&#x8BEF;&#x7EDF;&#x4E00;&#x5904;&#x7406;
+*/</span>
+<span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;axios&apos;</span>
+<span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../router&apos;</span>
+<span class="hljs-keyword">import</span> store <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../store/index&apos;</span>
+<span class="hljs-keyword">import</span> { Toast } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vant&apos;</span>
+<span class="hljs-comment">/**
+* &#x63D0;&#x793A;&#x51FD;&#x6570;
+* &#x7981;&#x6B62;&#x70B9;&#x51FB;&#x8499;&#x5C42;&#xFF0C;&#x663E;&#x793A;&#x4E00;&#x79D2;&#x540E;&#x5173;&#x95ED;
+*/</span>
+<span class="hljs-keyword">const</span> tip = msg =&gt; {
+  Toast({
+    message: msg,
+    duration: <span class="hljs-number">1000</span>,
+    forbidClick: <span class="hljs-literal">true</span>
+  })
+}
+
+<span class="hljs-comment">/**
+* &#x8DF3;&#x8F6C;&#x767B;&#x9646;&#x9875;
+* &#x643A;&#x5E26;&#x5F53;&#x524D;&#x9875;&#x9762;&#x8DEF;&#x7531;&#xFF0C;&#x4EE5;&#x5176;&#x5728;&#x767B;&#x9646;&#x9875;&#x5B8C;&#x6210;&#x767B;&#x5F55;&#x540E;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x9875;&#x9762;
+*/</span>
+<span class="hljs-keyword">const</span> toLogin = () =&gt; {
+  router.replace({
+    path: <span class="hljs-string">&apos;/login&apos;</span>,
+    query: {
+      redirect: router.currentRoute.fullPath
+    }
+  })
+}
+
+<span class="hljs-comment">/**
+* &#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x540E;&#x7684;&#x9519;&#x8BEF;&#x7EDF;&#x4E00;&#x5904;&#x7406;
+* @parma {Number} status &#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x7684;&#x72B6;&#x6001;&#x7801;
+*/</span>
+<span class="hljs-keyword">const</span> errorHandle = (status, other) =&gt; {
+  <span class="hljs-keyword">switch</span> (status) {
+    <span class="hljs-comment">// 401: &#x672A;&#x767B;&#x9646;&#x72B6;&#x6001;&#xFF0C;&#x8DF3;&#x8F6C;&#x767B;&#x9646;&#x9875;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">401</span>:
+      toLogin()
+      <span class="hljs-keyword">break</span>
+    <span class="hljs-comment">// 403 token&#x8FC7;&#x671F;&#xFF0C; &#x6E05;&#x9664;token&#x5E76;&#x8DF3;&#x8F6C;&#x767B;&#x9646;&#x9875;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">403</span>:
+      tip(<span class="hljs-string">&apos;&#x767B;&#x5F55;&#x8FC7;&#x671F;&#xFF0C;&#x8BF7;&#x91CD;&#x65B0;&#x767B;&#x5F55;&apos;</span>)
+      localStorage.removeItem(<span class="hljs-string">&apos;token&apos;</span>)
+      store.commit(<span class="hljs-string">&apos;loginSuccess&apos;</span>, <span class="hljs-literal">null</span>)
+      setTimeout(() =&gt; {
+        toLogin()
+      }, <span class="hljs-number">1000</span>)
+      <span class="hljs-keyword">break</span>
+    <span class="hljs-comment">// 404&#x8BF7;&#x6C42;&#x4E0D;&#x5B58;&#x5728;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-number">404</span>:
+      tip(<span class="hljs-string">&apos;&#x8BF7;&#x6C42;&#x7684;&#x8D44;&#x6E90;&#x4E0D;&#x5B58;&#x5728;&apos;</span>)
+      <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-built_in">console</span>.log(other)
+  }
+}
+
+<span class="hljs-comment">// &#x521B;&#x5EFA;axios&#x5B9E;&#x4F8B;</span>
+<span class="hljs-keyword">const</span> instance = axios.create({ timeout: <span class="hljs-number">1000</span> * <span class="hljs-number">12</span>})
+<span class="hljs-comment">// &#x8BBE;&#x7F6E;post&#x8BF7;&#x6C42;&#x5934;</span>
+instance.defaults.headers.post[<span class="hljs-string">&apos;Content-Type&apos;</span>] = <span class="hljs-string">&apos;application/x-www-form-urlencoded&apos;</span>;
+
+<span class="hljs-comment">/**
+* &#x8BF7;&#x6C42;&#x62E6;&#x622A;
+* &#x6BCF;&#x6B21;&#x8BF7;&#x6C42;&#x524D;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;token&#x5219;&#x5728;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x643A;&#x5E26;token
+*/</span>
+instance.interceptors.request.use(
+  config =&gt; {
+    <span class="hljs-comment">// &#x767B;&#x5F55;&#x6D41;&#x7A0B;&#x63A7;&#x5236;&#x4E2D;&#xFF0C;&#x6839;&#x636E;&#x672C;&#x5730;&#x662F;&#x5426;&#x5B58;&#x5728;token&#x5224;&#x65AD;&#x7528;&#x6237;&#x7684;&#x767B;&#x5F55;&#x60C5;&#x51B5;        </span>
+    <span class="hljs-comment">// &#x4F46;&#x662F;&#x5373;&#x4F7F;token&#x5B58;&#x5728;&#xFF0C;&#x4E5F;&#x6709;&#x53EF;&#x80FD;token&#x662F;&#x8FC7;&#x671F;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x6BCF;&#x6B21;&#x7684;&#x8BF7;&#x6C42;&#x5934;&#x4E2D;&#x643A;&#x5E26;token        </span>
+    <span class="hljs-comment">// &#x540E;&#x53F0;&#x6839;&#x636E;&#x643A;&#x5E26;&#x7684;token&#x5224;&#x65AD;&#x7528;&#x6237;&#x7684;&#x767B;&#x5F55;&#x60C5;&#x51B5;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x7ED9;&#x6211;&#x4EEC;&#x5BF9;&#x5E94;&#x7684;&#x72B6;&#x6001;&#x7801;        </span>
+    <span class="hljs-comment">// &#x800C;&#x540E;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x54CD;&#x5E94;&#x62E6;&#x622A;&#x5668;&#x4E2D;&#xFF0C;&#x6839;&#x636E;&#x72B6;&#x6001;&#x7801;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x7EDF;&#x4E00;&#x7684;&#x64CD;&#x4F5C;&#x3002;</span>
+    <span class="hljs-keyword">const</span> token = store.state.token
+    token &amp;&amp; (config.headers.Authorization = token)
+    <span class="hljs-keyword">return</span> config
+  },
+  error =&gt; <span class="hljs-built_in">Promise</span>.error(error)
+)
+
+<span class="hljs-comment">// &#x54CD;&#x5E94;&#x62E6;&#x622A;&#x5668;</span>
+instance.interceptors.response.use(
+  <span class="hljs-comment">// &#x8BF7;&#x6C42;&#x6210;&#x529F;</span>
+  res =&gt; res.status === <span class="hljs-number">200</span> ? <span class="hljs-built_in">Promise</span>.resolve(res) : <span class="hljs-built_in">Promise</span>.reject(res),
+  <span class="hljs-comment">// &#x8BF7;&#x6C42;&#x5931;&#x8D25;</span>
+  error =&gt; {
+    <span class="hljs-keyword">const</span> { response } = error
+    <span class="hljs-keyword">if</span> (response) {
+      <span class="hljs-comment">// &#x8BF7;&#x6C42;&#x5DF2;&#x53D1;&#x51FA;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x5728;2xx&#x7684;&#x8303;&#x56F4;</span>
+      errorHandle(response.status, response.data.message)
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.reject(response)
+    } <span class="hljs-keyword">else</span> {
+      <span class="hljs-comment">// &#x5904;&#x7406;&#x65AD;&#x7F51;&#x60C5;&#x51B5;</span>
+      <span class="hljs-comment">// eg: &#x8BF7;&#x6C42;&#x8D85;&#x65F6;&#x6216;&#x65AD;&#x7F51;&#x65F6;&#xFF0C;&#x66F4;&#x65B0;state&#x7684;network&#x72B6;&#x6001;</span>
+      <span class="hljs-comment">// network&#x72B6;&#x6001;&#x5728;app.vue&#x4E2D;&#x63A7;&#x5236;&#x7740;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x7684;&#x65AD;&#x7F51;&#x63D0;&#x793A;&#x7EC4;&#x4EF6;&#x7684;&#x663E;&#x793A;&#x9690;&#x85CF;</span>
+      <span class="hljs-comment">// &#x5173;&#x4E8E;&#x65AD;&#x7F51;&#x7EC4;&#x4EF6;&#x4E2D;&#x5237;&#x65B0;&#x91CD;&#x65B0;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x4F1A;&#x5728;&#x65AD;&#x7F51;&#x7EC4;&#x4EF6;&#x4E2D;&#x8BF4;&#x660E;</span>
+      <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">window</span>.navigator.onLine) {
+        store.commit(<span class="hljs-string">&apos;changeNetwork&apos;</span>, <span class="hljs-literal">false</span>)
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.reject(error)
+      }
+    }
+  }
+)
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> instance
+</code></pre>
+<ol>
+<li>&#x53BB;&#x6389;&#x4E86;&#x4E4B;&#x524D;get&#x548C;post&#x65B9;&#x6CD5;&#x7684;&#x5C01;&#x88C5;&#xFF0C;&#x901A;&#x8FC7;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;axios&#x5B9E;&#x4F8B;&#x7136;&#x540E;export default&#x65B9;&#x6CD5;&#x5BFC;&#x51FA;&#xFF0C;&#x8FD9;&#x6837;&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x66F4;&#x7075;&#x6D3B;&#x4E00;&#x4E9B;&#x3002;</li>
+<li>&#x53BB;&#x6389;&#x4E86;&#x901A;&#x8FC7;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x63A7;&#x5236;baseUrl&#x7684;&#x503C;&#x3002;&#x8003;&#x8651;&#x5230;&#x63A5;&#x53E3;&#x4F1A;&#x6709;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x57DF;&#x540D;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x6240;&#x4EE5;&#x51C6;&#x5907;&#x901A;&#x8FC7;js&#x53D8;&#x91CF;&#x6765;&#x63A7;&#x5236;&#x63A5;&#x53E3;&#x57DF;&#x540D;&#x3002;&#x8FD9;&#x70B9;&#x5177;&#x4F53;&#x5728;api&#x91CC;&#x4F1A;&#x4ECB;&#x7ECD;&#x3002;  </li>
+<li>&#x589E;&#x52A0;&#x4E86;&#x8BF7;&#x6C42;&#x8D85;&#x65F6;&#xFF0C;&#x5373;&#x65AD;&#x7F51;&#x72B6;&#x6001;&#x7684;&#x5904;&#x7406;&#x3002;&#x8BF4;&#x4E0B;&#x601D;&#x8DEF;&#xFF0C;&#x5F53;&#x65AD;&#x7F51;&#x65F6;&#xFF0C;&#x901A;&#x8FC7;&#x66F4;&#x65B0;vuex&#x4E2D;network&#x7684;&#x72B6;&#x6001;&#x6765;&#x63A7;&#x5236;&#x65AD;&#x7F51;&#x63D0;&#x793A;&#x7EC4;&#x4EF6;&#x7684;&#x663E;&#x793A;&#x9690;&#x85CF;&#x3002;&#x65AD;&#x7F51;&#x63D0;&#x793A;&#x4E00;&#x822C;&#x4F1A;&#x6709;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD9;&#x6B65;&#x4F1A;&#x5728;&#x540E;&#x9762;&#x5BF9;&#x5E94;&#x7684;&#x5730;&#x65B9;&#x4ECB;&#x7ECD;&#x3002;  </li>
+<li>&#x516C;&#x7528;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x62BD;&#x51FA;&#xFF0C;&#x7B80;&#x5316;&#x4EE3;&#x7801;&#xFF0C;&#x5C3D;&#x91CF;&#x4FDD;&#x8BC1;&#x5355;&#x4E00;&#x804C;&#x8D23;&#x539F;&#x5219;&#x3002; </li>
+</ol>
+<h3 id="api&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x4F18;&#x5316;"><a name="api&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x4F18;&#x5316;" class="anchor-navigation-ex-anchor" href="#api&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x4F18;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="api&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x4F18;&#x5316;" class="plugin-anchor" href="#api&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x4F18;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>api&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x4F18;&#x5316;</h3>
+<ul>
+<li>&#x66F4;&#x52A0;&#x6A21;&#x5757;&#x5316;</li>
+<li>&#x66F4;&#x65B9;&#x4FBF;&#x591A;&#x4EBA;&#x5F00;&#x53D1;&#xFF0C;&#x6709;&#x6548;&#x51CF;&#x5C11;&#x89E3;&#x51B3;&#x547D;&#x540D;&#x51B2;&#x7A81;</li>
+<li>&#x5904;&#x7406;&#x63A5;&#x53E3;&#x57DF;&#x540D;&#x6709;&#x591A;&#x4E2A;&#x60C5;&#x51B5;</li>
+</ul>
+<p>&#x65B0;&#x5EFA;api&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x91CC;&#x9762;&#x6709;index.js&#x548C;base.js&#xFF0C;&#x4EE5;&#x53CA;&#x591A;&#x4E2A;&#x6839;&#x636E;&#x6A21;&#x5757;&#x5212;&#x5206;&#x7684;&#x63A5;&#x53E3;js&#x6587;&#x4EF6;.
+index.js&#x662F;api&#x7684;&#x51FA;&#x53E3;&#xFF0C;base.js&#x7BA1;&#x7406;&#x63A5;&#x53E3;&#x57DF;&#x540D;, &#x5176;&#x4ED6;js&#x7BA1;&#x7406;&#x5404;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x63A5;&#x53E3;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// index.js</span>
+<span class="hljs-comment">// api&#x63A5;&#x53E3;&#x7684;&#x7EDF;&#x4E00;&#x51FA;&#x53E3;</span>
+<span class="hljs-keyword">import</span> artice <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/api/article&apos;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  artice
+}
+
+<span class="hljs-comment">// base.js</span>
+<span class="hljs-comment">// &#x63A5;&#x53E3;&#x57DF;&#x540D;&#x7684;&#x7BA1;&#x7406;</span>
+<span class="hljs-keyword">const</span> base = {
+  sq: <span class="hljs-string">&apos;https://demo.com/api&apos;</span>,
+  bd: <span class="hljs-string">&apos;http://localhost:3000/api&apos;</span>
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> base
+
+<span class="hljs-comment">// artice.js</span>
+<span class="hljs-comment">/**
+ * article&#x6A21;&#x5757;&#x63A5;&#x53E3;&#x5217;&#x8868;
+ */</span>
+
+<span class="hljs-keyword">import</span> base <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./base&apos;</span>; <span class="hljs-comment">// &#x5BFC;&#x5165;&#x63A5;&#x53E3;&#x57DF;&#x540D;&#x5217;&#x8868;</span>
+<span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/utils/http&apos;</span>; <span class="hljs-comment">// &#x5BFC;&#x5165;http&#x4E2D;&#x521B;&#x5EFA;&#x7684;axios&#x5B9E;&#x4F8B;</span>
+<span class="hljs-keyword">import</span> qs <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;qs&apos;</span>; <span class="hljs-comment">// &#x6839;&#x636E;&#x9700;&#x6C42;&#x662F;&#x5426;&#x5BFC;&#x5165;qs&#x6A21;&#x5757;</span>
+
+<span class="hljs-keyword">const</span> article = {    
+    <span class="hljs-comment">// &#x65B0;&#x95FB;&#x5217;&#x8868;    </span>
+    articleList () {        
+        <span class="hljs-keyword">return</span> axios.get(<span class="hljs-string">`<span class="hljs-subst">${base.sq}</span>/topics`</span>);    
+    },    
+    <span class="hljs-comment">// &#x65B0;&#x95FB;&#x8BE6;&#x60C5;,&#x6F14;&#x793A;    </span>
+    articleDetail (id, params) {        
+        <span class="hljs-keyword">return</span> axios.get(<span class="hljs-string">`<span class="hljs-subst">${base.sq}</span>/topic/<span class="hljs-subst">${id}</span>`</span>, {            
+            params: params        
+        });    
+    },
+    <span class="hljs-comment">// post&#x63D0;&#x4EA4;    </span>
+    login (params) {        
+        <span class="hljs-keyword">return</span> axios.post(<span class="hljs-string">`<span class="hljs-subst">${base.sq}</span>/accesstoken`</span>, qs.stringify(params));    
+    }
+    <span class="hljs-comment">// &#x5176;&#x4ED6;&#x63A5;&#x53E3;&#x2026;&#x2026;&#x2026;&#x2026;</span>
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> article;
+</code></pre>
+<h4 id="&#x4E3A;&#x65B9;&#x4FBF;api&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x6302;&#x8F7D;&#x5728;vue&#x539F;&#x578B;&#x4E0A;"><a name="&#x4E3A;&#x65B9;&#x4FBF;api&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x6302;&#x8F7D;&#x5728;vue&#x539F;&#x578B;&#x4E0A;" class="anchor-navigation-ex-anchor" href="#&#x4E3A;&#x65B9;&#x4FBF;api&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x6302;&#x8F7D;&#x5728;vue&#x539F;&#x578B;&#x4E0A;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E3A;&#x65B9;&#x4FBF;api&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x6302;&#x8F7D;&#x5728;vue&#x539F;&#x578B;&#x4E0A;" class="plugin-anchor" href="#&#x4E3A;&#x65B9;&#x4FBF;api&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x6302;&#x8F7D;&#x5728;vue&#x539F;&#x578B;&#x4E0A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E3A;&#x65B9;&#x4FBF;api&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x6302;&#x8F7D;&#x5728;vue&#x539F;&#x578B;&#x4E0A;</h4>
+<pre><code class="lang-javascript"><span class="hljs-comment">// main.js</span>
+...
+import api <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./api&apos;</span>
+
+Vue.prototype.$api = api <span class="hljs-comment">// &#x5C06;api&#x6302;&#x8F7D;&#x5728;vue&#x539F;&#x578B;&#x4E0A;</span>
+</code></pre>
+<h4 id="&#x9875;&#x9762;&#x4E2D;&#x8C03;&#x7528;&#x63A5;&#x53E3;"><a name="&#x9875;&#x9762;&#x4E2D;&#x8C03;&#x7528;&#x63A5;&#x53E3;" class="anchor-navigation-ex-anchor" href="#&#x9875;&#x9762;&#x4E2D;&#x8C03;&#x7528;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x9875;&#x9762;&#x4E2D;&#x8C03;&#x7528;&#x63A5;&#x53E3;" class="plugin-anchor" href="#&#x9875;&#x9762;&#x4E2D;&#x8C03;&#x7528;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9875;&#x9762;&#x4E2D;&#x8C03;&#x7528;&#x63A5;&#x53E3;</h4>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  methods: {
+    loadData (id) {
+      <span class="hljs-keyword">this</span>.$api.article.articleDetail(id, {api: <span class="hljs-number">123</span>}).then(res =&gt; {
+
+      })
+    }
+  }
+}
+</code></pre>
+<h4 id="&#x65AD;&#x7F51;&#x5904;&#x7406;"><a name="&#x65AD;&#x7F51;&#x5904;&#x7406;" class="anchor-navigation-ex-anchor" href="#&#x65AD;&#x7F51;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x65AD;&#x7F51;&#x5904;&#x7406;" class="plugin-anchor" href="#&#x65AD;&#x7F51;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x65AD;&#x7F51;&#x5904;&#x7406;</h4>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span>  
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span>    
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">&quot;!network&quot;</span>&gt;</span>      
+            <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>&#x6211;&#x6CA1;&#x7F51;&#x4E86;<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>      
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;onRefresh&quot;</span>&gt;</span>&#x5237;&#x65B0;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>      
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>    
+        <span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>/&gt;</span>      
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">import</span> { mapState } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span>;
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {  
+    name: <span class="hljs-string">&apos;App&apos;</span>,  
+    computed: {    
+      ...mapState([<span class="hljs-string">&apos;network&apos;</span>])  
+    },  
+    methods: {    
+      <span class="hljs-comment">// &#x901A;&#x8FC7;&#x8DF3;&#x8F6C;&#x4E00;&#x4E2A;&#x7A7A;&#x9875;&#x9762;&#x518D;&#x8FD4;&#x56DE;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x5237;&#x65B0;&#x5F53;&#x524D;&#x9875;&#x9762;&#x6570;&#x636E;&#x7684;&#x76EE;&#x7684;</span>
+      onRefresh () {      
+        <span class="hljs-keyword">this</span>.$router.replace(<span class="hljs-string">&apos;/refresh&apos;</span>)    
+      }  
+    }
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>&#x5728;&#x65AD;&#x7F51;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6765;&#x66F4;&#x65B0;vue&#x4E2D;network&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x6839;&#x636E;network&#x7684;&#x72B6;&#x6001;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x9700;&#x8981;&#x52A0;&#x8F7D;&#x8FD9;&#x4E2A;&#x65AD;&#x7F51;&#x7EC4;&#x4EF6;&#x3002;&#x65AD;&#x7F51;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x52A0;&#x8F7D;&#x65AD;&#x7F51;&#x7EC4;&#x4EF6;&#xFF0C;&#x4E0D;&#x52A0;&#x8F7D;&#x5BF9;&#x5E94;&#x9875;&#x9762;&#x7684;&#x7EC4;&#x4EF6;&#x3002;&#x5F53;&#x70B9;&#x51FB;&#x5237;&#x65B0;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x8DF3;&#x8F6C;refesh&#x9875;&#x9762;&#x7136;&#x540E;&#x7ACB;&#x5373;&#x8FD4;&#x56DE;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x91CD;&#x65B0;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;refresh.vue&#x9875;&#x9762;&#xFF0C;&#x5E76;&#x5728;&#x5176;beforeRouteEnter&#x94A9;&#x5B50;&#x4E2D;&#x518D;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x9875;&#x9762;&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// refresh.vue</span>
+beforeRouteEnter (to, <span class="hljs-keyword">from</span>, next) {
+  next(vm =&gt; {
+    vm.$router.replace(<span class="hljs-keyword">from</span>.fullPath)
+  })
+}
+</code></pre>
+<h2 id="&#x6269;&#x5C55;&#x77E5;&#x8BC6;&#x70B9;"><a name="&#x6269;&#x5C55;&#x77E5;&#x8BC6;&#x70B9;" class="anchor-navigation-ex-anchor" href="#&#x6269;&#x5C55;&#x77E5;&#x8BC6;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x6269;&#x5C55;&#x77E5;&#x8BC6;&#x70B9;" class="plugin-anchor" href="#&#x6269;&#x5C55;&#x77E5;&#x8BC6;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6269;&#x5C55;&#x77E5;&#x8BC6;&#x70B9;</h2>
+<h3 id="&#x8BF7;&#x6C42;&#x62E6;&#x622A;"><a name="&#x8BF7;&#x6C42;&#x62E6;&#x622A;" class="anchor-navigation-ex-anchor" href="#&#x8BF7;&#x6C42;&#x62E6;&#x622A;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x8BF7;&#x6C42;&#x62E6;&#x622A;" class="plugin-anchor" href="#&#x8BF7;&#x6C42;&#x62E6;&#x622A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BF7;&#x6C42;&#x62E6;&#x622A;</h3>
+<p>&#x6211;&#x4EEC;&#x5728;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x524D;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x7684;&#x62E6;&#x622A;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x62E6;&#x622A;&#x5462;&#xFF0C;&#x6211;&#x4EEC;&#x62E6;&#x622A;&#x8BF7;&#x6C42;&#x662F;&#x7528;&#x6765;&#x505A;&#x4EC0;&#x4E48;&#x7684;&#x5462;&#xFF1F;&#x6BD4;&#x5982;&#xFF0C;&#x6709;&#x4E9B;&#x8BF7;&#x6C42;&#x662F;&#x9700;&#x8981;&#x7528;&#x6237;&#x767B;&#x5F55;&#x4E4B;&#x540E;&#x624D;&#x80FD;&#x8BBF;&#x95EE;&#x7684;&#xFF0C;&#x6216;&#x8005;post&#x8BF7;&#x6C42;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5E8F;&#x5217;&#x5316;&#x6211;&#x4EEC;&#x63D0;&#x4EA4;&#x7684;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x8BF7;&#x6C42;&#x88AB;&#x53D1;&#x9001;&#x4E4B;&#x524D;&#x8FDB;&#x884C;&#x4E00;&#x4E2A;&#x62E6;&#x622A;&#xFF0C;&#x4ECE;&#x800C;&#x8FDB;&#x884C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<h3 id="&#x5728;&#x8BF7;&#x6C42;&#x62E6;&#x622A;&#x4E2D;&#x6DFB;&#x52A0;token"><a name="&#x5728;&#x8BF7;&#x6C42;&#x62E6;&#x622A;&#x4E2D;&#x6DFB;&#x52A0;token" class="anchor-navigation-ex-anchor" href="#&#x5728;&#x8BF7;&#x6C42;&#x62E6;&#x622A;&#x4E2D;&#x6DFB;&#x52A0;token"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5728;&#x8BF7;&#x6C42;&#x62E6;&#x622A;&#x4E2D;&#x6DFB;&#x52A0;token" class="plugin-anchor" href="#&#x5728;&#x8BF7;&#x6C42;&#x62E6;&#x622A;&#x4E2D;&#x6DFB;&#x52A0;token"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728;&#x8BF7;&#x6C42;&#x62E6;&#x622A;&#x4E2D;&#x6DFB;&#x52A0;token</h3>
+<p>token&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x5728;&#x767B;&#x5F55;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x5C06;&#x7528;&#x6237;&#x7684;token&#x901A;&#x8FC7;localStorage&#x6216;&#x8005;cookie&#x5B58;&#x5728;&#x672C;&#x5730;&#xFF0C;&#x7136;&#x540E;&#x7528;&#x6237;&#x6BCF;&#x6B21;&#x5728;&#x8FDB;&#x5165;&#x9875;&#x9762;&#x7684;&#x65F6;&#x5019;&#xFF08;&#x5373;&#x5728;main.js&#x4E2D;&#xFF09;&#xFF0C;&#x4F1A;&#x9996;&#x5148;&#x4ECE;&#x672C;&#x5730;&#x5B58;&#x50A8;&#x4E2D;&#x8BFB;&#x53D6;token&#xFF0C;&#x5982;&#x679C;token&#x5B58;&#x5728;&#x8BF4;&#x660E;&#x7528;&#x6237;&#x5DF2;&#x7ECF;&#x767B;&#x9646;&#x8FC7;&#xFF0C;&#x5219;&#x66F4;&#x65B0;vuex&#x4E2D;&#x7684;token&#x72B6;&#x6001;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x5728;&#x6BCF;&#x6B21;&#x8BF7;&#x6C42;&#x63A5;&#x53E3;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x90FD;&#x4F1A;&#x5728;&#x8BF7;&#x6C42;&#x7684;header&#x4E2D;&#x643A;&#x5E26;token&#xFF0C;&#x540E;&#x53F0;&#x4EBA;&#x5458;&#x5C31;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x4F60;&#x643A;&#x5E26;&#x7684;token&#x6765;&#x5224;&#x65AD;&#x4F60;&#x7684;&#x767B;&#x5F55;&#x662F;&#x5426;&#x8FC7;&#x671F;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x643A;&#x5E26;&#xFF0C;&#x5219;&#x8BF4;&#x660E;&#x6CA1;&#x6709;&#x767B;&#x5F55;&#x8FC7;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x6216;&#x8BB8;&#x6709;&#x4E9B;&#x5C0F;&#x4F19;&#x4F34;&#x4F1A;&#x6709;&#x7591;&#x95EE;&#x4E86;&#xFF0C;&#x5C31;&#x662F;&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x90FD;&#x643A;&#x5E26;token&#xFF0C;&#x90A3;&#x4E48;&#x8981;&#x662F;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#x4E0D;&#x9700;&#x8981;&#x7528;&#x6237;&#x767B;&#x5F55;&#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x7684;&#x600E;&#x4E48;&#x529E;&#x5462;&#xFF1F;&#x5176;&#x5B9E;&#xFF0C;&#x4F60;&#x524D;&#x7AEF;&#x7684;&#x8BF7;&#x6C42;&#x53EF;&#x4EE5;&#x643A;&#x5E26;token&#xFF0C;&#x4F46;&#x662F;&#x540E;&#x53F0;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4E0D;&#x63A5;&#x6536;&#x554A;&#xFF01;</p>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="axios.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: axios请求">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"vue项目中对axios的封装","level":"1.8.12","depth":2,"previous":{"title":"axios请求","level":"1.8.11","depth":2,"path":"vue/axios.md","ref":"vue/axios.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","sharing-plus","anchor-navigation-ex","code","popup","pageview-count","favicon","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/johnqin6"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"johnqin6","repo":"glory","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"johnqin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"johnqin的一本书","language":"zh-hans","links":{"sidebar":{"我的博客":""}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"vue/vueAxios.md","mtime":"2019-09-18T02:31:13.219Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-18T02:31:25.600Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

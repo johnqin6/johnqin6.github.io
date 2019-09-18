@@ -1,0 +1,1362 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>mongoDB概念解析 · johnqin的一本书</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="johnqin">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="dataBase.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    
+    
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"johnqin6","repo":"glory","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="" target="_blank" class="custom-link">我的博客</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    首页
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../gitbook_info/introduce.html">
+            
+                <a href="../gitbook_info/introduce.html">
+            
+                    
+                    gitbook
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../gitbook_info/introduce.html">
+            
+                <a href="../gitbook_info/introduce.html">
+            
+                    
+                    gitbook的介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../gitbook_info/use.html">
+            
+                <a href="../gitbook_info/use.html">
+            
+                    
+                    gitbook的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../wechat/read.html">
+            
+                <a href="../wechat/read.html">
+            
+                    
+                    微信小程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../wechat/read.html">
+            
+                <a href="../wechat/read.html">
+            
+                    
+                    微信小程序的介绍与准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../wechat/summary.html">
+            
+                <a href="../wechat/summary.html">
+            
+                    
+                    微信小程序的目录结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../wechat/start.html">
+            
+                <a href="../wechat/start.html">
+            
+                    
+                    起始开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../wechat/app.html">
+            
+                <a href="../wechat/app.html">
+            
+                    
+                    全局页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../wechat/pages.html">
+            
+                <a href="../wechat/pages.html">
+            
+                    
+                    普通页面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../wechat/lifecycleAndgrammar.html">
+            
+                <a href="../wechat/lifecycleAndgrammar.html">
+            
+                    
+                    生命周期和wxss样式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../wechat/not.html">
+            
+                <a href="../wechat/not.html">
+            
+                    
+                    微信小程序的注意事项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../wechat/event.html">
+            
+                <a href="../wechat/event.html">
+            
+                    
+                    事件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../node/introduce.html">
+            
+                <a href="../node/introduce.html">
+            
+                    
+                    Node.js
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../node/introduce.html">
+            
+                <a href="../node/introduce.html">
+            
+                    
+                    Node.js介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../node/install.html">
+            
+                <a href="../node/install.html">
+            
+                    
+                    安装起步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../node/service.html">
+            
+                <a href="../node/service.html">
+            
+                    
+                    搭建Node服务器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../node/netConcept.html">
+            
+                <a href="../node/netConcept.html">
+            
+                    
+                    网络概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../node/modular.html">
+            
+                <a href="../node/modular.html">
+            
+                    
+                    模块系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../node/apache.html">
+            
+                <a href="../node/apache.html">
+            
+                    
+                    实现apache功能
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../node/feedback.html">
+            
+                <a href="../node/feedback.html">
+            
+                    
+                    留言本注意事项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../node/express.html">
+            
+                <a href="../node/express.html">
+            
+                    
+                    express
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../node/callback.html">
+            
+                <a href="../node/callback.html">
+            
+                    
+                    回调函数封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../node/mongodb.html">
+            
+                <a href="../node/mongodb.html">
+            
+                    
+                    node中mongodb使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    mongoDB
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    mongoDB简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.2" data-path="idea.html">
+            
+                <a href="idea.html">
+            
+                    
+                    mongoDB概念解析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="dataBase.html">
+            
+                <a href="dataBase.html">
+            
+                    
+                    mongoDB数据库的连接和操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="collection.html">
+            
+                <a href="collection.html">
+            
+                    
+                    集合的创建和删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="document.html">
+            
+                <a href="document.html">
+            
+                    
+                    文档的操作(插入，更新，删除)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="query.html">
+            
+                <a href="query.html">
+            
+                    
+                    文档操作(查询)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="type.html">
+            
+                <a href="type.html">
+            
+                    
+                    type操作符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="limitAndSkip.html">
+            
+                <a href="limitAndSkip.html">
+            
+                    
+                    limit,skip,sort方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="indexes.html">
+            
+                <a href="indexes.html">
+            
+                    
+                    索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="aggregate.html">
+            
+                <a href="aggregate.html">
+            
+                    
+                    聚合管道(aggregate-阶段操作符)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="aggregate1.html">
+            
+                <a href="aggregate1.html">
+            
+                    
+                    聚合管道(aggregate-表达式)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="aggregate2.html">
+            
+                <a href="aggregate2.html">
+            
+                    
+                    聚合管道(aggregate-累加器)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="mongoose.html">
+            
+                <a href="mongoose.html">
+            
+                    
+                    mongoose
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="mongoose.html">
+            
+                <a href="mongoose.html">
+            
+                    
+                    mongoose的使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="mongoose1.html">
+            
+                <a href="mongoose1.html">
+            
+                    
+                    mongoose的使用（文档的操作）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="mongoose2.html">
+            
+                <a href="mongoose2.html">
+            
+                    
+                    mongoose进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="mongoose3.html">
+            
+                <a href="mongoose3.html">
+            
+                    
+                    mongoose高级(聚合管道)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../codeStyle/">
+            
+                <a href="../codeStyle/">
+            
+                    
+                    代码风格
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../codeStyle/standarjs.html">
+            
+                <a href="../codeStyle/standarjs.html">
+            
+                    
+                    standarjs代码风格
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../vue/">
+            
+                <a href="../vue/">
+            
+                    
+                    vue的学习总结
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../vue/">
+            
+                <a href="../vue/">
+            
+                    
+                    vue的知识点总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../vue/vueCli.html">
+            
+                <a href="../vue/vueCli.html">
+            
+                    
+                    vue-cli3搭建vue开发环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../vue/component.html">
+            
+                <a href="../vue/component.html">
+            
+                    
+                    vue组件开发与注册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../vue/component2.html">
+            
+                <a href="../vue/component2.html">
+            
+                    
+                    vue组件通信详解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../vue/directive.html">
+            
+                <a href="../vue/directive.html">
+            
+                    
+                    自定义指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../vue/filter.html">
+            
+                <a href="../vue/filter.html">
+            
+                    
+                    自定义过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../vue/animate.html">
+            
+                <a href="../vue/animate.html">
+            
+                    
+                    vue过渡和动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../vue/mixin.html">
+            
+                <a href="../vue/mixin.html">
+            
+                    
+                    mixin混入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="../vue/vueRouter.html">
+            
+                <a href="../vue/vueRouter.html">
+            
+                    
+                    vue-router路由知识点总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="../vue/vuex.html">
+            
+                <a href="../vue/vuex.html">
+            
+                    
+                    vuex的使用总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="../vue/axios.html">
+            
+                <a href="../vue/axios.html">
+            
+                    
+                    axios请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="../vue/vueAxios.html">
+            
+                <a href="../vue/vueAxios.html">
+            
+                    
+                    vue项目中对axios的封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >mongoDB概念解析</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#mongodb-&#x6982;&#x5FF5;&#x89E3;&#x6790;"><b></b>MongoDB &#x6982;&#x5FF5;&#x89E3;&#x6790;</a></li><ul><li><span class="title-icon "></span><a href="#sql-&#x548C;-mongodb-&#x672F;&#x8BED;&#x6982;&#x5FF5;&#x5BF9;&#x6BD4;"><b></b>SQL &#x548C; MongoDB &#x672F;&#x8BED;/&#x6982;&#x5FF5;&#x5BF9;&#x6BD4;</a></li><li><span class="title-icon "></span><a href="#&#x6570;&#x636E;&#x5E93;"><b></b>&#x6570;&#x636E;&#x5E93;</a></li><li><span class="title-icon "></span><a href="#&#x96C6;&#x5408;"><b></b>&#x96C6;&#x5408;</a></li><li><span class="title-icon "></span><a href="#&#x6587;&#x6863;document"><b></b>&#x6587;&#x6863;(Document)</a></li><li><span class="title-icon "></span><a href="#&#x5143;&#x6570;&#x636E;"><b></b>&#x5143;&#x6570;&#x636E;</a></li><li><span class="title-icon "></span><a href="#mongodb-&#x5E38;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B;"><b></b>mongodb &#x5E38;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B;</a></li></ul></ul></div><a href="#mongodb-&#x6982;&#x5FF5;&#x89E3;&#x6790;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="mongodb-&#x6982;&#x5FF5;&#x89E3;&#x6790;"><a name="mongodb-&#x6982;&#x5FF5;&#x89E3;&#x6790;" class="anchor-navigation-ex-anchor" href="#mongodb-&#x6982;&#x5FF5;&#x89E3;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="mongodb-&#x6982;&#x5FF5;&#x89E3;&#x6790;" class="plugin-anchor" href="#mongodb-&#x6982;&#x5FF5;&#x89E3;&#x6790;"><i class="fa fa-link" aria-hidden="true"></i></a>MongoDB &#x6982;&#x5FF5;&#x89E3;&#x6790;</h1>
+<h2 id="sql-&#x548C;-mongodb-&#x672F;&#x8BED;&#x6982;&#x5FF5;&#x5BF9;&#x6BD4;"><a name="sql-&#x548C;-mongodb-&#x672F;&#x8BED;&#x6982;&#x5FF5;&#x5BF9;&#x6BD4;" class="anchor-navigation-ex-anchor" href="#sql-&#x548C;-mongodb-&#x672F;&#x8BED;&#x6982;&#x5FF5;&#x5BF9;&#x6BD4;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="sql-&#x548C;-mongodb-&#x672F;&#x8BED;&#x6982;&#x5FF5;&#x5BF9;&#x6BD4;" class="plugin-anchor" href="#sql-&#x548C;-mongodb-&#x672F;&#x8BED;&#x6982;&#x5FF5;&#x5BF9;&#x6BD4;"><i class="fa fa-link" aria-hidden="true"></i></a>SQL &#x548C; MongoDB &#x672F;&#x8BED;/&#x6982;&#x5FF5;&#x5BF9;&#x6BD4;</h2>
+<table>
+<thead>
+<tr>
+<th>SQL</th>
+<th>MongoDB</th>
+<th>&#x89E3;&#x91CA;/&#x8BF4;&#x660E;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>database</td>
+<td>&#x6570;&#x636E;&#x5E93;</td>
+</tr>
+<tr>
+<td>table</td>
+<td>collection</td>
+<td>&#x6570;&#x636E;&#x5E93;&#x8868;/&#x96C6;&#x5408;</td>
+</tr>
+<tr>
+<td>row</td>
+<td>document</td>
+<td>&#x6570;&#x636E;&#x8BB0;&#x5F55;&#x884C;/&#x6587;&#x6863;</td>
+</tr>
+<tr>
+<td>column</td>
+<td>field</td>
+<td>&#x6570;&#x636E;&#x5B57;&#x6BB5;/&#x57DF;</td>
+</tr>
+<tr>
+<td>index</td>
+<td>index</td>
+<td>&#x7D22;&#x5F15;</td>
+</tr>
+<tr>
+<td>table joins</td>
+<td></td>
+<td>&#x8868;&#x8FDE;&#x63A5;&#xFF0C;Mongodb&#x4E0D;&#x652F;&#x6301;</td>
+</tr>
+<tr>
+<td>primary key</td>
+<td>primary key</td>
+<td>&#x4E3B;&#x952E;&#xFF0C;Mongodb&#x81EA;&#x52A8;&#x5C06;_id&#x5B57;&#x6BB5;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E3B;&#x952E;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x6570;&#x636E;&#x5E93;"><a name="&#x6570;&#x636E;&#x5E93;" class="anchor-navigation-ex-anchor" href="#&#x6570;&#x636E;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x6570;&#x636E;&#x5E93;" class="plugin-anchor" href="#&#x6570;&#x636E;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6570;&#x636E;&#x5E93;</h2>
+<p>&#x4E00;&#x4E2A;mongodb&#x4E2D;&#x53EF;&#x4EE5;&#x5EFA;&#x7ACB;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x3002;<br>mongodb&#x7684;&#x9ED8;&#x8BA4;&#x6570;&#x636E;&#x5E93;&#x4E3A;&#x201C;db&#x201D;, &#x8BE5;&#x6570;&#x636E;&#x5E93;&#x5B58;&#x50A8;&#x5728; data &#x76EE;&#x5F55;&#x4E2D;&#x3002; 
+mongodb&#x7684;&#x5355;&#x4E2A;&#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x5BB9;&#x7EB3;&#x591A;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x96C6;&#x5408;&#x548C;&#x6743;&#x9650;&#xFF0C;
+&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x5E93;&#x4E5F;&#x653E;&#x7F6E;&#x7740;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#x3002; </p>
+<ul>
+<li>&#x67E5;&#x770B;&#x6570;&#x636E;&#x5E93; <pre><code>// &#x9996;&#x5148;&#x9700;&#x8981;&#x8FDB;&#x5165;mongo &#x8FD0;&#x884C;&#x73AF;&#x5883;
+&gt; $ ./mongo
+MongoDB shell version: 3.0.6
+connecting to: test  
+// &#x67E5;&#x770B;&#x6570;&#x636E;&#x5E93;
+&gt; show dbs
+local 0.000GB
+test  0.000GB
+// &#x8FDE;&#x63A5;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x6570;&#x636E;&#x5E93;
+&gt; use test 
+switched to db local
+// &#x663E;&#x793A;&#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x5BF9;&#x8C61;&#x6216;&#x96C6;&#x5408; 
+&gt; db 
+test
+</code></pre></li>
+<li><p>&#x6570;&#x636E;&#x5E93;&#x540D;&#x7684;&#x89C4;&#x8303;  </p>
+<ul>
+<li>&#x4E0D;&#x80FD;&#x662F;&#x7A7A;&#x5B57;&#x7B26;&#x4E32; (&quot;&quot;)</li>
+<li>&#x4E0D;&#x5F97;&#x542B;&#x6709;&apos;&apos;(&#x7A7A;&#x683C;)&#x3001;$&#x3001;\&#x548C;\0(&#x7A7A;&#x5B57;&#x7B26;) </li>
+<li>&#x5E94;&#x5168;&#x90E8;&#x5C0F;&#x5199;</li>
+<li>&#x6700;&#x591A;64&#x5B57;&#x8282;  </li>
+<li>&#x5176;&#x4ED6;&#x7684;&#x4EFB;&#x610F;utf-8&#x5B57;&#x7B26;&#x4E32;&#x90FD;&#x53EF;  </li>
+</ul>
+</li>
+<li><p>&#x4FDD;&#x7559;&#x7684;&#x6570;&#x636E;&#x5E93;&#x540D;&#xFF0C;&#x53EF;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x8FD9;&#x4E9B;&#x7279;&#x6B8A;&#x4F5C;&#x7528;&#x7684;&#x6570;&#x636E;&#x5E93;  </p>
+<ul>
+<li>admin: &#x4ECE;&#x6743;&#x9650;&#x7684;&#x89D2;&#x5EA6;&#x770B;&#xFF0C;&#x8FD9;&#x662F;&#x201C;root&#x201D;&#x6570;&#x636E;&#x5E93;&#x3002;&#x5C06;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x6DFB;&#x52A0;&#x5230;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#xFF0C;
+&#x8FD9;&#x4E2A;&#x7528;&#x6237;&#x81EA;&#x52A8;&#x7EE7;&#x627F;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x4E00;&#x4E9B;&#x7279;&#x5B9A;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x547D;&#x4EE4;&#x4E5F;&#x53EA;&#x80FD;&#x4ECE;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x8FD0;&#x884C;&#xFF0C;
+&#x6BD4;&#x5982;&#x5217;&#x51FA;&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x6216;&#x8005;&#x5173;&#x95ED;&#x670D;&#x52A1;&#x5668;&#x3002;</li>
+<li>local: &#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x88AB;&#x590D;&#x5236;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5B58;&#x50A8;&#x9650;&#x4E8E;&#x672C;&#x5730;&#x5355;&#x53F0;&#x670D;&#x52A1;&#x5668;&#x7684;&#x4EFB;&#x610F;&#x96C6;&#x5408;&#x3002;</li>
+<li>config: &#x5F53;mongo&#x7528;&#x4E8E;&#x5206;&#x7247;&#x8BBE;&#x7F6E;&#x65F6;&#xFF0C;config&#x6570;&#x636E;&#x5E93;&#x5728;&#x5185;&#x90E8;&#x4F7F;&#x7528;&#xFF0C;&#x7528;&#x4E8E;&#x4FDD;&#x5B58;&#x5206;&#x7247;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x3002;  </li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x96C6;&#x5408;"><a name="&#x96C6;&#x5408;" class="anchor-navigation-ex-anchor" href="#&#x96C6;&#x5408;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x96C6;&#x5408;" class="plugin-anchor" href="#&#x96C6;&#x5408;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x96C6;&#x5408;</h2>
+<p>&#x96C6;&#x5408;&#x5C31;&#x662F;mongodb&#x6587;&#x6863;&#x7EC4;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E; RDBMS (&#x5173;&#x7CFB;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;)&#x7684;&#x8868;&#x683C;&#x3002;<br>&#x96C6;&#x5408;&#x5B58;&#x5728;&#x4E8E;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#xFF0C;&#x96C6;&#x5408;&#x6CA1;&#x6709;&#x56FA;&#x5B9A;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4F60;&#x5728;&#x96C6;&#x5408;&#x4E2D;&#x53EF;&#x4EE5;&#x63D2;&#x5165;
+&#x4E0D;&#x540C;&#x683C;&#x5F0F;&#x548C;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4F46;&#x4E00;&#x822C;&#x6211;&#x4EEC;&#x63D2;&#x5165;&#x96C6;&#x5408;&#x7684;&#x6570;&#x636E;&#x90FD;&#x4F1A;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x5173;&#x8054;&#x6027;&#x3002;<br>&#x6BD4;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x4E00;&#x4E0B;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x6587;&#x6863;&#x63D2;&#x5165;&#x5230;&#x96C6;&#x5408;&#x4E2D;</p>
+<pre><code class="lang-json">{<span class="hljs-string">&quot;site&quot;</span>:<span class="hljs-string">&quot;www.baidu.com&quot;</span>}
+{<span class="hljs-string">&quot;site&quot;</span>:<span class="hljs-string">&quot;www.google.com&quot;</span>,<span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;Google&quot;</span>}
+{<span class="hljs-string">&quot;site&quot;</span>:<span class="hljs-string">&quot;www.runoob.com&quot;</span>,<span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;&#x83DC;&#x9E1F;&#x6559;&#x7A0B;&quot;</span>,<span class="hljs-string">&quot;num&quot;</span>:<span class="hljs-number">5</span>}
+</code></pre>
+<p>&#x5F53;&#x7B2C;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#x63D2;&#x5165;&#x65F6;&#xFF0C;&#x96C6;&#x5408;&#x5C31;&#x4F1A;&#x88AB;&#x521B;&#x5EFA;&#x3002; </p>
+<ul>
+<li>&#x5408;&#x6CD5;&#x7684;&#x96C6;&#x5408;&#x540D; <ul>
+<li>&#x96C6;&#x5408;&#x540D;&#x4E0D;&#x80FD;&#x662F;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&quot;&quot;&#x3002;</li>
+<li>&#x96C6;&#x5408;&#x540D;&#x4E0D;&#x80FD;&#x542B;&#x6709;\0&#x5B57;&#x7B26;&#xFF08;&#x7A7A;&#x5B57;&#x7B26;)&#xFF0C;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x8868;&#x793A;&#x96C6;&#x5408;&#x540D;&#x7684;&#x7ED3;&#x5C3E;&#x3002;</li>
+<li>&#x96C6;&#x5408;&#x540D;&#x4E0D;&#x80FD;&#x4EE5;&quot;system.&quot;&#x5F00;&#x5934;&#xFF0C;&#x8FD9;&#x662F;&#x4E3A;&#x7CFB;&#x7EDF;&#x96C6;&#x5408;&#x4FDD;&#x7559;&#x7684;&#x524D;&#x7F00;&#x3002;</li>
+<li>&#x7528;&#x6237;&#x521B;&#x5EFA;&#x7684;&#x96C6;&#x5408;&#x540D;&#x5B57;&#x4E0D;&#x80FD;&#x542B;&#x6709;&#x4FDD;&#x7559;&#x5B57;&#x7B26;&#x3002;&#x6709;&#x4E9B;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x7684;&#x786E;&#x652F;&#x6301;&#x5728;&#x96C6;&#x5408;&#x540D;&#x91CC;&#x9762;&#x5305;&#x542B;&#xFF0C;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x67D0;&#x4E9B;&#x7CFB;&#x7EDF;&#x751F;&#x6210;&#x7684;&#x96C6;&#x5408;&#x4E2D;&#x5305;&#x542B;&#x8BE5;&#x5B57;&#x7B26;&#x3002;&#x9664;&#x975E;&#x4F60;&#x8981;&#x8BBF;&#x95EE;&#x8FD9;&#x79CD;&#x7CFB;&#x7EDF;&#x521B;&#x5EFA;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5426;&#x5219;&#x5343;&#x4E07;&#x4E0D;&#x8981;&#x5728;&#x540D;&#x5B57;&#x91CC;&#x51FA;&#x73B0;$&#x3002;&#x3000;    </li>
+</ul>
+</li>
+<li>capped collections <ul>
+<li>Capped collections &#x5C31;&#x662F;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;collection&#x3002;</li>
+<li>&#x5B83;&#x6709;&#x5F88;&#x9AD8;&#x7684;&#x6027;&#x80FD;&#x4EE5;&#x53CA;&#x961F;&#x5217;&#x8FC7;&#x671F;&#x7684;&#x7279;&#x6027;(&#x8FC7;&#x671F;&#x6309;&#x7167;&#x63D2;&#x5165;&#x7684;&#x987A;&#x5E8F;). &#x6709;&#x70B9;&#x548C; &quot;RRD&quot; &#x6982;&#x5FF5;&#x7C7B;&#x4F3C;&#x3002;</li>
+<li>Capped collections &#x662F;&#x9AD8;&#x6027;&#x80FD;&#x81EA;&#x52A8;&#x7684;&#x7EF4;&#x62A4;&#x5BF9;&#x8C61;&#x7684;&#x63D2;&#x5165;&#x987A;&#x5E8F;&#x3002;&#x5B83;&#x975E;&#x5E38;&#x9002;&#x5408;&#x7C7B;&#x4F3C;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x7684;&#x529F;&#x80FD;&#x548C;&#x6807;&#x51C6;&#x7684; collection &#x4E0D;&#x540C;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x8981;&#x663E;&#x5F0F;&#x7684;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;capped collection&#xFF0C;&#x6307;&#x5B9A;&#x4E00;&#x4E2A; collection &#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5355;&#x4F4D;&#x662F;&#x5B57;&#x8282;&#x3002;collection &#x7684;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x503C;&#x63D0;&#x524D;&#x5206;&#x914D;&#x7684;&#x3002;</li>
+<li>Capped collections &#x53EF;&#x4EE5;&#x6309;&#x7167;&#x6587;&#x6863;&#x7684;&#x63D2;&#x5165;&#x987A;&#x5E8F;&#x4FDD;&#x5B58;&#x5230;&#x96C6;&#x5408;&#x4E2D;&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x4E9B;&#x6587;&#x6863;&#x5728;&#x78C1;&#x76D8;&#x4E0A;&#x5B58;&#x653E;&#x4F4D;&#x7F6E;&#x4E5F;&#x662F;&#x6309;&#x7167;&#x63D2;&#x5165;&#x987A;&#x5E8F;&#x6765;&#x4FDD;&#x5B58;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5F53;&#x6211;&#x4EEC;&#x66F4;&#x65B0;Capped collections &#x4E2D;&#x6587;&#x6863;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x66F4;&#x65B0;&#x540E;&#x7684;&#x6587;&#x6863;&#x4E0D;&#x53EF;&#x4EE5;&#x8D85;&#x8FC7;&#x4E4B;&#x524D;&#x6587;&#x6863;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x8FD9;&#x6837;&#x8BDD;&#x5C31;&#x53EF;&#x4EE5;&#x786E;&#x4FDD;&#x6240;&#x6709;&#x6587;&#x6863;&#x5728;&#x78C1;&#x76D8;&#x4E0A;&#x7684;&#x4F4D;&#x7F6E;&#x4E00;&#x76F4;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#x3002;</li>
+<li>&#x7531;&#x4E8E; Capped collection &#x662F;&#x6309;&#x7167;&#x6587;&#x6863;&#x7684;&#x63D2;&#x5165;&#x987A;&#x5E8F;&#x800C;&#x4E0D;&#x662F;&#x4F7F;&#x7528;&#x7D22;&#x5F15;&#x786E;&#x5B9A;&#x63D2;&#x5165;&#x4F4D;&#x7F6E;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x589E;&#x6DFB;&#x6570;&#x636E;&#x7684;&#x6548;&#x7387;&#x3002;MongoDB &#x7684;&#x64CD;&#x4F5C;&#x65E5;&#x5FD7;&#x6587;&#x4EF6; oplog.rs &#x5C31;&#x662F;&#x5229;&#x7528; Capped Collection &#x6765;&#x5B9E;&#x73B0;&#x7684;&#x3002;</li>
+<li>&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x6307;&#x5B9A;&#x7684;&#x5B58;&#x50A8;&#x5927;&#x5C0F;&#x5305;&#x542B;&#x4E86;&#x6570;&#x636E;&#x5E93;&#x7684;&#x5934;&#x4FE1;&#x606F;&#x3002;  </li>
+</ul>
+</li>
+</ul>
+<p><strong>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x5E76;&#x9650;&#x5B9A;&#x96C6;&#x5408;&#x5927;&#x5C0F;</strong>    </p>
+<blockquote>
+<p>db.createCollection(&quot;mycoll&quot;, {capped: true, size: 10000})  </p>
+</blockquote>
+<ul>
+<li>capped collection &#x7684;&#x7279;&#x70B9;&#xFF1A;<ul>
+<li>&#x5728; capped collection&#x4E2D;&#xFF0C;&#x4F60;&#x80FD;&#x6DFB;&#x52A0;&#x65B0;&#x7684;&#x5BF9;&#x8C61;  </li>
+<li>&#x80FD;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#xFF0C;&#x4F46;&#x5BF9;&#x8C61;&#x4E0D;&#x4F1A;&#x589E;&#x52A0;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x3002;&#x5982;&#x679C;&#x589E;&#x52A0;&#xFF0C;&#x66F4;&#x65B0;&#x5C31;&#x4F1A;&#x5931;&#x8D25;&#x3002;</li>
+<li>&#x4F7F;&#x7528;capped Collection &#x4E0D;&#x80FD;&#x5220;&#x9664;&#x4E00;&#x4E2A;&#x6587;&#x6863;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; drop() &#x65B9;&#x6CD5;&#x5220;&#x9664;collection&#x6240;&#x6709;&#x7684;&#x884C;&#x3002;</li>
+<li>&#x5220;&#x9664;&#x540E;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x663E;&#x5F0F;&#x5730;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x8FD9;&#x4E2A;collection&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x6587;&#x6863;document"><a name="&#x6587;&#x6863;document" class="anchor-navigation-ex-anchor" href="#&#x6587;&#x6863;document"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x6587;&#x6863;document" class="plugin-anchor" href="#&#x6587;&#x6863;document"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6587;&#x6863;(Document)</h2>
+<p>&#x6587;&#x6863;&#x662F;&#x4E00;&#x7EC4;&#x952E;&#x503C;(key-value)&#x5BF9;(&#x5373;bson)&#x3002;mongodb&#x7684;&#x6587;&#x6863;&#x4E0D;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x76F8;&#x540C;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x5E76;&#x4E14;&#x76F8;&#x540C;&#x7684;&#x5B57;&#x6BB5;&#x4E0D;&#x9700;&#x8981;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x8FD9;&#x4E0E;&#x5173;&#x7CFB;&#x6570;&#x636E;&#x5E93;&#x6709;&#x5F88;&#x5927;&#x533A;&#x522B;&#xFF0C;&#x4E5F;&#x662F;mongodb&#x975E;&#x5E38;&#x7A81;&#x51FA;&#x7684;&#x7279;&#x70B9;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6587;&#x6863;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-json">{<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;john&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">20</span>}
+</code></pre>
+<ul>
+<li>&#x6CE8;&#x610F;&#x70B9;&#xFF1A;<ol>
+<li>&#x6587;&#x6863;&#x7684;&#x952E;/&#x503C;&#x5BF9;&#x662F;&#x6709;&#x5E8F;&#x7684;</li>
+<li>&#x6587;&#x6863;&#x4E2D;&#x7684;&#x503C;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x662F;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x662F;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF08;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x662F;&#x6574;&#x4E2A;&#x6587;&#x6863;&#xFF09;</li>
+<li>mongodb &#x533A;&#x5206;&#x7C7B;&#x578B;&#x548C;&#x5927;&#x5C0F;&#x5199;</li>
+<li>mongodb &#x7684;&#x6587;&#x6863;&#x4E0D;&#x80FD;&#x6709;&#x91CD;&#x590D;&#x7684;&#x952E;</li>
+<li>&#x6587;&#x6863;&#x7684;&#x952E;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x9664;&#x4E86;&#x5C11;&#x6570;&#x4F8B;&#x5916;&#x60C5;&#x51B5;&#xFF0C;&#x89C1;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EFB;&#x610F;utf-8&#x5B57;&#x7B26;  </li>
+</ol>
+</li>
+<li>&#x6587;&#x6863;&#x952E;&#x547D;&#x540D;&#x89C4;&#x8303;<ul>
+<li>&#x952E;&#x4E0D;&#x80FD;&#x542B;&#x6709;\0(&#x5B57;&#x7B26;)&#x3002;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x8868;&#x793A;&#x95F4;&#x7684;&#x7ED3;&#x5C3E;&#x3002;</li>
+<li>.&#x548C;$&#x6709;&#x7279;&#x522B;&#x7684;&#x610F;&#x4E49;&#xFF0C;&#x53EA;&#x6709;&#x7279;&#x70B9;&#x7684;&#x73AF;&#x5883;&#x4E0B;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x3002;</li>
+<li>&#x4EE5;&#x4E0B;&#x5212;&#x7EBF;&quot;_&quot;&#x5F00;&#x5934;&#x7684;&#x952E;&#x662F;&#x4FDD;&#x7559;&#x7684;&#x3002;  </li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x5143;&#x6570;&#x636E;"><a name="&#x5143;&#x6570;&#x636E;" class="anchor-navigation-ex-anchor" href="#&#x5143;&#x6570;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x5143;&#x6570;&#x636E;" class="plugin-anchor" href="#&#x5143;&#x6570;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5143;&#x6570;&#x636E;</h2>
+<p>&#x6570;&#x636E;&#x5E93;&#x7684;&#x4FE1;&#x606F;&#x662F;&#x5B58;&#x50A8;&#x5728;&#x96C6;&#x5408;&#x4E2D;&#xFF0C;&#x4ED6;&#x4EEC;&#x4F7F;&#x7528;&#x4E86;&#x7CFB;&#x7EDF;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x3002; </p>
+<blockquote>
+<p>dbname.system.<em><br>&#x5728;mongodb &#x6570;&#x636E;&#x5E93;&#x4E2D;&#x540D;&#x5B57;&#x7A7A;&#x95F4; <dbname>.system.</dbname></em> &#x662F;&#x5305;&#x542B;&#x591A;&#x79CD;&#x7CFB;&#x7EDF;&#x4FE1;&#x606F;&#x7684;&#x7279;&#x6B8A;&#x96C6;&#x5408;(collection)&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;   </p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>&#x96C6;&#x5408;&#x547D;&#x540D;&#x7A7A;&#x95F4;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dbname.system.namespaces</td>
+<td>&#x5217;&#x51FA;&#x6240;&#x6709;&#x547D;&#x540D;&#x7A7A;&#x95F4;</td>
+</tr>
+<tr>
+<td>dbname.system.indexes</td>
+<td>&#x5217;&#x51FA;&#x6240;&#x6709;&#x7D22;&#x5F15;</td>
+</tr>
+<tr>
+<td>dbname.system.profile</td>
+<td>&#x5305;&#x542B;&#x6570;&#x636E;&#x5E93;&#x6982;&#x8981;(profile)&#x4FE1;&#x606F;</td>
+</tr>
+<tr>
+<td>dbname.system.users</td>
+<td>&#x5217;&#x51FA;&#x6240;&#x6709;&#x53EF;&#x8BBF;&#x95EE;&#x6570;&#x636E;&#x5E93;&#x7684;&#x7528;&#x6237;</td>
+</tr>
+<tr>
+<td>dbname.system.sources</td>
+<td>&#x5305;&#x542B;&#x590D;&#x5236;&#x5BF9;&#x7AEF;(slave)&#x7684;&#x670D;&#x52A1;&#x5668;&#x4FE1;&#x606F;&#x548C;&#x72B6;&#x6001;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>&#x5BF9;&#x4E8E;&#x4FEE;&#x6539;&#x7CFB;&#x7EDF;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x6709;&#x5982;&#x4E0B;&#x9650;&#x5236;&#x3002;<ul>
+<li>&#x5728;&#x63D2;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x7D22;&#x5F15;&#x3002;&#x4F46;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#x8BE5;&#x8868;&#x4FE1;&#x606F;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x7684;(&#x7279;&#x6B8A;&#x7684;drop index&#x547D;&#x4EE4;&#x5C06;&#x81EA;&#x52A8;&#x66F4;&#x65B0;&#x76F8;&#x5173;&#x4FE1;&#x606F;)&#x3002;</li>
+<li>&#x662F;&#x53EF;&#x4FEE;&#x6539;&#x7684;&#x3002; &#x662F;&#x53EF;&#x5220;&#x9664;&#x7684;&#x3002; </li>
+</ul>
+</li>
+</ul>
+<h2 id="mongodb-&#x5E38;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B;"><a name="mongodb-&#x5E38;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#mongodb-&#x5E38;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="mongodb-&#x5E38;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B;" class="plugin-anchor" href="#mongodb-&#x5E38;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>mongodb &#x5E38;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B;</h2>
+<table>
+<thead>
+<tr>
+<th>&#x6570;&#x636E;&#x7C7B;&#x578B;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x5E38;&#x7528;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x5728;Mongodb&#x4E2D;&#xFF0C;utf-8&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x624D;&#x662F;&#x5408;&#x6CD5;&#x7684;</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>&#x6574;&#x578B;&#x6570;&#x503C;&#xFF0C;&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x6570;&#x503C;&#xFF0C;&#x6839;&#x636E;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x53EF;&#x5206;&#x4E3A;32&#x4F4D;&#x6216;64&#x4F4D;</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x5B58;&#x50A8;&#x5E03;&#x5C14;&#x503C;&#xFF08;&#x771F;/&#x5047;&#xFF09;</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>&#x53CC;&#x7CBE;&#x5EA6;&#x6D6E;&#x70B9;&#x503C;</td>
+</tr>
+<tr>
+<td>Min/Max keys</td>
+<td>&#x5C06;&#x4E00;&#x4E2A;&#x503C;&#x4E8E;BSON(&#x4E8C;&#x8FDB;&#x5236;&#x7684;json)&#x5143;&#x7D20;&#x7684;&#x6700;&#x4F4E;&#x503C;&#x548C;&#x6700;&#x9AD8;&#x503C;&#x76F8;&#x5BF9;&#x6BD4;</td>
+</tr>
+<tr>
+<td>Array</td>
+<td>&#x5C06;&#x6570;&#x7EC4;&#x6216;&#x5217;&#x8868;&#x6216;&#x591A;&#x4E2A;&#x503C;&#x5B58;&#x50A8;&#x4E3A;&#x4E00;&#x4E2A;&#x952E;</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x8BB0;&#x5F55;&#x6587;&#x6863;&#x4FEE;&#x6539;&#x6216;&#x6DFB;&#x52A0;&#x7684;&#x5177;&#x4F53;&#x65F6;&#x95F4;</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>&#x7528;&#x4E8E;&#x5185;&#x5D4C;&#x6587;&#x6863;</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>&#x521B;&#x5EFA;&#x7A7A;&#x503C;</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>&#x7B26;&#x53F7;&#xFF0C;&#x7B49;&#x540C;&#x4E8E;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x4ED6;&#x4E00;&#x822C;&#x91C7;&#x7528;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#x7C7B;&#x578B;&#x7684;&#x8BED;&#x8A00;</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>&#x65E5;&#x671F;&#x65F6;&#x95F4;&#xFF0C;&#x7528;unix&#x65F6;&#x95F4;&#x683C;&#x5F0F;&#x5B58;&#x50A8;&#x5F53;&#x524D;&#x65F6;&#x65E5;&#x671F;&#x6216;&#x65F6;&#x95F4;&#xFF0C;&#x4E5F;&#x53EF;&#x6307;&#x5B9A;&#x81EA;&#x5DF1;&#x7684;&#x65E5;&#x671F;&#x65F6;&#x95F4;&#xFF1A;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x521B;&#x5EFA;Date&#x5BF9;&#x8C61;&#xFF0C;&#x4F20;&#x5165;&#x5E74;&#x6708;&#x65E5;&#x4FE1;&#x606F;| 
+|ObjectID|&#x5BF9;&#x8C61;ID&#xFF0C;&#x521B;&#x5EFA;&#x6587;&#x6863;&#x7684;ID|
+|Binary Data| &#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;|
+|Code|&#x4EE3;&#x7801;&#x7C7B;&#x578B;&#xFF0C;&#x5728;&#x6587;&#x6863;&#x4E2D;&#x5B58;&#x50A8;javascript&#x4EE3;&#x7801;| 
+|Regular expression| &#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x7C7B;&#x578B;|   </p>
+<ul>
+<li>ObjectId 
+ObjectId &#x7C7B;&#x4F3C;&#x552F;&#x4E00;&#x4E3B;&#x952E;&#xFF0C;&#x53EF;&#x4EE5;&#x5F88;&#x5FEB;&#x751F;&#x6210;&#x548C;&#x6392;&#x5E8F;&#xFF0C;&#x5305;&#x542B;12 bytes, &#x542B;&#x4E49;&#x662F;&#xFF1A;</li>
+<li>&#x524D;4&#x4E2A;&#x5B57;&#x7B26;&#x8868;&#x793A;&#x521B;&#x5EFA;unix&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x683C;&#x6797;&#x5C3C;&#x6CBB;&#x65F6;&#x95F4;UTC&#x65F6;&#x95F4;&#xFF0C;&#x6BD4;&#x5317;&#x4EAC;&#x65F6;&#x95F4;&#x665A;&#x4E86;8&#x5C0F;&#x65F6;&#x3002;</li>
+<li>&#x63A5;&#x4E0B;&#x6765;&#x7684;3&#x4E2A;&#x5B57;&#x8282;&#x662F;&#x673A;&#x5668;&#x6807;&#x8BC6;&#x7B26;</li>
+<li>&#x7D27;&#x63A5;&#x7684;&#x4E24;&#x4E2A;&#x5B57;&#x8282;&#x7531;&#x8FDB;&#x7A0B;id&#x7EC4;&#x6210;PID</li>
+<li><p>&#x6700;&#x540E;&#x4E09;&#x4E2A;&#x5B57;&#x8282;&#x662F;&#x968F;&#x673A;&#x6570; 
+mongodb &#x4E2D;&#x5B58;&#x50A8;&#x7684;&#x6587;&#x6863;&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x4E2A;_id&#x952E;&#xFF0C;&#x8FD9;&#x4E2A;&#x952E;&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x7684;&#x503C;&#xFF0C;&#x9ED8;&#x8BA4;&#x662F;Objectid&#x5BF9;&#x8C61;&#x3002;<br>&#x7531;&#x4E8E;Objectid&#x5DF2;&#x4FDD;&#x5B58;&#x4E86;&#x521B;&#x5EFA;&#x7684;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x4E0D;&#x5FC5;&#x5728;&#x4E3A;&#x4F60;&#x7684;&#x6587;&#x6863;&#x4FDD;&#x5B58;&#x65F6;&#x95F4;&#x6233;&#x5B57;&#x6BB5;&#xFF0C;&#x53EF;&#x901A;&#x8FC7;getTimestamp&#x51FD;&#x6570;&#x6765;&#x83B7;&#x53D6;&#x6587;&#x6863;&#x7684;&#x521B;&#x5EFA;&#x65F6;&#x95F4;&#x3002;   </p>
+<pre><code>&gt; var newObject = ObjectId()
+&gt; newObject.getTimestamp()
+ISODate(&quot;2019-11-25T07:21:10Z&quot;)
+</code></pre><p>ObjectId &#x8F6C;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;</p>
+<pre><code>&gt; newObject.str
+5a1919e63df83ce79df8b38f
+</code></pre></li>
+<li><p>&#x65F6;&#x95F4;&#x6233;
+BSON &#x7684;&#x65F6;&#x95F4;&#x6233;&#x7C7B;&#x578B;&#x7528;&#x4E8E;mongodb&#x5185;&#x90E8;&#x4F7F;&#x7528;&#xFF0C;&#x4E0E;&#x4E0D;&#x540C;&#x7684;&#x65E5;&#x671F;&#x7C7B;&#x578B;&#x4E0D;&#x76F8;&#x5E72;&#xFF0C;&#x65F6;&#x95F4;&#x6233;&#x503C;&#x662F;&#x4E00;&#x4E2A;64&#x4F4D;&#x7684;&#x503C;</p>
+<ul>
+<li>&#x524D;32&#x4F4D;&#x662F;&#x4E00;&#x4E2A; time_t&#x503C;&#xFF08;&#x7389;unix&#x65B0;&#x7EAA;&#x5143;&#x76F8;&#x5DEE;&#x7684;&#x79D2;&#x6570;&#xFF09;</li>
+<li>&#x540E;32&#x4F4D;&#x662F;&#x5728;&#x67D0;&#x79D2;&#x4E2D;&#x64CD;&#x4F5C;&#x7684;&#x4E00;&#x4E2A;&#x9012;&#x589E;&#x7684;&#x5E8F;&#x6570;&#x3002; </li>
+<li>&#x5728;&#x5355;&#x4E2A; mongod &#x5B9E;&#x4F8B;&#x4E2D;&#xFF0C;&#x65F6;&#x95F4;&#x6233;&#x503C;&#x901A;&#x5E38;&#x662F;&#x552F;&#x4E00;&#x7684;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p>&#x5728;&#x590D;&#x5236;&#x96C6;&#x4E2D;&#xFF0C; oplog &#x6709;&#x4E00;&#x4E2A; ts &#x5B57;&#x6BB5;&#x3002;&#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x4E2D;&#x7684;&#x503C;&#x4F7F;&#x7528;BSON&#x65F6;&#x95F4;&#x6233;&#x8868;&#x793A;&#x4E86;&#x64CD;&#x4F5C;&#x65F6;&#x95F4;&#x3002;<br><strong>&#x6CE8;&#x610F;: BSON &#x65F6;&#x95F4;&#x6233;&#x7C7B;&#x578B;&#x4E3B;&#x8981;&#x7528;&#x4E8E; MongoDB &#x5185;&#x90E8;&#x4F7F;&#x7528;&#x3002;&#x5728;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x7684;&#x5E94;&#x7528;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; BSON &#x65E5;&#x671F;&#x7C7B;&#x578B;&#x3002;</strong>     </p>
+<ul>
+<li>&#x65E5;&#x671F;<br>&#x8868;&#x793A;&#x5F53;&#x524D;&#x8DDD;&#x79BB;UNIX&#x65B0;&#x7EAA;&#x5143;&#xFF08;1970&#x5E74;1&#x6708;1&#x65E5;&#xFF09;&#x7684;&#x6BEB;&#x79D2;&#x6570; 
+```<blockquote>
+<p>var mydate1 = new Date() //&#x683C;&#x6797;&#x5C3C;&#x6CBB;&#x65F6;&#x95F4;
+mydate1
+ISODate(&quot;2018-03-04T14:58:51.233Z&quot;)
+typeof mydate1
+object </p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>var mydate2 = ISODate() //&#x683C;&#x6797;&#x5C3C;&#x6CBB;&#x65F6;&#x95F4;
+mydate2
+ISODate(&quot;2018-03-04T15:00:45.479Z&quot;)
+typeof mydate2
+object
+```  </p>
+</blockquote>
+
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: mongoDB简介">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="dataBase.html" class="navigation navigation-next " aria-label="Next page: mongoDB数据库的连接和操作">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"mongoDB概念解析","level":"1.5.2","depth":2,"next":{"title":"mongoDB数据库的连接和操作","level":"1.5.3","depth":2,"path":"mongodb/dataBase.md","ref":"mongodb/dataBase.md","articles":[]},"previous":{"title":"mongoDB简介","level":"1.5.1","depth":2,"path":"mongodb/index.md","ref":"mongodb/index.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","sharing-plus","anchor-navigation-ex","code","popup","pageview-count","favicon","livereload"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/johnqin6"},"livereload":{},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"popup":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"johnqin6","repo":"glory","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"johnqin","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"johnqin的一本书","language":"zh-hans","links":{"sidebar":{"我的博客":""}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"mongodb/idea.md","mtime":"2019-06-18T09:46:22.165Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-18T02:31:25.600Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
